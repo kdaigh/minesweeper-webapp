@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Austin is a cuck';
-<<<<<<< HEAD
-
-=======
->>>>>>> cc02ccbac74776dad769c477982356e8a29bf045
+  title = 'Austin is a not cuck';
 }
