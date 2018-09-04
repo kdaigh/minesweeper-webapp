@@ -3,11 +3,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-input',
-  templateUrl: './user-input.component.html',
-  styleUrls: ['./user-input.component.css']
+  selector: 'app-board',
+  templateUrl: './board.component.html',
+  styleUrls: ['./board.component.css']
 })
-export class UserInputComponent implements OnInit {
+export class BoardComponent implements OnInit {
 
   boardFormGroup: FormGroup;
 
@@ -39,5 +39,4 @@ export class UserInputComponent implements OnInit {
       }
     }
   }
-
 }
