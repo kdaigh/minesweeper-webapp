@@ -21,17 +21,34 @@ export class UserInputComponent implements OnInit {
 
   createForm(): void {
     this.boardFormGroup = this.formBuilder.group({
-      BoardWidth: ['', Validators.compose([Validators.min(2), Validators.required])],
-      BoardHeight: ['', Validators.compose([Validators.min(2), Validators.required])],
+      BoardWidth: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
+      BoardHeight: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
       TotalMines: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
     });
   }
 
   validateForm(): void {
-    if (!this.boardFormGroup.valid) {
-      alert('Board size must be at least 2x2 with at least 1 mine.');
-    } else {
+    if (!this.boardFormGroup.valid)
+    {
+      const isDimensionValid: boolean = this.boardFormGroup.value.BoardHeight >= 2 && this.boardFormGroup.value.BoardWidth >= 2;
+      const isBombCountValid: boolean = this.boardFormGroup.value.TotalMines >= 1;
 
+      if (!isDimensionValid && !isBombCountValid)
+      {
+        alert('Board dimensions must be at least 2x2.\nBomb count must be at least 1.');
+      }
+      else if (!isDimensionValid)
+      {
+        alert('Board dimensions must be at least 2x2.');
+      }
+      else if (!isBombCountValid)
+      {
+        alert('Bomb count must be at least 1.');
+      }
+    }
+    else
+    {
+      //Generate board here.
     }
   }
 
