@@ -1,0 +1,15 @@
+/* Import Jura font */
+@import url('https://fonts.googleapis.com/css?family=Jura');
+
+*{
+    font-family: 'Jura';
+    text-align: center;
+}
+
+.inputDiv{
+    padding-bottom: 10px;
+}
+
+.inputBox{
+    width: 70px;
+}
