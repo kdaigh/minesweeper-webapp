@@ -1,0 +1,13 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ "Minesweeper" }}!
+  </h1>
+  <h2>Enter A Board Size</h2>
+  <div [formGroup]="boardFormGroup">
+    <input formControlName="boardWidth" placeholder="width">
+    <br>
+    <input formControlName="boardHeight" placeholder="height">
+    <br>
+    <input formControlName="totalMines" placeholder="Amount of Mines">
+  </div>
+  <button type="button" (click)="validateForm()">Start</button>

@@ -1,3 +1,42 @@
+REQUIREMENTS
+https://wiki.ittc.ku.edu/ittc_wiki/index.php/EECS448:Project1
+
+1. board - 2D array of tile objects
+  a. int numFlags
+  b. int numMines
+  
+2. Cells
+  a. bool isMine (random)
+  b. int adjMines
+  c. bool isFlagged
+  d. Icons for bombs, blank tiles, flags, and revealed tiles
+
+3. User Input - board size & # of mines
+  a. Textboxes for X and Y and # of mines
+  b. Will be validated (greater than 2x2)
+  c. mock board will be generated based on input
+  d. play button next to textboxes will start timer
+
+4. Winning
+  a. Play again?
+  
+5. Losing
+  a. Try again?
+  b. explosion sound
+  c. reveal all bombs
+  d. display correctly flagged bombs
+
+6. Clock
+
+PRIMARY ROLES
+
+Seth - 
+Blake - 
+Austin - 
+Bunty - 
+McKenna - 
+
+
 # Minesweeper
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
