@@ -21,15 +21,15 @@ export class UserInputComponent implements OnInit {
 
   createForm(): void {
     this.boardFormGroup = this.formBuilder.group({
-      boardWidth: ['', Validators.compose([Validators.min(2), Validators.required])],
-      boardHeight: ['', Validators.compose([Validators.min(2), Validators.required])],
-      totalMines: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
+      BoardWidth: ['', Validators.compose([Validators.min(2), Validators.required])],
+      BoardHeight: ['', Validators.compose([Validators.min(2), Validators.required])],
+      TotalMines: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
     });
   }
 
   validateForm(): void {
     if (!this.boardFormGroup.valid) {
-      alert('Board size must be at least 2x2 with at least 1 mine');
+      alert('Board size must be at least 2x2 with at least 1 mine.');
     } else {
       // alert ('succeeded');
       console.log('works');
