@@ -3,23 +3,29 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UserInputComponent } from './user-input/user-input.component';
-import { BoardComponent } from './board/board/board.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
 import { Routes, RouterModule } from '@angular/router';
-import { BoardModule } from './board/board.module';
+import { BoardComponent } from './board/board.component';
 
 const routes: Routes = [
   {
     path: '',
     component: UserInputComponent,
-  }
+    children: [
+      {
+        path: 'board',
+        component: BoardComponent
+      }
+    ]
+  },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserInputComponent
+    UserInputComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatInputModule,
     RouterModule.forRoot(routes),
-    BoardModule
   ],
   exports: [
     RouterModule

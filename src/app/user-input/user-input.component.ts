@@ -31,12 +31,7 @@ export class UserInputComponent implements OnInit {
     if (!this.boardFormGroup.valid) {
       alert('Board size must be at least 2x2 with at least 1 mine.');
     } else {
-      // alert ('succeeded');
-      console.log('works');
-      const routeSuccess = this.router.navigate(['board']);
-      if (routeSuccess) {
-        console.log('success');
-      }
+
     }
   }
 
