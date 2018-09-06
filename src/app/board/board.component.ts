@@ -9,6 +9,11 @@ export class BoardComponent implements OnInit {
 
   constructor() { }
 
+  createBoard(rows, columns, numOfMines)
+  {
+   //Create board from user inputs here
+  }
+
   ngOnInit() {
   }
 }
