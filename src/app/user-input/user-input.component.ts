@@ -26,6 +26,8 @@ export class UserInputComponent implements OnInit {
     });
   }
 
+  
+
   validateForm(): void {
     if (!this.boardFormGroup.valid)
     {
@@ -47,8 +49,16 @@ export class UserInputComponent implements OnInit {
     }
     else
     {
-      //Generate board here.
+      this.newBoard();
     }
   }
 
+  boardWidth: number = 0;
+  boardHeight: number = 0;
+  mines: number = 0;
+  newBoard() {
+    this.boardWidth = this.boardFormGroup.value.BoardWidth;
+    this.boardHeight = this.boardFormGroup.value.BoardHeight;
+    this.mines= this.boardFormGroup.value.TotalMines;
+  }
 }
