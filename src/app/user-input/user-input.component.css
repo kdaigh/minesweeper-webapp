@@ -3,7 +3,8 @@
 }
 
 .inputDiv{
-    display: inline-block
+    display: inline-block;
+    margin: 5px 2px;
 }
 
 .inputBox{
