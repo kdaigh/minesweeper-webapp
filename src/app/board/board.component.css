@@ -1,0 +1,18 @@
+*{
+    text-align: center;
+}
+
+.inputDiv{
+    display: inline-block;
+    margin: 0px 2px;
+}
+
+.inputBox{
+    width: 70px;
+}
+
+.board{
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 10px;
+}
