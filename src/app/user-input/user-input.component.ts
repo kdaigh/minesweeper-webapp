@@ -29,19 +29,32 @@ export class UserInputComponent implements OnInit {
       BoardHeight: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
       TotalMines: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
     });
+    //Validators.max(this.boardFormGroup.value.BoardWidth * this.boardFormGroup.value.BoardHeight),
+    // ^ Doesn't work
   }
 
-  
-
   validateForm(): void {
-    if (!this.boardFormGroup.valid)
+    var height = this.boardFormGroup.value.BoardHeight;
+    var width = this.boardFormGroup.value.BoardWidth;
+    var cellCount = height * width;
+    var bombCount = this.boardFormGroup.value.TotalMines;
+    var isValid = this.boardFormGroup.valid && bombCount < cellCount;
+
+    console.log("validateForm() called");
+    console.log("Height: " + height);
+    console.log("Width: " + width);
+    console.log("Cell count: " + cellCount);
+    console.log("Bomb count: " + bombCount);
+    console.log("Form is valid: " + isValid);
+
+    if (!isValid)
     {
-      const isDimensionValid: boolean = this.boardFormGroup.value.BoardHeight >= 2 && this.boardFormGroup.value.BoardWidth >= 2;
-      const isBombCountValid: boolean = this.boardFormGroup.value.TotalMines >= 1;
+      const isDimensionValid: boolean = height >= 2 && width >= 2;
+      const isBombCountValid: boolean = bombCount >= 1 && bombCount < cellCount;
 
       if (!isDimensionValid && !isBombCountValid)
       {
-        alert('Board dimensions must be at least 2x2.\nBomb count must be at least 1.');
+        alert('Board dimensions must be at least 2x2.\nBomb count must be less than total number of cells and at least 1.');
       }
       else if (!isDimensionValid)
       {
@@ -49,7 +62,7 @@ export class UserInputComponent implements OnInit {
       }
       else if (!isBombCountValid)
       {
-        alert('Bomb count must be at least 1.');
+        alert('Bomb count must be less than total number of cells and at least 1.');
       }
     }
     else
@@ -59,6 +72,7 @@ export class UserInputComponent implements OnInit {
   }
 
   newBoard() {
+    console.log("newBoard() called");
     this.boardWidth = this.boardFormGroup.value.BoardWidth;
     this.boardHeight = this.boardFormGroup.value.BoardHeight;
     this.mines= this.boardFormGroup.value.TotalMines;

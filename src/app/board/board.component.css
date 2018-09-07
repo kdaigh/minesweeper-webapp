@@ -1,0 +1,22 @@
+*{
+    text-align: center;
+}
+
+.inputDiv{
+    display: inline-block;
+    margin: 5px 2px;
+}
+
+.inputBox{
+    width: 70px;
+}
+
+.board{
+    border: 1px solid black;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.button{
+    margin-top: 5px;
+}

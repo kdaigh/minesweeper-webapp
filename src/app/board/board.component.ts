@@ -10,15 +10,33 @@ export class BoardComponent implements OnChanges {
   @Input() boardWidth: number;
   @Input() boardHeight: number;
   @Input() mines: number;
+  flagCount;
+  timerCount;
   changeLog: string[] = [];
 
   constructor() { }
 
   ngOnChanges() {
-    this.createMinefield();
+    this.createBoard();
   }
 
-  createMinefield() {
+  updateTimer()
+  {
+    this.timerCount++;
+  }
+
+  
+  createBoard()
+  {
     const mineField = new minefield(this.boardHeight, this.boardWidth);
+    if (this.mines == 0) //Page startup
+    {
+      this.flagCount = "";
+    }
+    else //"New Game" click
+    {
+      this.flagCount = this.mines;
+      //Start timer
+    }
   }
 }
