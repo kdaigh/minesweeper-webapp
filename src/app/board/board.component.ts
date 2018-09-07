@@ -9,6 +9,7 @@ export class BoardComponent implements OnChanges {
   @Input() boardWidth: number;
   @Input() boardHeight: number;
   @Input() mines: number;
+  flagCount: number;
   changeLog: string[] = [];
 
   constructor() { }
@@ -17,6 +18,7 @@ export class BoardComponent implements OnChanges {
     console.log(this.boardWidth);
     console.log(this.boardHeight);
     console.log(this.mines);
+    this.flagCount = this.mines;
     this.createBoard;
   }
 
