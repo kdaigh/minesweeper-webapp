@@ -10,6 +10,7 @@ export class BoardComponent implements OnChanges {
   @Input() boardHeight: number;
   @Input() mines: number;
   flagCount;
+  timerCount;
   changeLog: string[] = [];
 
   constructor() { }
@@ -21,16 +22,22 @@ export class BoardComponent implements OnChanges {
     this.createBoard();
   }
 
+  updateTimer()
+  {
+    this.timerCount++;
+  }
+
+  
   createBoard()
   {
-    console.log("createBoard() called")
-    if (this.mines == 0) //Initializes binding to empty string on page startup
+    if (this.mines == 0) //Page startup
     {
       this.flagCount = "";
     }
-    else //Initializes binding to mines on "New Game"
+    else //"New Game" click
     {
       this.flagCount = this.mines;
+      //Start timer
     }
   }
 }
