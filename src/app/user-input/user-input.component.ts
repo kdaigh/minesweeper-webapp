@@ -22,7 +22,8 @@ export class UserInputComponent implements OnInit {
     this.boardFormGroup = this.formBuilder.group({
       BoardWidth: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
       BoardHeight: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
-      TotalMines: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
+      TotalMines: ['', Validators.compose([Validators.min(1), Validators.max(this.boardHeight * this.boardWidth),
+                  Validators.required, Validators.pattern('^\\d+$')])],
     });
   }
 
@@ -41,7 +42,7 @@ export class UserInputComponent implements OnInit {
 
       if (!isDimensionValid && !isBombCountValid)
       {
-        alert('Board dimensions must be at least 2x2.\nBomb count less than total number of cells and at least 1.');
+        alert('Board dimensions must be at least 2x2.\nBomb count must be less than total number of cells and at least 1.');
       }
       else if (!isDimensionValid)
       {
@@ -49,7 +50,7 @@ export class UserInputComponent implements OnInit {
       }
       else if (!isBombCountValid)
       {
-        alert('Bomb count less than total number of cells and at least 1.');
+        alert('Bomb count must be less than total number of cells and at least 1.');
       }
     }
     else
