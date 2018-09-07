@@ -43,8 +43,8 @@ export class BoardComponent implements OnChanges {
       if (tile @ (mine_row,mine_col) !is_mine)
       {
         is_mine = true;//if there isn't already a mine at that spot, place mine
+        count++;
       }
-      count++;
      }
      */
   }
