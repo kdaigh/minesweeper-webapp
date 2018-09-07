@@ -1,4 +1,5 @@
 import { Component, OnChanges, Input, SimpleChange } from '@angular/core';
+import { minefield } from '../models/minefield';
 
 @Component({
   selector: 'app-board',
@@ -14,14 +15,10 @@ export class BoardComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
-    console.log(this.boardWidth);
-    console.log(this.boardHeight);
-    console.log(this.mines);
-    this.createBoard;
+    this.createMinefield();
   }
 
-  createBoard(boardWidth, boardHeight, mines)
-  {
-     //Create board from user inputs here
+  createMinefield() {
+    const mineField = new minefield(this.boardHeight, this.boardWidth);
   }
 }
