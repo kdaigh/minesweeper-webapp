@@ -31,12 +31,17 @@ export class UserInputComponent implements OnInit {
   validateForm(): void {
     if (!this.boardFormGroup.valid)
     {
-      const isDimensionValid: boolean = this.boardFormGroup.value.BoardHeight >= 2 && this.boardFormGroup.value.BoardWidth >= 2;
-      const isBombCountValid: boolean = this.boardFormGroup.value.TotalMines >= 1;
+      var height = this.boardFormGroup.value.BoardHeight;
+      var width = this.boardFormGroup.value.BoardWidth;
+      var cellCount = height * width;
+      var bombCount = this.boardFormGroup.value.TotalMines;
+
+      const isDimensionValid: boolean = height >= 2 && width >= 2;
+      const isBombCountValid: boolean = bombCount >= 1 && bombCount < cellCount;
 
       if (!isDimensionValid && !isBombCountValid)
       {
-        alert('Board dimensions must be at least 2x2.\nBomb count must be at least 1.');
+        alert('Board dimensions must be at least 2x2.\nBomb count less than total number of cells and at least 1.');
       }
       else if (!isDimensionValid)
       {
@@ -44,7 +49,7 @@ export class UserInputComponent implements OnInit {
       }
       else if (!isBombCountValid)
       {
-        alert('Bomb count must be at least 1.');
+        alert('Bomb count less than total number of cells and at least 1.');
       }
     }
     else
