@@ -6,12 +6,14 @@ import { UserInputComponent } from './user-input/user-input.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
 import { BoardComponent } from './board/board.component';
+import { TileComponent } from './tile/tile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserInputComponent,
-    BoardComponent
+    BoardComponent,
+    TileComponent
   ],
   imports: [
     BrowserModule,
