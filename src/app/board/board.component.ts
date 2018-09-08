@@ -1,5 +1,6 @@
 import { Component, OnChanges, Input, SimpleChange } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
+import { minefield } from '../models/minefield';
 
 @Component({
   selector: 'app-board',
@@ -18,9 +19,6 @@ export class BoardComponent implements OnChanges{
   constructor(private st: SimpleTimer) { }
 
   ngOnChanges() {
-    console.log(this.boardWidth);
-    console.log(this.boardHeight);
-    console.log(this.mines);
     this.createBoard();
   }
 
@@ -30,6 +28,7 @@ export class BoardComponent implements OnChanges{
     this.timerCount = 0; //Reset timer count
     if (this.mines != 0) //Not page startup
     {
+      const mineField = new minefield(this.boardHeight, this.boardWidth);
       this.flagCount = this.mines;
       if (this.timerID == undefined) //If timer has not been subscribed
       {
@@ -39,9 +38,14 @@ export class BoardComponent implements OnChanges{
     }
   }
 
+  /*     this.placeAllMines(minefield);
+    this.placeAllNumbers(minefield); */
+
+
+
   subscribeTimer()
   {
-    if (this.timerID != undefined)
+    if (this.mines == 0) //Page startup
     {
       this.st.unsubscribe(this.timerID);
       this.timerID = undefined;
@@ -56,4 +60,47 @@ export class BoardComponent implements OnChanges{
   {
     this.timerCount++;
   }
+
+  //returns the current tile you are on.
+  getTile()
+  {
+    return;
+  }
+
+  //Places a random mine on the board
+  placeMine(ninefield)
+  {
+
+  }
+
+  //Loop calls place mine to populate the board with random mines
+  placeAllMines(minefield)
+  {
+
+  }
+
+  //Calculate what number to put in the tile.
+  placeNumber(minefield, row, col)
+  {
+
+  }
+
+  //Loop calls placeNumber to fill in all required tiles with numbers.
+  placeAllNumbers(minefield)
+  {
+
+  }
+  
+  //Checks all conditions of the board and calculates if the game is complete.
+  isGameOver()
+  {
+
+  }
+
+  //Function that creates board and operates the functions.
+  boardComtroller($scope)
+  {
+
+  }
+
 }

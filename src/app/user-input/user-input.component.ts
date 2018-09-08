@@ -9,9 +9,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class UserInputComponent implements OnInit {
 
   boardFormGroup: FormGroup;
+  boardWidth: number = 0;
+  boardHeight: number = 0;
+  mines: number = 0;
+  showBoard: boolean;
 
   constructor(private formBuilder: FormBuilder) {
     this.boardFormGroup = this.formBuilder.group({});
+    this.showBoard = false;
   }
 
   ngOnInit(): void {
@@ -66,13 +71,11 @@ export class UserInputComponent implements OnInit {
     }
   }
 
-  boardWidth: number = 0;
-  boardHeight: number = 0;
-  mines: number = 0;
   newBoard() {
     console.log("newBoard() called");
     this.boardWidth = this.boardFormGroup.value.BoardWidth;
     this.boardHeight = this.boardFormGroup.value.BoardHeight;
-    this.mines = this.boardFormGroup.value.TotalMines;
+    this.mines= this.boardFormGroup.value.TotalMines;
+    this.showBoard = true;
   }
 }
