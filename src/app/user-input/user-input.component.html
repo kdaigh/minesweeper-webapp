@@ -25,4 +25,4 @@
     <button type="button" (click)="validateForm()">New Game</button>
 
 </body>
-<app-board [boardWidth]="boardWidth" [boardHeight]="boardHeight" [mines]="mines" ></app-board>
+<app-board *ngIf="showBoard" [boardWidth]="boardWidth" [boardHeight]="boardHeight" [mines]="mines" ></app-board>

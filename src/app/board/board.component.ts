@@ -1,4 +1,5 @@
 import { Component, OnChanges, Input, SimpleChange } from '@angular/core';
+import { minefield } from '../models/minefield';
 
 @Component({
   selector: 'app-board',
@@ -16,10 +17,7 @@ export class BoardComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
-    console.log(this.boardWidth);
-    console.log(this.boardHeight);
-    console.log(this.mines);
-    this.createBoard(this.boardWidth, this.boardHeight, this.mines);
+    this.createBoard();
   }
 
   createBoard(boardWidth, boardHeight, mines)
@@ -55,6 +53,7 @@ export class BoardComponent implements OnChanges {
   /*
   createBoard()
   {
+    const mineField = new minefield(this.boardHeight, this.boardWidth);
     if (this.mines == 0) //Page startup
     {
       this.flagCount = "";
@@ -65,5 +64,51 @@ export class BoardComponent implements OnChanges {
       //Start timer
     }
   }
+<<<<<<< HEAD
   */
+=======
+
+  //returns the current tile you are on.
+  getTile()
+  {
+    return;
+  }
+
+  //Places a random mine on the board
+  placeMine()
+  {
+
+  }
+
+  //Loop calls place mine to populate the board with random mines
+  placeAllMines()
+  {
+
+  }
+
+  //Calculate what number to put in the tile.
+  placeNumber()
+  {
+
+  }
+
+  //Loop calls placeNumber to fill in all required tiles with numbers.
+  placeAllNumbers()
+  {
+
+  }
+  
+  //Checks all conditions of the board and calculates if the game is complete.
+  isGameOver()
+  {
+
+  }
+
+  //Function that creates board and operates the functions.
+  boardComtroller($scope)
+  {
+
+  }
+
+>>>>>>> 63d635ea3c9f4760662e13d75fa27b124b36f3d6
 }
