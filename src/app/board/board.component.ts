@@ -29,6 +29,8 @@ export class BoardComponent implements OnChanges{
     if (this.mines != 0) //Not page startup
     {
       const mineField = new minefield(this.boardHeight, this.boardWidth);
+      this.placeAllMines(minefield);
+      this.placeAllNumbers(minefield);
       this.flagCount = this.mines;
       if (this.timerID == undefined) //If timer has not been subscribed
       {
