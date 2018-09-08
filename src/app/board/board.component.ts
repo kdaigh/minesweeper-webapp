@@ -40,8 +40,7 @@ export class BoardComponent implements OnChanges{
     }
   }
 
-  /*     this.placeAllMines(minefield);
-    this.placeAllNumbers(minefield); */
+ 
 
 
 
