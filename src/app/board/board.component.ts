@@ -19,38 +19,6 @@ export class BoardComponent implements OnChanges {
   ngOnChanges() {
     this.createBoard();
   }
-
-  createBoard(boardWidth, boardHeight, mines)
-  {
-    /*
-    var board = new Array(boardWidth);
-    for (var i = 0; i < boardWidth; i++)
-    {
-      board[i] = new Array(boardHeight);//create 2D array
-    }
-     for (var i = 0; i < boardWidth; i++)
-     {
-       for (var j = 0; j < boardHeight; j++)
-       {
-         //create tile object
-       }
-     }
-     var count = 0;
-     while(count < mines)
-     {
-       var mine_row = Math.floor(Math.random() * Math.floor(boardWidth));//random number generator
-       var mine_col = Math.floor(Math.random() * Math.floor(boardHeight));
-      if (tile @ (mine_row,mine_col) !is_mine)
-      {
-        is_mine = true;//if there isn't already a mine at that spot, place mine
-        count++;
-      }
-     }
-     */
-    this.timerCount++;
-  }
-
-  /*
   createBoard()
   {
     const mineField = new minefield(this.boardHeight, this.boardWidth);
@@ -64,9 +32,6 @@ export class BoardComponent implements OnChanges {
       //Start timer
     }
   }
-<<<<<<< HEAD
-  */
-=======
 
   //returns the current tile you are on.
   getTile()
@@ -110,5 +75,4 @@ export class BoardComponent implements OnChanges {
 
   }
 
->>>>>>> 63d635ea3c9f4760662e13d75fa27b124b36f3d6
 }
