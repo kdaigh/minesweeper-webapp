@@ -40,10 +40,6 @@ export class BoardComponent implements OnChanges{
     }
   }
 
- 
-
-
-
   subscribeTimer()
   {
     if (this.mines == 0) //Page startup
