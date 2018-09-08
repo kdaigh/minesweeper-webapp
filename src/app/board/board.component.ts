@@ -38,6 +38,8 @@ export class BoardComponent implements OnChanges {
       this.flagCount = this.mines;
       //Start timer
     }
+    this.placeAllMines(minefield);
+    this.placeAllNumbers(minefield);
   }
 
   //returns the current tile you are on.
@@ -47,25 +49,25 @@ export class BoardComponent implements OnChanges {
   }
 
   //Places a random mine on the board
-  placeMine()
+  placeMine(ninefield)
   {
 
   }
 
   //Loop calls place mine to populate the board with random mines
-  placeAllMines()
+  placeAllMines(minefield)
   {
 
   }
 
   //Calculate what number to put in the tile.
-  placeNumber()
+  placeNumber(minefield, row, col)
   {
 
   }
 
   //Loop calls placeNumber to fill in all required tiles with numbers.
-  placeAllNumbers()
+  placeAllNumbers(minefield)
   {
 
   }
