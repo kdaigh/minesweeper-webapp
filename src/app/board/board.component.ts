@@ -40,4 +40,47 @@ export class BoardComponent implements OnChanges {
       //Start timer
     }
   }
+
+  //returns the current tile you are on.
+  getTile()
+  {
+    return;
+  }
+
+  //Places a random mine on the board
+  placeMine()
+  {
+
+  }
+
+  //Loop calls place mine to populate the board with random mines
+  placeAllMines()
+  {
+
+  }
+
+  //Calculate what number to put in the tile.
+  placeNumber()
+  {
+
+  }
+
+  //Loop calls placeNumber to fill in all required tiles with numbers.
+  placeAllNumbers()
+  {
+
+  }
+  
+  //Checks all conditions of the board and calculates if the game is complete.
+  isGameOver()
+  {
+
+  }
+
+  //Function that creates board and operates the functions.
+  boardComtroller($scope)
+  {
+
+  }
+
 }
