@@ -11,16 +11,30 @@ export class BoardComponent implements OnChanges{
   @Input() boardWidth: number;
   @Input() boardHeight: number;
   @Input() mines: number;
+  @Input() num: number;
   flagCount;
   timerCount;
+  // check: boolean;
   timerID: string;
   changeLog: string[] = [];
 
   constructor(private st: SimpleTimer) { }
 
   ngOnChanges() {
+    console.log("new board");
     this.createBoard();
+    // this.check = false;
+
   }
+
+  // ngDoCheck() {
+  //     if(this.check == false) {
+  //     console.log("num");
+  //     this.createBoard();
+  //     this.check = true;
+  //     }
+  // }
+
 
   createBoard()
   {
@@ -68,7 +82,7 @@ export class BoardComponent implements OnChanges{
   }
 
   //Places a random mine on the board
-  placeMine(ninefield)
+  placeMine(minefield)
   {
 
   }
@@ -98,7 +112,7 @@ export class BoardComponent implements OnChanges{
   }
 
   //Function that creates board and operates the functions.
-  boardComtroller($scope)
+  boardController($scope)
   {
 
   }
