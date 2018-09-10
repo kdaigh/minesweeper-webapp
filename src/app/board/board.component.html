@@ -11,11 +11,15 @@
         <input readonly [value]="flagCount" class="inputBox">
     </div>
 
-    <div name="minefield">
-
-        <table name="table">
-            
+    <div>
+        <table>
+            <tr *ngFor="let rows of board.rows">
+                <td *ngFor="let tile of rows">
+                    {{tile.isRevealed}}
+                </td>
+            </tr>
         </table>
+
     </div>
 
 </body>
