@@ -38,22 +38,6 @@ export class BoardComponent implements OnChanges {
 
        this.board.rows.push(row); //Append new row to board
      }
-
-    // console.log("newGame() called");
-    // var row: tile[] = [];
-    // //var tile: any = new tile();
-    // row.push(new tile());
-    // row.push(new tile());
-    // row.push(new tile());
-
-    // console.log("row length: " + row.length);
-    // this.board.rows.push(row);
-    // this.board.rows.push(row);  
-    // this.board.rows.push(row);                     //THROWS ERROR
-
-    //  console.log("Board\n=======");
-    //  console.log("Rows: " + this.board.rows.length);
-    //  console.log("Columns: " + this.board.rows[0].length);
    }
 
   ngOnChanges() {
