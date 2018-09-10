@@ -1,4 +1,5 @@
-import { Component, OnChanges, Input, SimpleChange } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
+import { SimpleTimer } from 'ng2-simple-timer';
 import { minefield } from '../models/minefield';
 
 @Component({
@@ -13,12 +14,45 @@ export class BoardComponent implements OnChanges {
   @Input() num: number;
   flagCount;
   timerCount;
-  changeLog: string[] = [];
+  timerID: string;
 
-  constructor() { }
+  constructor(private st: SimpleTimer) {
+   }
 
   ngOnChanges() {
+    this.generate_table();
     this.createBoard();
+  }
+
+  createBoard()
+  {
+    console.log("createBoard() called");
+    this.timerCount = 0; //Reset timer count
+    if (this.mines != 0) //Not page startup
+    {
+      const mineField = new minefield(this.boardHeight, this.boardWidth);
+      this.placeAllMines(minefield);
+      this.placeAllNumbers(minefield);
+      this.flagCount = this.mines;
+      if (this.timerID == undefined) //If timer has not been subscribed
+      {
+        this.st.newTimer('Timer', 1);
+        this.subscribeTimer();
+      }
+    }
+  }
+
+  subscribeTimer()
+  {
+    if (this.mines == 0) //Page startup
+    {
+      this.st.unsubscribe(this.timerID);
+      this.timerID = undefined;
+    }
+    else
+    {
+      this.timerID = this.st.subscribe('Timer', () => this.updateTimer());
+    }
   }
 
   updateTimer()
@@ -26,52 +60,32 @@ export class BoardComponent implements OnChanges {
     this.timerCount++;
   }
 
-  
-  createBoard()
-  {
-    const mineField = new minefield(this.boardHeight, this.boardWidth);
-    if (this.mines == 0) //Page startup
-    {
-      this.flagCount = "";
-    }
-    else //"New Game" click
-    {
-      this.flagCount = this.mines;
-      //Start timer
-    }
-    this.placeAllMines(minefield);
-    this.placeAllNumbers(minefield);
-  }
-
   //returns the current tile you are on.
-  getTile(mineField)
+  getTile()
   {
-    //return minefield.rows
+    return;
   }
 
   //Places a random mine on the board
-  placeMine(mineField)
+  placeMine(ninefield)
   {
-    /*var row = Math.round(Math.random() * 8);
-    var col = Math.round(Math.random() * 8);
-    var position = getTile(minefield);
-    position.content = "bomb";*/
+
   }
 
   //Loop calls place mine to populate the board with random mines
-  placeAllMines(mineField)
+  placeAllMines(minefield)
   {
 
   }
 
   //Calculate what number to put in the tile.
-  placeNumber(mineField, row, col)
+  placeNumber(minefield, row, col)
   {
 
   }
 
   //Loop calls placeNumber to fill in all required tiles with numbers.
-  placeAllNumbers(mineField)
+  placeAllNumbers(minefield)
   {
 
   }
@@ -82,10 +96,39 @@ export class BoardComponent implements OnChanges {
 
   }
 
-  //Function that creates board and operates the functions.
-  boardComtroller($scope)
-  {
-
+  generate_table() {
+    // get the reference for the body
+    var body = document.getElementsByName("minefield")[0];
+   
+    // creates a <table> element and a <tbody> element
+    var tbl = document.createElement("table");
+    var tblBody = document.createElement("tbody");
+   
+    // creating all cells
+    for (var i = 0; i < this.boardHeight; i++) {
+      // creates a table row
+      var row = document.createElement("tr");
+   
+      for (var j = 0; j < this.boardWidth; j++) {
+        // Create a <td> element and a text node, make the text
+        // node the contents of the <td>, and put the <td> at
+        // the end of the table row
+        var cell = document.createElement("td");
+        var cellText = document.createTextNode("cell in row "+i+", column "+j);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+      }
+   
+      // add the row to the end of the table body
+      tblBody.appendChild(row);
+    }
+   
+    // put the <tbody> in the <table>
+    tbl.appendChild(tblBody);
+    // appends <table> into <body>
+    body.appendChild(tbl);
+    // sets the border attribute of tbl to 2;
+    tbl.setAttribute("border", "2");
   }
 
 }
