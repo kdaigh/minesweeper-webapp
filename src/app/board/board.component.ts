@@ -10,6 +10,7 @@ export class BoardComponent implements OnChanges {
   @Input() boardWidth: number;
   @Input() boardHeight: number;
   @Input() mines: number;
+  @Input() num: number;
   flagCount;
   timerCount;
   changeLog: string[] = [];
