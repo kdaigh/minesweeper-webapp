@@ -14,7 +14,6 @@ export class BoardComponent implements OnChanges{
   @Input() num: number;
   flagCount;
   timerCount;
-  // check: boolean;
   timerID: string;
   changeLog: string[] = [];
 
@@ -23,17 +22,9 @@ export class BoardComponent implements OnChanges{
   ngOnChanges() {
     console.log("new board");
     this.createBoard();
-    // this.check = false;
 
   }
 
-  // ngDoCheck() {
-  //     if(this.check == false) {
-  //     console.log("num");
-  //     this.createBoard();
-  //     this.check = true;
-  //     }
-  // }
 
 
   createBoard()
