@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input, SimpleChange } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { minefield } from '../models/minefield';
 
@@ -7,25 +7,78 @@ import { minefield } from '../models/minefield';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
-export class BoardComponent implements OnChanges{
+export class BoardComponent implements OnChanges {
   @Input() boardWidth: number;
   @Input() boardHeight: number;
   @Input() mines: number;
   @Input() num: number;
+<<<<<<< HEAD
+=======
+  hasInitializedTable: boolean = false;
+>>>>>>> 2a1dd00e759aa65ae03ffb38631d2e278693ec5a
   flagCount;
   timerCount;
   timerID: string;
-  changeLog: string[] = [];
 
-  constructor(private st: SimpleTimer) { }
+  constructor(private st: SimpleTimer) {
+   }
 
   ngOnChanges() {
+<<<<<<< HEAD
     console.log("new board");
+=======
+    this.generateTable();
+>>>>>>> 2a1dd00e759aa65ae03ffb38631d2e278693ec5a
     this.createBoard();
 
   }
 
+<<<<<<< HEAD
 
+=======
+  generateTable()
+  {
+    var div = document.getElementsByName("minefield")[0];
+
+    //Deletes old table if one has been created
+    if (this.hasInitializedTable)
+    {
+      div.removeChild(div.children[1]);
+    }
+   
+    var table = document.createElement("table");
+    var tableBody = document.createElement("tbody");
+   
+    //Create table body
+    for (var i = 0; i < this.boardHeight; i++)
+    {
+      //Create row
+      var row = document.createElement("tr");
+   
+      for (var j = 0; j < this.boardWidth; j++)
+      {
+        //Create cell
+        var cell = document.createElement("td");
+        var cellText = document.createTextNode("Row: " + i + ", column: " + j);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+      }
+
+      //Append row
+      tableBody.appendChild(row);
+    }
+   
+    //Append tableBody
+    table.appendChild(tableBody);
+
+    //Append table
+    div.appendChild(table);
+    this.hasInitializedTable = true;
+
+    //Set table attributes
+    table.setAttribute("border", "2");
+  }
+>>>>>>> 2a1dd00e759aa65ae03ffb38631d2e278693ec5a
 
   createBoard()
   {
@@ -34,6 +87,8 @@ export class BoardComponent implements OnChanges{
     if (this.mines != 0) //Not page startup
     {
       const mineField = new minefield(this.boardHeight, this.boardWidth);
+      this.placeAllMines(minefield);
+      this.placeAllNumbers(minefield);
       this.flagCount = this.mines;
       if (this.timerID == undefined) //If timer has not been subscribed
       {
@@ -42,11 +97,6 @@ export class BoardComponent implements OnChanges{
       }
     }
   }
-
-  /*     this.placeAllMines(minefield);
-    this.placeAllNumbers(minefield); */
-
-
 
   subscribeTimer()
   {
@@ -107,5 +157,4 @@ export class BoardComponent implements OnChanges{
   {
 
   }
-
 }

@@ -79,6 +79,9 @@ export class UserInputComponent implements OnInit {
     this.mines= this.boardFormGroup.value.TotalMines;
     this.showBoard = true;
     this.num = this.num + 1;
+<<<<<<< HEAD
     console.log(this.num);
+=======
+>>>>>>> 2a1dd00e759aa65ae03ffb38631d2e278693ec5a
   }
 }
