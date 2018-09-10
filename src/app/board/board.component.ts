@@ -2,6 +2,7 @@ import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { minefield } from '../models/minefield';
 import { tile } from '../models/tile';
+import { board } from '../models/board'
 import { TileComponent } from '../tile/tile.component';
 
 @Component({
@@ -13,76 +14,57 @@ export class BoardComponent implements OnChanges {
   @Input() columnCount: number;
   @Input() rowCount: number;
   @Input() mineCount: number;
-  hasInitializedTable: boolean = false;;
+  hasInitializedTable: boolean = false;
   flagCount;
   timerCount;
   timerID: string;
-  board;
+  public board: board = new board();
 
   constructor(private st: SimpleTimer)
   {
     
   }
 
-   createMinefield()
+   createBoard()
    {
-     this.board = [];
-     for(var i: number = 0; i < 10; i++) {
-       this.board[i] = new tile();
+     for (var i = 0; i < this.rowCount; i++)
+     {
+       var row: tile[] = [];
+
+       for (var j = 0; j < this.columnCount; j++)
+       {
+          row.push(new tile()); //Append new tile to row
+       }
+
+       this.board.rows.push(row); //Append new row to board
      }
+
+    // console.log("newGame() called");
+    // var row: tile[] = [];
+    // //var tile: any = new tile();
+    // row.push(new tile());
+    // row.push(new tile());
+    // row.push(new tile());
+
+    // console.log("row length: " + row.length);
+    // this.board.rows.push(row);
+    // this.board.rows.push(row);  
+    // this.board.rows.push(row);                     //THROWS ERROR
+
+    //  console.log("Board\n=======");
+    //  console.log("Rows: " + this.board.rows.length);
+    //  console.log("Columns: " + this.board.rows[0].length);
    }
 
   ngOnChanges() {
     this.newGame();
   }
 
-  generateTable()
-  {
-    var div = document.getElementsByName("minefield")[0];
-
-    //Deletes old table if one has been created
-    if (this.hasInitializedTable)
-    {
-      div.removeChild(div.children[1]);
-    }
-   
-    var table = document.createElement("table");
-    var tableBody = document.createElement("tbody");
-   
-    //Create table body
-    for (var i = 0; i < this.rowCount; i++)
-    {
-      //Create row
-      var row = document.createElement("tr");
-   
-      for (var j = 0; j < this.columnCount; j++)
-      {
-        //Create cell
-        var cell = document.createElement("td");
-        var cellText = document.createTextNode("Row: " + i + ", column: " + j);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-      }
-
-      //Append row
-      tableBody.appendChild(row);
-    }
-   
-    //Append tableBody
-    table.appendChild(tableBody);
-
-    //Append table
-    div.appendChild(table);
-    this.hasInitializedTable = true;
-
-    //Set table attributes
-    table.setAttribute("border", "2");
-  }
-
   newGame()
   {
     this.flagCount = this.mineCount; //Initialize flagCount
     this.setupTimer();
+    this.createBoard();
   }
 
   setupTimer()
