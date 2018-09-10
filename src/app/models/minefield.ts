@@ -11,7 +11,7 @@ export class minefield {
             tiles[i] = [];
             for (var j = 0; j < numCols; j++) {
                 var id: number = i+j;
-                tiles[i][j] = new tile(false, false, false, id);
+                tiles[i][j] = new tile();
             }
         }
     }
