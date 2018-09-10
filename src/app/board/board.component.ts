@@ -103,6 +103,7 @@ export class BoardComponent implements OnChanges {
   }
 
   generate_table() {
+    
     // get the reference for the body
     var body = document.getElementsByName("minefield")[0];
    
@@ -120,9 +121,12 @@ export class BoardComponent implements OnChanges {
         // node the contents of the <td>, and put the <td> at
         // the end of the table row
         var cell = document.createElement("td");
-        var cellText = document.createTextNode("cell in row "+i+", column "+j);
-        cell.appendChild(cellText);
+        var cellText = document.createElement("img");
+        cellText.src = "http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png";
         row.appendChild(cell);
+        cell.appendChild(cellText);
+  
+        
       }
    
       // add the row to the end of the table body
@@ -134,7 +138,11 @@ export class BoardComponent implements OnChanges {
     // appends <table> into <body>
     body.appendChild(tbl);
     // sets the border attribute of tbl to 2;
-    tbl.setAttribute("border", "2");
   }
+  public myFunc(obj):MouseEvent {
+    obj.src = "http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png";
+    return;
+  }
+
 
 }
