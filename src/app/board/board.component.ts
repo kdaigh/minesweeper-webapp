@@ -48,7 +48,8 @@ export class BoardComponent implements OnChanges {
       {
         //Create cell
         var cell = document.createElement("td");
-        var cellText = document.createTextNode("Row: " + i + ", column: " + j);
+        var cellText = document.createElement("img");
+        cellText.src = "http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png";
         cell.appendChild(cellText);
         row.appendChild(cell);
       }
@@ -111,7 +112,7 @@ export class BoardComponent implements OnChanges {
   }
 
   //Places a random mine on the board
-  placeMine(ninefield)
+  placeMine(minefield)
   {
 
   }
@@ -146,43 +147,7 @@ export class BoardComponent implements OnChanges {
 
   }
 
-  generate_table() {
-    
-    // get the reference for the body
-    var body = document.getElementsByName("minefield")[0];
-   
-    // creates a <table> element and a <tbody> element
-    var tbl = document.createElement("table");
-    var tblBody = document.createElement("tbody");
-   
-    // creating all cells
-    for (var i = 0; i < this.boardHeight; i++) {
-      // creates a table row
-      var row = document.createElement("tr");
-   
-      for (var j = 0; j < this.boardWidth; j++) {
-        // Create a <td> element and a text node, make the text
-        // node the contents of the <td>, and put the <td> at
-        // the end of the table row
-        var cell = document.createElement("td");
-        var cellText = document.createElement("img");
-        cellText.src = "http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png";
-        row.appendChild(cell);
-        cell.appendChild(cellText);
-  
-        
-      }
-   
-      // add the row to the end of the table body
-      tblBody.appendChild(row);
-    }
-   
-    // put the <tbody> in the <table>
-    tbl.appendChild(tblBody);
-    // appends <table> into <body>
-    body.appendChild(tbl);
-    // sets the border attribute of tbl to 2;
-  }
+ 
   public myFunc(obj):MouseEvent {
     obj.src = "http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png";
     return;
