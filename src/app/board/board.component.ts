@@ -1,6 +1,9 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { minefield } from '../models/minefield';
+import { tile } from '../models/tile';
+import { board } from '../models/board'
+import { TileComponent } from '../tile/tile.component';
 
 @Component({
   selector: 'app-board',
@@ -8,15 +11,16 @@ import { minefield } from '../models/minefield';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnChanges {
-  @Input() boardWidth: number;
-  @Input() boardHeight: number;
-  @Input() mines: number;
-  @Input() num: number;
+  @Input() columnCount: number;
+  @Input() rowCount: number;
+  @Input() mineCount: number;
   hasInitializedTable: boolean = false;
   flagCount;
   timerCount;
   timerID: string;
+  public board: board = new board();
 
+<<<<<<< HEAD
   constructor(private st: SimpleTimer) {
    }
 
@@ -24,72 +28,52 @@ export class BoardComponent implements OnChanges {
     this.generateTable();
     this.createBoard();
 
+=======
+  constructor(private st: SimpleTimer)
+  {
+    
+>>>>>>> a8c1d9d119d1d8c75a5f14fba9a93222d3e6a81f
   }
 
-  generateTable()
-  {
-    var div = document.getElementsByName("minefield")[0];
+   createBoard()
+   {
+     for (var i = 0; i < this.rowCount; i++)
+     {
+       var row: tile[] = [];
 
-    //Deletes old table if one has been created
-    if (this.hasInitializedTable)
-    {
-      div.removeChild(div.children[1]);
-    }
-   
-    var table = document.createElement("table");
-    var tableBody = document.createElement("tbody");
-   
-    //Create table body
-    for (var i = 0; i < this.boardHeight; i++)
-    {
-      //Create row
-      var row = document.createElement("tr");
-   
-      for (var j = 0; j < this.boardWidth; j++)
-      {
-        //Create cell
-        var cell = document.createElement("td");
-        var cellText = document.createTextNode("Row: " + i + ", column: " + j);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-      }
+       for (var j = 0; j < this.columnCount; j++)
+       {
+          row.push(new tile()); //Append new tile to row
+       }
 
-      //Append row
-      tableBody.appendChild(row);
-    }
-   
-    //Append tableBody
-    table.appendChild(tableBody);
+       this.board.rows.push(row); //Append new row to board
+     }
+   }
 
-    //Append table
-    div.appendChild(table);
-    this.hasInitializedTable = true;
-
-    //Set table attributes
-    table.setAttribute("border", "2");
+  ngOnChanges() {
+    this.newGame();
   }
 
-  createBoard()
+  newGame()
   {
-    console.log("createBoard() called");
+    this.flagCount = this.mineCount; //Initialize flagCount
+    this.setupTimer();
+    this.createBoard();
+  }
+
+  setupTimer()
+  {
     this.timerCount = 0; //Reset timer count
-    if (this.mines != 0) //Not page startup
+    if (this.timerID == undefined) //If timer has not been subscribed
     {
-      const mineField = new minefield(this.boardHeight, this.boardWidth);
-      this.placeAllMines(minefield);
-      this.placeAllNumbers(minefield);
-      this.flagCount = this.mines;
-      if (this.timerID == undefined) //If timer has not been subscribed
-      {
-        this.st.newTimer('Timer', 1);
-        this.subscribeTimer();
-      }
+      this.st.newTimer('Timer', 1);
+      this.subscribeTimer();
     }
   }
 
   subscribeTimer()
   {
-    if (this.mines == 0) //Page startup
+    if (this.mineCount == 0) //Page startup
     {
       this.st.unsubscribe(this.timerID);
       this.timerID = undefined;
@@ -104,6 +88,7 @@ export class BoardComponent implements OnChanges {
   {
     this.timerCount++;
   }
+<<<<<<< HEAD
 
   //returns the current tile you are on.
   getTile()
@@ -146,4 +131,6 @@ export class BoardComponent implements OnChanges {
   {
 
   }
+=======
+>>>>>>> a8c1d9d119d1d8c75a5f14fba9a93222d3e6a81f
 }

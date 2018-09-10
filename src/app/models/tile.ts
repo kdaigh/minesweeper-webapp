@@ -4,9 +4,9 @@ export class tile {
     isFlagged: boolean;
     id: string;
     constructor() {
-        this.isRevealed = true;
+        this.isRevealed = false;
         this.isBomb = false;
         this.isFlagged = false;
-        this.id = "0";
+        this.id = "test";
     }
 }
