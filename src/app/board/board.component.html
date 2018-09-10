@@ -11,10 +11,14 @@
         <input readonly [value]="flagCount" class="inputBox">
     </div>
 
-    <div name="minefield">
+    <div name="minefield" class="center">
 
-        <table name="table">
-            
+        <table>
+            <tr *ngFor="let tile of board">
+                <td *ngFor="let tile of board">
+                    TEST
+                </td>
+            </tr>
         </table>
     </div>
 

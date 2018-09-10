@@ -1,6 +1,8 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { minefield } from '../models/minefield';
+import { tile } from '../models/tile';
+import { TileComponent } from '../tile/tile.component';
 
 @Component({
   selector: 'app-board',
@@ -8,20 +10,30 @@ import { minefield } from '../models/minefield';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnChanges {
-  @Input() boardWidth: number;
-  @Input() boardHeight: number;
-  @Input() mines: number;
+  @Input() columnCount: number;
+  @Input() rowCount: number;
+  @Input() mineCount: number;
   hasInitializedTable: boolean = false;;
   flagCount;
   timerCount;
   timerID: string;
+  board;
 
-  constructor(private st: SimpleTimer) {
+  constructor(private st: SimpleTimer)
+  {
+    
+  }
+
+   createMinefield()
+   {
+     this.board = [];
+     for(var i: number = 0; i < 10; i++) {
+       this.board[i] = new tile();
+     }
    }
 
   ngOnChanges() {
-    this.generateTable();
-    this.createBoard();
+    this.newGame();
   }
 
   generateTable()
@@ -38,12 +50,12 @@ export class BoardComponent implements OnChanges {
     var tableBody = document.createElement("tbody");
    
     //Create table body
-    for (var i = 0; i < this.boardHeight; i++)
+    for (var i = 0; i < this.rowCount; i++)
     {
       //Create row
       var row = document.createElement("tr");
    
-      for (var j = 0; j < this.boardWidth; j++)
+      for (var j = 0; j < this.columnCount; j++)
       {
         //Create cell
         var cell = document.createElement("td");
@@ -67,27 +79,25 @@ export class BoardComponent implements OnChanges {
     table.setAttribute("border", "2");
   }
 
-  createBoard()
+  newGame()
   {
-    console.log("createBoard() called");
+    this.flagCount = this.mineCount; //Initialize flagCount
+    this.setupTimer();
+  }
+
+  setupTimer()
+  {
     this.timerCount = 0; //Reset timer count
-    if (this.mines != 0) //Not page startup
+    if (this.timerID == undefined) //If timer has not been subscribed
     {
-      const mineField = new minefield(this.boardHeight, this.boardWidth);
-      this.placeAllMines(minefield);
-      this.placeAllNumbers(minefield);
-      this.flagCount = this.mines;
-      if (this.timerID == undefined) //If timer has not been subscribed
-      {
-        this.st.newTimer('Timer', 1);
-        this.subscribeTimer();
-      }
+      this.st.newTimer('Timer', 1);
+      this.subscribeTimer();
     }
   }
 
   subscribeTimer()
   {
-    if (this.mines == 0) //Page startup
+    if (this.mineCount == 0) //Page startup
     {
       this.st.unsubscribe(this.timerID);
       this.timerID = undefined;
@@ -101,47 +111,5 @@ export class BoardComponent implements OnChanges {
   updateTimer()
   {
     this.timerCount++;
-  }
-
-  //returns the current tile you are on.
-  getTile()
-  {
-    return;
-  }
-
-  //Places a random mine on the board
-  placeMine(ninefield)
-  {
-
-  }
-
-  //Loop calls place mine to populate the board with random mines
-  placeAllMines(minefield)
-  {
-
-  }
-
-  //Calculate what number to put in the tile.
-  placeNumber(minefield, row, col)
-  {
-
-  }
-
-  //Loop calls placeNumber to fill in all required tiles with numbers.
-  placeAllNumbers(minefield)
-  {
-
-  }
-  
-  //Checks all conditions of the board and calculates if the game is complete.
-  isGameOver()
-  {
-
-  }
-
-  //Function that creates board and operates the functions.
-  boardComtroller($scope)
-  {
-
   }
 }
