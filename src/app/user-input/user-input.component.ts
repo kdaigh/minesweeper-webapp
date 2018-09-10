@@ -13,6 +13,7 @@ export class UserInputComponent implements OnInit {
   rowCount: number = 0;
   mineCount: number = 0;
   showBoard: boolean;
+  num: number = 0;
 
   constructor(private formBuilder: FormBuilder) {
     this.boardFormGroup = this.formBuilder.group({});
@@ -75,5 +76,6 @@ export class UserInputComponent implements OnInit {
     this.rowCount = this.boardFormGroup.value.RowCount;
     this.mineCount= this.boardFormGroup.value.MineCount;
     this.showBoard = true;
+    this.num = this.num + 1;
   }
 }
