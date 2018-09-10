@@ -11,7 +11,8 @@ export class BoardComponent implements OnChanges {
   @Input() boardWidth: number;
   @Input() boardHeight: number;
   @Input() mines: number;
-  hasInitializedTable: boolean = false;;
+  @Input() num: number;
+  hasInitializedTable: boolean = false;
   flagCount;
   timerCount;
   timerID: string;
