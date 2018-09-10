@@ -1,6 +1,9 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { minefield } from '../models/minefield';
+import { tile } from '../models/tile';
+import { board } from '../models/board'
+import { TileComponent } from '../tile/tile.component';
 
 @Component({
   selector: 'app-board',
@@ -8,87 +11,59 @@ import { minefield } from '../models/minefield';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnChanges {
-  @Input() boardWidth: number;
-  @Input() boardHeight: number;
-  @Input() mines: number;
-  @Input() num: number;
+  @Input() columnCount: number;
+  @Input() rowCount: number;
+  @Input() mineCount: number;
   hasInitializedTable: boolean = false;
   flagCount;
   timerCount;
   timerID: string;
+  public board: board = new board();
 
-  constructor(private st: SimpleTimer) {
+  constructor(private st: SimpleTimer)
+  {
+    
+  }
+
+   createBoard()
+   {
+     for (var i = 0; i < this.rowCount; i++)
+     {
+       var row: tile[] = [];
+
+       for (var j = 0; j < this.columnCount; j++)
+       {
+          row.push(new tile()); //Append new tile to row
+       }
+
+       this.board.rows.push(row); //Append new row to board
+     }
    }
 
   ngOnChanges() {
-    this.generateTable();
+    this.newGame();
+  }
+
+  newGame()
+  {
+    this.flagCount = this.mineCount; //Initialize flagCount
+    this.setupTimer();
     this.createBoard();
   }
 
-  generateTable()
+  setupTimer()
   {
-    var div = document.getElementsByName("minefield")[0];
-
-    //Deletes old table if one has been created
-    if (this.hasInitializedTable)
-    {
-      div.removeChild(div.children[1]);
-    }
-   
-    var table = document.createElement("table");
-    var tableBody = document.createElement("tbody");
-   
-    //Create table body
-    for (var i = 0; i < this.boardHeight; i++)
-    {
-      //Create row
-      var row = document.createElement("tr");
-   
-      for (var j = 0; j < this.boardWidth; j++)
-      {
-        //Create cell
-        var cell = document.createElement("td");
-        var cellText = document.createTextNode("Row: " + i + ", column: " + j);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-      }
-
-      //Append row
-      tableBody.appendChild(row);
-    }
-   
-    //Append tableBody
-    table.appendChild(tableBody);
-
-    //Append table
-    div.appendChild(table);
-    this.hasInitializedTable = true;
-
-    //Set table attributes
-    table.setAttribute("border", "2");
-  }
-
-  createBoard()
-  {
-    console.log("createBoard() called");
     this.timerCount = 0; //Reset timer count
-    if (this.mines != 0) //Not page startup
+    if (this.timerID == undefined) //If timer has not been subscribed
     {
-      const mineField = new minefield(this.boardHeight, this.boardWidth);
-      this.placeAllMines(minefield);
-      this.placeAllNumbers(minefield);
-      this.flagCount = this.mines;
-      if (this.timerID == undefined) //If timer has not been subscribed
-      {
-        this.st.newTimer('Timer', 1);
-        this.subscribeTimer();
-      }
+      this.st.newTimer('Timer', 1);
+      this.subscribeTimer();
     }
   }
 
   subscribeTimer()
   {
-    if (this.mines == 0) //Page startup
+    if (this.mineCount == 0) //Page startup
     {
       this.st.unsubscribe(this.timerID);
       this.timerID = undefined;
@@ -102,47 +77,5 @@ export class BoardComponent implements OnChanges {
   updateTimer()
   {
     this.timerCount++;
-  }
-
-  //returns the current tile you are on.
-  getTile()
-  {
-    return;
-  }
-
-  //Places a random mine on the board
-  placeMine(ninefield)
-  {
-
-  }
-
-  //Loop calls place mine to populate the board with random mines
-  placeAllMines(minefield)
-  {
-
-  }
-
-  //Calculate what number to put in the tile.
-  placeNumber(minefield, row, col)
-  {
-
-  }
-
-  //Loop calls placeNumber to fill in all required tiles with numbers.
-  placeAllNumbers(minefield)
-  {
-
-  }
-  
-  //Checks all conditions of the board and calculates if the game is complete.
-  isGameOver()
-  {
-
-  }
-
-  //Function that creates board and operates the functions.
-  boardComtroller($scope)
-  {
-
   }
 }

@@ -9,9 +9,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class UserInputComponent implements OnInit {
 
   boardFormGroup: FormGroup;
-  boardWidth: number = 0;
-  boardHeight: number = 0;
-  mines: number = 0;
+  columnCount: number = 0;
+  rowCount: number = 0;
+  mineCount: number = 0;
   showBoard: boolean;
   num: number = 0;
 
@@ -26,31 +26,29 @@ export class UserInputComponent implements OnInit {
 
   createForm(): void {
     this.boardFormGroup = this.formBuilder.group({
-      BoardWidth: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
-      BoardHeight: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
-      TotalMines: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
+      ColumnCount: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
+      RowCount: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
+      MineCount: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
     });
-    //Validators.max(this.boardFormGroup.value.BoardWidth * this.boardFormGroup.value.BoardHeight),
-    // ^ Doesn't work
   }
 
   validateForm(): void {
-    var height = this.boardFormGroup.value.BoardHeight;
-    var width = this.boardFormGroup.value.BoardWidth;
-    var cellCount = height * width;
-    var bombCount = this.boardFormGroup.value.TotalMines;
+    var numOfRows = this.boardFormGroup.value.RowCount;
+    var numOfColumns = this.boardFormGroup.value.ColumnCount;
+    var cellCount = numOfRows * numOfColumns;
+    var bombCount = this.boardFormGroup.value.MineCount;
     var isValid = this.boardFormGroup.valid && bombCount < cellCount;
 
     console.log("validateForm() called");
-    console.log("Height: " + height);
-    console.log("Width: " + width);
+    console.log("Height: " + numOfRows);
+    console.log("Width: " + numOfColumns);
     console.log("Cell count: " + cellCount);
     console.log("Bomb count: " + bombCount);
     console.log("Form is valid: " + isValid);
 
     if (!isValid)
     {
-      const isDimensionValid: boolean = height >= 2 && width >= 2;
+      const isDimensionValid: boolean = numOfRows >= 2 && numOfColumns >= 2;
       const isBombCountValid: boolean = bombCount >= 1 && bombCount < cellCount;
 
       if (!isDimensionValid && !isBombCountValid)
@@ -74,9 +72,9 @@ export class UserInputComponent implements OnInit {
 
   newBoard() {
     console.log("newBoard() called");
-    this.boardWidth = this.boardFormGroup.value.BoardWidth;
-    this.boardHeight = this.boardFormGroup.value.BoardHeight;
-    this.mines= this.boardFormGroup.value.TotalMines;
+    this.columnCount = this.boardFormGroup.value.ColumnCount;
+    this.rowCount = this.boardFormGroup.value.RowCount;
+    this.mineCount= this.boardFormGroup.value.MineCount;
     this.showBoard = true;
     this.num = this.num + 1;
   }
