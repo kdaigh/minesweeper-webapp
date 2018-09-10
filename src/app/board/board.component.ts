@@ -12,6 +12,7 @@ export class BoardComponent implements OnChanges {
   @Input() boardHeight: number;
   @Input() mines: number;
   @Input() num: number;
+  hasInitializedTable: boolean = false;
   flagCount;
   timerCount;
   timerID: string;
@@ -20,8 +21,51 @@ export class BoardComponent implements OnChanges {
    }
 
   ngOnChanges() {
-    this.generate_table();
+    this.generateTable();
     this.createBoard();
+  }
+
+  generateTable()
+  {
+    var div = document.getElementsByName("minefield")[0];
+
+    //Deletes old table if one has been created
+    if (this.hasInitializedTable)
+    {
+      div.removeChild(div.children[1]);
+    }
+   
+    var table = document.createElement("table");
+    var tableBody = document.createElement("tbody");
+   
+    //Create table body
+    for (var i = 0; i < this.boardHeight; i++)
+    {
+      //Create row
+      var row = document.createElement("tr");
+   
+      for (var j = 0; j < this.boardWidth; j++)
+      {
+        //Create cell
+        var cell = document.createElement("td");
+        var cellText = document.createTextNode("Row: " + i + ", column: " + j);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+      }
+
+      //Append row
+      tableBody.appendChild(row);
+    }
+   
+    //Append tableBody
+    table.appendChild(tableBody);
+
+    //Append table
+    div.appendChild(table);
+    this.hasInitializedTable = true;
+
+    //Set table attributes
+    table.setAttribute("border", "2");
   }
 
   createBoard()
