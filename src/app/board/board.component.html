@@ -16,7 +16,8 @@
             <tr *ngFor="let rows of board.rows">
                 <td class="button" *ngFor="let tile of rows" (click)="tile.revealTile()">
                         <img *ngIf="!tile.isRevealed" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
-                        <img *ngIf="tile.isRevealed" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png" />
+                        <img *ngIf="tile.isRevealed && !tile.isBomb" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png" />
+                        <img *ngIf="tile.isRevealed && tile.isBomb" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/mine.png" />
                 </td>
             </tr>
         </table>
