@@ -1,7 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { tile } from '../models/tile';
-import { board } from '../models/board'
+import { board } from '../models/board';
 
 @Component({
   selector: 'app-board',
@@ -13,7 +13,7 @@ export class BoardComponent implements OnChanges {
   @Input() rowCount: number;
   @Input() mineCount: number;
   @Input() num: number;
-  flagCount;
+  flagCount: number;
   timerCount;
   timerID: string;
   public board: board;

@@ -1,3 +1,6 @@
+import { BoardComponent } from "../board/board.component";
+
+
 export class tile {
     isRevealed: boolean;
     isBomb: boolean;
@@ -16,13 +19,6 @@ export class tile {
         }
         if (this.isBomb) {
            setTimeout(() => alert("YOU LOSE BITCH"), 500);
-        }
-        
-    }
-
-    flagTile() {
-        if (this.isFlagged === false){
-            this.isFlagged = true;
         }
     }
 }

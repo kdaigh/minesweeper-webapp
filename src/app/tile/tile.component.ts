@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { tile } from '../models/tile';
-
 @Component({
   selector: 'app-tile',
   templateUrl: './tile.component.html',
@@ -8,6 +7,7 @@ import { tile } from '../models/tile';
 })
 export class TileComponent implements OnInit {
   @Input() tile: tile;
+
   
   ngOnInit() {
   }
