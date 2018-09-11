@@ -1,9 +1,7 @@
-
 export class tile {
     isRevealed: boolean;
     isBomb: boolean;
     isFlagged: boolean;
-    id: string;
     adjBombs: number;
     row: number;
     col: number;
@@ -19,11 +17,7 @@ export class tile {
     revealTile() {
         if (this.isRevealed === false){
             this.isRevealed = true;
-        }
-        if (this.isBomb) {
-           setTimeout(() => alert("YOU LOSE BITCH"), 500);
-        }
-        
+        }     
     }
 
     flagTile() {
