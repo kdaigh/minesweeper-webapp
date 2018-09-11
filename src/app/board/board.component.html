@@ -12,17 +12,15 @@
     </div>
 
     <div>
-        <table>
+        <table class="board">
             <tr *ngFor="let rows of board.rows">
-                <td class="button" *ngFor="let tile of rows" (click)="tile.isRevealed = true">
+                <td class="button" *ngFor="let tile of rows" (click)="tile.revealTile()">
                         <img *ngIf="!tile.isRevealed" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
                         <img *ngIf="tile.isRevealed" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png" />
                 </td>
             </tr>
         </table>
-
     </div>
-
 </body>
 
 
