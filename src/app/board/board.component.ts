@@ -12,24 +12,15 @@ export class BoardComponent implements OnChanges {
   @Input() columnCount: number;
   @Input() rowCount: number;
   @Input() mineCount: number;
+  @Input() num: number;
   flagCount;
   timerCount;
   timerID: string;
   public board: board;
 
-<<<<<<< HEAD
-  constructor(private st: SimpleTimer) {
-   }
-
-  ngOnChanges() {
-    this.generateTable();
-    this.createBoard();
-
-=======
   constructor(private st: SimpleTimer)
   {
     
->>>>>>> a8c1d9d119d1d8c75a5f14fba9a93222d3e6a81f
   }
 
   createBoard()
@@ -89,8 +80,6 @@ export class BoardComponent implements OnChanges {
   {
     this.timerCount++;
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   //returns the current tile you are on.
   getTile()
@@ -133,9 +122,7 @@ export class BoardComponent implements OnChanges {
   {
 
   }
-=======
->>>>>>> a8c1d9d119d1d8c75a5f14fba9a93222d3e6a81f
-=======
+
 
   placeMines()
   {
@@ -151,5 +138,4 @@ export class BoardComponent implements OnChanges {
       }
     }
   }
->>>>>>> 26c731039992df09382f929b88eb1bc6a177c412
 }
