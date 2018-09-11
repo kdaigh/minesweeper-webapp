@@ -17,7 +17,7 @@
             <tr *ngFor="let rows of board.rows">
                 <td *ngFor="let tile of rows"
                     (click)="tile.revealTile()"
-                    (click)="placeNumber(tile.row, tile.col)"
+                    (click)="board.placeNumber(tile.row, tile.col)"
                     (contextmenu)="tile.flagTile()" >
 
                     <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
