@@ -36,7 +36,7 @@ export class BoardComponent implements OnChanges {
        {
           row.push(new tile()); //Append new tile to row
        }
-
+       document.addEventListener('contextmenu', event => event.preventDefault());
        this.board.rows.push(row); //Append new row to board
      }
      this.placeMines();
