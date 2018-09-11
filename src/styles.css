@@ -6,7 +6,8 @@
     font-family: 'Jura';
 }
 
-.center
-{
-    text-align: center;
+.board{
+    margin-top: 1px;
+    margin-left:auto; 
+    margin-right:auto;
 }

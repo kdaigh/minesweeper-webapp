@@ -1,9 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
-import { minefield } from '../models/minefield';
 import { tile } from '../models/tile';
 import { board } from '../models/board'
-import { TileComponent } from '../tile/tile.component';
 
 @Component({
   selector: 'app-board',
@@ -14,19 +12,21 @@ export class BoardComponent implements OnChanges {
   @Input() columnCount: number;
   @Input() rowCount: number;
   @Input() mineCount: number;
-  hasInitializedTable: boolean = false;
   flagCount;
   timerCount;
   timerID: string;
-  public board: board = new board();
+  public board: board;
 
   constructor(private st: SimpleTimer)
   {
     
   }
 
-   createBoard()
+  createBoard()
    {
+    this.board = new board();
+    
+    //Setup new board
      for (var i = 0; i < this.rowCount; i++)
      {
        var row: tile[] = [];
@@ -79,6 +79,7 @@ export class BoardComponent implements OnChanges {
   {
     this.timerCount++;
   }
+
   placeMines()
   {
     var mines_placed = 0;
@@ -92,6 +93,5 @@ export class BoardComponent implements OnChanges {
         mines_placed++;
       }
     }
-   
   }
 }
