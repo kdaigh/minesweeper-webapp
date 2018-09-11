@@ -22,7 +22,7 @@ export class BoardComponent implements OnChanges {
     
   }
 
-   createBoard()
+  createBoard()
    {
     this.board = new board();
     
@@ -79,6 +79,7 @@ export class BoardComponent implements OnChanges {
   {
     this.timerCount++;
   }
+
   placeMines()
   {
     var mines_placed = 0;
@@ -92,6 +93,5 @@ export class BoardComponent implements OnChanges {
         mines_placed++;
       }
     }
-   
   }
 }
