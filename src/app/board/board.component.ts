@@ -1,9 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
-import { minefield } from '../models/minefield';
 import { tile } from '../models/tile';
 import { board } from '../models/board'
-import { TileComponent } from '../tile/tile.component';
 
 @Component({
   selector: 'app-board',
