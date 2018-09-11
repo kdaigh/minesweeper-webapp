@@ -27,6 +27,12 @@ export class BoardComponent implements OnChanges {
 
    createBoard()
    {
+    //Clear table and board
+    this.board = new board();
+    var tableElement = document.getElementById("table");
+    tableElement.parentNode.removeChild(tableElement);
+     
+    //Setup new board
      for (var i = 0; i < this.rowCount; i++)
      {
        var row: tile[] = [];
