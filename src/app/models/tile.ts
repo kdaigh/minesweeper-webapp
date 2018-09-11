@@ -24,4 +24,10 @@ export class tile {
            setTimeout(() => alert("YOU LOSE BITCH"), 500);
         }
     }
+
+    flagTile(){
+        if(this.isFlagged === false){
+            this.isFlagged = true;
+        }
+    }
 }
