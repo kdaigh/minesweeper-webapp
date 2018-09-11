@@ -15,8 +15,14 @@ export class tile {
             this.isRevealed = true;
         }
         if (this.isBomb) {
-           setTimeout(() => alert("YOU LOSE BITCH"), 1000);
+           setTimeout(() => alert("YOU LOSE BITCH"), 500);
         }
         
+    }
+
+    flagTile() {
+        if (this.isFlagged === false){
+            this.isFlagged = true;
+        }
     }
 }
