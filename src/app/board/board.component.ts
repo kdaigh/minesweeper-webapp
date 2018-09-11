@@ -15,6 +15,7 @@ export class BoardComponent implements OnChanges {
   @Input() num: number;
   flagCount;
   timerCount;
+  digitalClock: string;
   timerID: string;
   public board: board;
 
@@ -79,6 +80,16 @@ export class BoardComponent implements OnChanges {
   updateTimer()
   {
     this.timerCount++;
+    this.updateDigitalClock(this.timerCount);
+  }
+
+  updateDigitalClock(timerCount)
+  {
+    var minutes = Math.floor(timerCount / 60);
+    var seconds = timerCount % 60;
+    console.log("minutes: " + minutes);
+    console.log("seconds: " + seconds);
+
   }
 
   //returns the current tile you are on.
