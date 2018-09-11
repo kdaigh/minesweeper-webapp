@@ -38,6 +38,7 @@ export class BoardComponent implements OnChanges {
 
        this.board.rows.push(row); //Append new row to board
      }
+     this.placeMines();
    }
 
   ngOnChanges() {
@@ -77,5 +78,20 @@ export class BoardComponent implements OnChanges {
   updateTimer()
   {
     this.timerCount++;
+  }
+  placeMines()
+  {
+    var mines_placed = 0;
+    while(mines_placed < this.mineCount)
+    {
+      var mine_row = Math.floor(Math.random() * this.rowCount) + 0;
+      var mine_col = Math.floor(Math.random() * this.columnCount) + 0;
+      if (this.board.rows[mine_row][mine_col].isBomb == false)
+      {
+        this.board.rows[mine_row][mine_col].isBomb = true;
+        mines_placed++;
+      }
+    }
+   
   }
 }
