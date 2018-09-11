@@ -12,15 +12,6 @@
     </div>
 
     <div>
-<<<<<<< HEAD
-        <table class="board">
-            <tr *ngFor="let rows of board.rows" >
-                <td class="button" *ngFor="let tile of rows" (click)="tile.revealTile()" (contextmenu)="tile.flagTile();" >
-                        <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
-                        <img *ngIf="!tile.isRevealed && tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/flag-mine.png" />
-                        <img *ngIf="tile.isRevealed && !tile.isBomb" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png" />
-                        <img *ngIf="tile.isRevealed && tile.isBomb" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/mine.png" />
-=======
         <table cellspacing="0"
                cellpadding="0">
             <tr *ngFor="let rows of board.rows">
@@ -41,7 +32,6 @@
                     <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 6" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-6.png"/>
                     <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 7" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-7.png"/>
                     <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 8" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-8.png"/>
->>>>>>> 16ea8c16492b295c0f79a2811a2035fc86178b63
                 </td>
             </tr>
         </table>

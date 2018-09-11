@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { BoardComponent } from "../board/board.component";
-
-=======
->>>>>>> 16ea8c16492b295c0f79a2811a2035fc86178b63
 
 export class tile {
     isRevealed: boolean;
