@@ -15,7 +15,7 @@ export class BoardComponent implements OnChanges {
   @Input() num: number;
   flagCount;
   timerCount;
-  digitalClock: string;
+  digitalTimer: string;
   timerID: string;
   public board: board;
 
@@ -80,16 +80,52 @@ export class BoardComponent implements OnChanges {
   updateTimer()
   {
     this.timerCount++;
-    this.updateDigitalClock(this.timerCount);
-  }
 
-  updateDigitalClock(timerCount)
-  {
-    var minutes = Math.floor(timerCount / 60);
-    var seconds = timerCount % 60;
-    console.log("minutes: " + minutes);
-    console.log("seconds: " + seconds);
+    /////////////////////Update digital timer string/////////////////////
 
+    this.digitalTimer = ""; //Reset value
+
+    //Initializations
+    var minutes = Math.floor(this.timerCount / 60);
+    var hours = Math.floor(minutes / 60);
+    if (hours > 0)
+    {
+      minutes = minutes - hours * 60;
+    }
+    var seconds = this.timerCount % 60;
+
+    //If time has exeeded 1 hour
+    if (hours != 0)
+    {
+      this.digitalTimer += hours + ":"; //Add hours
+
+      if (minutes < 10)
+      {
+        this.digitalTimer += "0"; //Add minutes leading zero if needed
+      }
+      this.digitalTimer += minutes + ":"; //Add minutes
+
+      if (seconds < 10)
+      {
+        this.digitalTimer += "0"; //Add seconds leading zero if needed
+      }
+      this.digitalTimer += seconds;
+    }
+
+    //If time has not exeeded 1 hour
+    else
+    {
+      if (minutes != 0) //If time has exeeded 1 minute
+      {
+        this.digitalTimer += minutes + ":";
+
+        if (seconds < 10)
+        {
+          this.digitalTimer += "0"; //Add seconds leading zero if needed
+        }
+      }
+      this.digitalTimer += seconds;
+    }
   }
 
   //returns the current tile you are on.
