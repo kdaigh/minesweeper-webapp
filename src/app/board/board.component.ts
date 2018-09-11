@@ -14,11 +14,10 @@ export class BoardComponent implements OnChanges {
   @Input() columnCount: number;
   @Input() rowCount: number;
   @Input() mineCount: number;
-  hasInitializedTable: boolean = false;
   flagCount;
   timerCount;
   timerID: string;
-  public board: board = new board();
+  public board: board;
 
   constructor(private st: SimpleTimer)
   {
@@ -27,11 +26,8 @@ export class BoardComponent implements OnChanges {
 
    createBoard()
    {
-    //Clear table and board
     this.board = new board();
-    var tableElement = document.getElementById("table");
-    tableElement.parentNode.removeChild(tableElement);
-     
+    
     //Setup new board
      for (var i = 0; i < this.rowCount; i++)
      {
