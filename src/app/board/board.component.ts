@@ -1,9 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
-import { minefield } from '../models/minefield';
 import { tile } from '../models/tile';
 import { board } from '../models/board'
-import { TileComponent } from '../tile/tile.component';
 
 @Component({
   selector: 'app-board',
@@ -14,11 +12,10 @@ export class BoardComponent implements OnChanges {
   @Input() columnCount: number;
   @Input() rowCount: number;
   @Input() mineCount: number;
-  hasInitializedTable: boolean = false;
   flagCount;
   timerCount;
   timerID: string;
-  public board: board = new board();
+  public board: board;
 
 <<<<<<< HEAD
   constructor(private st: SimpleTimer) {
@@ -35,8 +32,11 @@ export class BoardComponent implements OnChanges {
 >>>>>>> a8c1d9d119d1d8c75a5f14fba9a93222d3e6a81f
   }
 
-   createBoard()
+  createBoard()
    {
+    this.board = new board();
+    
+    //Setup new board
      for (var i = 0; i < this.rowCount; i++)
      {
        var row: tile[] = [];
@@ -48,6 +48,7 @@ export class BoardComponent implements OnChanges {
 
        this.board.rows.push(row); //Append new row to board
      }
+     this.placeMines();
    }
 
   ngOnChanges() {
@@ -88,6 +89,7 @@ export class BoardComponent implements OnChanges {
   {
     this.timerCount++;
   }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
   //returns the current tile you are on.
@@ -133,4 +135,21 @@ export class BoardComponent implements OnChanges {
   }
 =======
 >>>>>>> a8c1d9d119d1d8c75a5f14fba9a93222d3e6a81f
+=======
+
+  placeMines()
+  {
+    var mines_placed = 0;
+    while(mines_placed < this.mineCount)
+    {
+      var mine_row = Math.floor(Math.random() * this.rowCount) + 0;
+      var mine_col = Math.floor(Math.random() * this.columnCount) + 0;
+      if (this.board.rows[mine_row][mine_col].isBomb == false)
+      {
+        this.board.rows[mine_row][mine_col].isBomb = true;
+        mines_placed++;
+      }
+    }
+  }
+>>>>>>> 26c731039992df09382f929b88eb1bc6a177c412
 }
