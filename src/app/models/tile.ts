@@ -15,7 +15,7 @@ export class tile {
             this.isRevealed = true;
         }
         if (this.isBomb) {
-           setTimeout(() => alert("YOU LOSE BITCH"), 500);
+           setTimeout(() => alert("GAME OVER"), 500);
         }
         
     }
