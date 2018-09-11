@@ -9,4 +9,14 @@ export class tile {
         this.isFlagged = false;
         this.id = "test";
     }
+
+    revealTile() {
+        if (this.isRevealed === false){
+            this.isRevealed = true;
+        }
+        if (this.isBomb) {
+            alert("YOU LOSE BITCH");
+        }
+        
+    }
 }

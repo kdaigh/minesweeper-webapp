@@ -15,12 +15,11 @@
         <table class="board">
             <tr *ngFor="let rows of board.rows">
                 <td *ngFor="let tile of rows">
-                    {{tile.isRevealed}}
+                    <button (click)="tile.revealTile()">{{tile.isRevealed}}</button>
                 </td>
             </tr>
         </table>
     </div>
-
 </body>
 
 
