@@ -1,6 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { minefield } from '../models/minefield';
+import { tile } from '../models/tile';
 
 @Component({
   selector: 'app-board',
@@ -114,8 +115,8 @@ export class BoardComponent implements OnChanges {
         // node the contents of the <td>, and put the <td> at
         // the end of the table row
         var cell = document.createElement("td");
-        var cellText = document.createTextNode("cell in row "+i+", column "+j);
-        cell.appendChild(cellText);
+        var obj = document.createElement("tileObj");
+        cell.appendChild(obj);
         row.appendChild(cell);
       }
    
