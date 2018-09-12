@@ -40,6 +40,9 @@ export class BoardComponent implements OnChanges {
   {
     this.flagCount = this.mineCount; //Initialize flagCount
     this.isGameOver = false;
+    this.hasWon = false;
+    this.revealedTiles = 0;
+    this.flaggedMines = 0;
     this.setupTimer();
     this.board = new board(this.rowCount, this.columnCount, this.mineCount);
   }
@@ -137,7 +140,7 @@ export class BoardComponent implements OnChanges {
         if(this.board.rows[row][col].isBomb) {
           this.flaggedMines++;
         }
-        if(this.flaggedMines === this.mineCount) {
+        if(this.flaggedMines === this.mineCount) { // check for win
           this.hasWon = true;
           this.isGameOver = true;
           this.gameOverDialog();
