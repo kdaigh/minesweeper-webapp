@@ -21,8 +21,9 @@ export class board
         }
         document.addEventListener('contextmenu', event => event.preventDefault());
         this.rows.push(row); //Append new row to board
+
      }
-     this.placeMines();
+    this.placeMines();
     }
 
     placeMines()
@@ -39,7 +40,6 @@ export class board
         }
       }
     }
-
     //Calculate what number to put in the tile.
   placeNumber(row: number, col: number): void
   {
@@ -88,7 +88,7 @@ export class board
     this.rows[row][col].adjBombs = bombCount;
   }
 
-  boundsCheck(row: number, col: number): boolean {
+  boundsCheck(row, col): boolean {
     console.log("row: " + row + "col: " + col);
     if(row < 0 || row > this.rowCount-1 || col < 0 || col > this.colCount-1) {
       return false;
@@ -106,17 +106,125 @@ export class board
       return false;
     }
   }
-
+ 
   revealMines() {
       for(let i = 0; i < this.rowCount; i++) {
           for(let j = 0; j < this.colCount; j++) {
               if(this.rows[i][j].isBomb) {
-                  this.rows[i][j].revealTile();
+                  this.rows[i][j].isRevealed = true;
               }
           }
       }
     this.gameOver = true;
-    setTimeout(() => alert("YOU LOSE BITCH"), 500);
   }
+  recursive_reveal(row: number, col: number) : void
+  {
+    this.placeNumber(row, col);
+    if (!(this.rows[row][col].adjBombs > 0))
+    {
+      if (this.boundsCheck(row - 1, col - 1)) { // top left tile
+        if (!this.rows[row - 1][col - 1].isBomb && !this.rows[row - 1][col - 1].isRevealed) {
+          if (this.rows[row - 1][col - 1].adjBombs > 0) {
 
+            this.rows[row - 1][col - 1].revealTile();
+
+          }
+          else {
+            this.rows[row - 1][col - 1].revealTile();
+            this.recursive_reveal(row - 1, col - 1);
+
+          }
+        }
+      }
+      if (this.boundsCheck(row - 1, col)) { // top tile
+        if (!this.rows[row - 1][col].isBomb && !this.rows[row - 1][col].isRevealed) {
+          if (this.rows[row - 1][col].adjBombs > 0){
+            
+            this.rows[row - 1][col].revealTile();
+            
+          }
+          else{
+            this.rows[row - 1][col].revealTile();
+            this.recursive_reveal(row - 1, col);
+            
+          }
+        }
+      }
+      if (this.boundsCheck(row - 1, col + 1)) { // top right tile
+        if (!this.rows[row - 1][col + 1].isBomb && !this.rows[row - 1][col + 1].isRevealed) {
+          if (this.rows[row - 1][col + 1].adjBombs > 0) {
+
+            this.rows[row - 1][col + 1].revealTile();
+
+          }
+          else {
+            this.rows[row - 1][col + 1].revealTile();
+            this.recursive_reveal(row - 1, col + 1);
+
+          }
+        }
+      }
+      if (this.boundsCheck(row, col - 1)) { // left tile 
+        if (!this.rows[row][col - 1].isBomb && !this.rows[row][col - 1].isRevealed){
+          if (this.rows[row][col - 1].adjBombs > 0) {
+            this.rows[row][col - 1].revealTile();
+            
+          }
+          else {
+            this.rows[row][col - 1].revealTile();
+            this.recursive_reveal(row, col - 1);
+          }
+        }
+      }
+      if (this.boundsCheck(row, col + 1)) { // right tile
+        if (!this.rows[row][col + 1].isBomb && !this.rows[row][col + 1].isRevealed) {
+          if (this.rows[row][col + 1].adjBombs > 0) {
+            this.rows[row][col + 1].revealTile();
+          }
+          else {
+            this.rows[row][col + 1].revealTile();
+            this.recursive_reveal(row, col + 1);
+          }
+        }
+      }
+    if (this.boundsCheck(row + 1, col)) { // bottom tile
+        if (!this.rows[row + 1][col].isBomb && !this.rows[row + 1][col].isRevealed) {
+          if (this.rows[row + 1][col].adjBombs > 0) {
+            this.rows[row + 1][col].revealTile();
+          }
+          else {
+            this.rows[row + 1][col].revealTile();
+            this.recursive_reveal(row + 1, col);
+          }
+        }
+      }
+      if (this.boundsCheck(row + 1, col - 1)) { // bottom left tile
+        if (!this.rows[row + 1][col - 1].isBomb && !this.rows[row + 1][col - 1].isRevealed) {
+          if (this.rows[row + 1][col - 1].adjBombs > 0) {
+
+            this.rows[row + 1][col - 1].revealTile();
+
+          }
+          else {
+            this.rows[row + 1][col - 1].revealTile();
+            this.recursive_reveal(row + 1, col - 1);
+          }
+        }
+      }
+      if (this.boundsCheck(row + 1, col + 1)) { // bottom right tile
+        if (!this.rows[row + 1][col + 1].isBomb && !this.rows[row + 1][col + 1].isRevealed) {
+          if (this.rows[row + 1][col + 1].adjBombs > 0) {
+
+            this.rows[row + 1][col + 1].revealTile();
+
+          }
+          else {
+            this.rows[row + 1][col + 1].revealTile();
+            this.recursive_reveal(row + 1, col + 1);
+
+          }
+        }
+      }
+    }
+  }
 }
