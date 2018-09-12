@@ -2,11 +2,12 @@ import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { tile } from '../models/tile';
 import { board } from '../models/board';
+import { TileComponent } from '../tile/tile.component';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
+  styleUrls: ['./board.component.css'],
 })
 export class BoardComponent implements OnChanges {
   @Input() columnCount: number;
@@ -16,10 +17,12 @@ export class BoardComponent implements OnChanges {
   flagCount: number;
   timerCount;
   timerID: string;
+  isOutOfFlags = false;
   public board: board;
-
+  provider: [tile]
   constructor(private st: SimpleTimer)
   {
+
     
   }
 
@@ -36,10 +39,14 @@ export class BoardComponent implements OnChanges {
        {
           row.push(new tile(i,j)); //Append new tile to row
        }
-       document.addEventListener('contextmenu', event => event.preventDefault());
+       
        this.board.rows.push(row); //Append new row to board
      }
      this.placeMines();
+     document.addEventListener('contextmenu', event => event.preventDefault());
+     if(this.flagCount === 0){
+       
+     }
    }
 
   ngOnChanges() {
@@ -80,6 +87,14 @@ export class BoardComponent implements OnChanges {
   {
     this.timerCount++;
   }
+
+  updateFlag(){
+    this.flagCount--;
+    if(this.flagCount === 0){
+      this.isOutOfFlags = true;
+    }
+  }
+
 
   //returns the current tile you are on.
   getTile()
@@ -140,6 +155,7 @@ export class BoardComponent implements OnChanges {
 
   boundsCheck(row: number, col: number): boolean {
     console.log("row: " + row + "col: " + col);
+    console.log(this.flagCount);
     if(row < 0 || row > this.rowCount-1 || col < 0 || col > this.columnCount-1) {
       return false;
     }

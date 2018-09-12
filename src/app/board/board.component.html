@@ -8,7 +8,7 @@
         
     <div class="inputDiv">
         Flags<br>
-        <input [value]="flagCount" class="inputBox">
+        <input readonly [value]="flagCount" class="inputBox">
     </div>
 
     <div>
@@ -17,9 +17,8 @@
             <tr *ngFor="let rows of board.rows">
                 <td *ngFor="let tile of rows"
                     (click)="tile.revealTile()"
-                    (click)="placeNumber(tile.row, tile.col)"
-                    (contextmenu)="tile.flagTile()" >
-                    
+                    (click)="placeNumber(tile.row, tile.col)" 
+                    (contextmenu)="tile.flagTile(); updateFlag()" >
                     <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
                     <img *ngIf="!tile.isRevealed && tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/flag-mine.png" />
                     <img *ngIf="tile.isRevealed && tile.isBomb" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/mine.png" />
