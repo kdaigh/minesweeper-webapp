@@ -13,16 +13,4 @@ export class tile {
         this.col = col;
         this.adjBombs = 0;
     }
-
-    revealTile() {
-        if (this.isRevealed === false){
-            this.isRevealed = true;
-        }     
-    }
-
-    flagTile() {
-        if (this.isFlagged === false){
-            this.isFlagged = true;
-        }
-    }
 }
