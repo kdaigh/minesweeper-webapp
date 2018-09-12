@@ -2,11 +2,27 @@ export class tile {
     isRevealed: boolean;
     isBomb: boolean;
     isFlagged: boolean;
-    id: string;
-    constructor() {
-        this.isRevealed = true;
+    adjBombs: number;
+    row: number;
+    col: number;
+    constructor(row: number, col: number) {
+        this.isRevealed = false;
         this.isBomb = false;
         this.isFlagged = false;
-        this.id = "0";
+        this.row = row;
+        this.col = col;
+        this.adjBombs = 0;
+    }
+
+    revealTile() {
+        if (this.isRevealed === false){
+            this.isRevealed = true;
+        }     
+    }
+
+    flagTile() {
+        if (this.isFlagged === false){
+            this.isFlagged = true;
+        }
     }
 }

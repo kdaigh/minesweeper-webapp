@@ -1,7 +1,12 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
+<<<<<<< HEAD
 import { minefield } from '../models/minefield';
 import { tile } from '../models/tile';
+=======
+import { tile } from '../models/tile';
+import { board } from '../models/board'
+>>>>>>> 103ee4d2a8dccbc4b367489c4f4de7435a22d922
 
 @Component({
   selector: 'app-board',
@@ -9,43 +14,45 @@ import { tile } from '../models/tile';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnChanges {
-  @Input() boardWidth: number;
-  @Input() boardHeight: number;
-  @Input() mines: number;
+  @Input() columnCount: number;
+  @Input() rowCount: number;
+  @Input() mineCount: number;
   @Input() num: number;
   flagCount;
   timerCount;
+  digitalTimer: string;
   timerID: string;
+  public board: board;
 
-  constructor(private st: SimpleTimer) {
-   }
-
-  ngOnChanges() {
-    this.generate_table();
-    this.createBoard();
+  constructor(private st: SimpleTimer)
+  {
+    
   }
 
-  createBoard()
+  ngOnChanges() {
+    this.newGame();
+  }
+
+  newGame()
   {
-    console.log("createBoard() called");
+    this.flagCount = this.mineCount; //Initialize flagCount
+    this.setupTimer();
+    this.board = new board(this.rowCount, this.columnCount, this.mineCount);
+  }
+
+  setupTimer()
+  {
     this.timerCount = 0; //Reset timer count
-    if (this.mines != 0) //Not page startup
+    if (this.timerID == undefined) //If timer has not been subscribed
     {
-      const mineField = new minefield(this.boardHeight, this.boardWidth);
-      this.placeAllMines(minefield);
-      this.placeAllNumbers(minefield);
-      this.flagCount = this.mines;
-      if (this.timerID == undefined) //If timer has not been subscribed
-      {
-        this.st.newTimer('Timer', 1);
-        this.subscribeTimer();
-      }
+      this.st.newTimer('Timer', 1);
+      this.subscribeTimer();
     }
   }
 
   subscribeTimer()
   {
-    if (this.mines == 0) //Page startup
+    if (this.mineCount == 0) //Page startup
     {
       this.st.unsubscribe(this.timerID);
       this.timerID = undefined;
@@ -59,36 +66,52 @@ export class BoardComponent implements OnChanges {
   updateTimer()
   {
     this.timerCount++;
-  }
 
-  //returns the current tile you are on.
-  getTile()
-  {
-    return;
-  }
+    /////////////////////Update digital timer string/////////////////////
 
-  //Places a random mine on the board
-  placeMine(ninefield)
-  {
+    this.digitalTimer = ""; //Reset value
 
-  }
+    //Initializations
+    var minutes = Math.floor(this.timerCount / 60);
+    var hours = Math.floor(minutes / 60);
+    if (hours > 0)
+    {
+      minutes = minutes - hours * 60;
+    }
+    var seconds = this.timerCount % 60;
 
-  //Loop calls place mine to populate the board with random mines
-  placeAllMines(minefield)
-  {
+    //If time has exeeded 1 hour
+    if (hours != 0)
+    {
+      this.digitalTimer += hours + ":"; //Add hours
 
-  }
+      if (minutes < 10)
+      {
+        this.digitalTimer += "0"; //Add minutes leading zero if needed
+      }
+      this.digitalTimer += minutes + ":"; //Add minutes
 
-  //Calculate what number to put in the tile.
-  placeNumber(minefield, row, col)
-  {
+      if (seconds < 10)
+      {
+        this.digitalTimer += "0"; //Add seconds leading zero if needed
+      }
+      this.digitalTimer += seconds;
+    }
 
-  }
+    //If time has not exeeded 1 hour
+    else
+    {
+      if (minutes != 0) //If time has exeeded 1 minute
+      {
+        this.digitalTimer += minutes + ":";
 
-  //Loop calls placeNumber to fill in all required tiles with numbers.
-  placeAllNumbers(minefield)
-  {
-
+        if (seconds < 10)
+        {
+          this.digitalTimer += "0"; //Add seconds leading zero if needed
+        }
+      }
+      this.digitalTimer += seconds;
+    }
   }
   
   //Checks all conditions of the board and calculates if the game is complete.
@@ -96,6 +119,7 @@ export class BoardComponent implements OnChanges {
   {
 
   }
+<<<<<<< HEAD
 
   generate_table() {
     // get the reference for the body
@@ -132,4 +156,6 @@ export class BoardComponent implements OnChanges {
     tbl.setAttribute("border", "2");
   }
 
+=======
+>>>>>>> 103ee4d2a8dccbc4b367489c4f4de7435a22d922
 }

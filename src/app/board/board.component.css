@@ -11,13 +11,10 @@
     width: 70px;
 }
 
-.board{
-    border: 1px solid black;
-    margin-left: auto; 
-    margin-right: auto;
-    margin-bottom: 25px;
-}
 
-.button{
-    margin-top: 5px;
+table{
+    margin-left:auto; 
+    margin-right:auto;
+    line-height: 0px;
+    padding-bottom: 10px;
 }
