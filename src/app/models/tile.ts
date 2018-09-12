@@ -18,11 +18,12 @@ export class tile {
         if (this.isRevealed === false){
             this.isRevealed = true;
         }
-        if (this.isBomb) {
-           setTimeout(() => alert("GAME OVER"), 500);
-        }
+        // if (this.isBomb) {
+        //    setTimeout(() => alert("GAME OVER"), 500);
+        // }
         
-        }     
+        }
+
     flagTile() {
         if (this.isFlagged === false){
             this.isFlagged = true;

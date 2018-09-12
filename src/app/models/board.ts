@@ -6,13 +6,13 @@ export class board
     public rowCount: number;
     public colCount: number;
     public mineCount: number;
-    public gameOver: boolean;
+    public tilesRevealed: number;
 
     constructor(rows: number, cols: number, mines: number) {
         this.rowCount = rows;
         this.colCount = cols;
         this.mineCount = mines;
-        this.gameOver = false;
+        this.tilesRevealed = 0;
         this.rows = [];
         for (var i = 0; i < this.rowCount; i++) {
         var row: tile[] = [];
@@ -115,8 +115,8 @@ export class board
               }
           }
       }
-    this.gameOver = true;
   }
+
   recursive_reveal(row: number, col: number) : void
   {
     this.placeNumber(row, col);

@@ -83,7 +83,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#id">id</a>
+                                <a href="#adjBombs">adjBombs</a>
+                            </li>
+                            <li>
+                                <a href="#col">col</a>
                             </li>
                             <li>
                                 <a href="#isBomb">isBomb</a>
@@ -94,10 +97,30 @@
                             <li>
                                 <a href="#isRevealed">isRevealed</a>
                             </li>
+                            <li>
+                                <a href="#row">row</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#flagTile">flagTile</a>
+                            </li>
+                            <li>
+                                <a href="#revealTile">revealTile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -113,12 +136,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(isRevealed: , isBomb: , isFlagged: , id: )</code>
+<code>constructor(row: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, col: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/models/tile.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/models/tile.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -130,22 +153,17 @@
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>isRevealed</td>
+                                                        <td>row</td>
                                                   
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>isBomb</td>
-                                                  
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
                                                   
                                                     <td>
                                                             No
@@ -153,17 +171,11 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>isFlagged</td>
+                                                        <td>col</td>
                                                   
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>id</td>
-                                                  
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
                                                   
                                                     <td>
                                                             No
@@ -188,30 +200,64 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="id"></a>
+                        <a name="adjBombs"></a>
                         <span class="name">
                             <b>
-                            id
+                            adjBombs
                             </b>
-                            <a href="#id"><span class="icon ion-ios-link"></span></a>
+                            <a href="#adjBombs"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <code>id:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <code>adjBombs:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/models/tile.ts:5</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="col"></a>
+                        <span class="name">
+                            <b>
+                            col
+                            </b>
+                            <a href="#col"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>col:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/models/tile.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -320,8 +366,124 @@
 
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="row"></a>
+                        <span class="name">
+                            <b>
+                            row
+                            </b>
+                            <a href="#row"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>row:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/models/tile.ts:6</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
 </section>
 
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="flagTile"></a>
+                        <span class="name">
+                            <b>
+                            flagTile
+                            </b>
+                            <a href="#flagTile"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>flagTile()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/models/tile.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="revealTile"></a>
+                        <span class="name">
+                            <b>
+                            revealTile
+                            </b>
+                            <a href="#revealTile"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>revealTile()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/models/tile.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -336,12 +498,28 @@
     isRevealed: boolean;
     isBomb: boolean;
     isFlagged: boolean;
-    id: string;
-    constructor(isRevealed, isBomb, isFlagged, id) {
-        this.isRevealed &#x3D; isRevealed;
-        this.isBomb &#x3D; isBomb;
-        this.isFlagged &#x3D; isFlagged;
-        this.id &#x3D; id;
+    adjBombs: number;
+    row: number;
+    col: number;
+    constructor(row: number, col: number) {
+        this.isRevealed &#x3D; false;
+        this.isBomb &#x3D; false;
+        this.isFlagged &#x3D; false;
+        this.row &#x3D; row;
+        this.col &#x3D; col;
+        this.adjBombs &#x3D; 0;
+    }
+
+    revealTile() {
+        if (this.isRevealed &#x3D;&#x3D;&#x3D; false){
+            this.isRevealed &#x3D; true;
+        }     
+    }
+
+    flagTile() {
+        if (this.isFlagged &#x3D;&#x3D;&#x3D; false){
+            this.isFlagged &#x3D; true;
+        }
     }
 }</code></pre>
     </div>
