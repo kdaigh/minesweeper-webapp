@@ -1,9 +1,7 @@
-
 export class tile {
     isRevealed: boolean;
     isBomb: boolean;
     isFlagged: boolean;
-    id: string;
     adjBombs: number;
     row: number;
     col: number;
@@ -24,8 +22,8 @@ export class tile {
            setTimeout(() => alert("GAME OVER"), 500);
         }
         
-    }
-
+        }     
+    
     flagTile() {
         if (this.isFlagged === false){
             this.isFlagged = true;
