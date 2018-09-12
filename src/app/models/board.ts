@@ -6,13 +6,13 @@ export class board
     public rowCount: number;
     public colCount: number;
     public mineCount: number;
-    public gameOver: boolean;
+    public tilesRevealed: number;
 
     constructor(rows: number, cols: number, mines: number) {
         this.rowCount = rows;
         this.colCount = cols;
         this.mineCount = mines;
-        this.gameOver = false;
+        this.tilesRevealed = 0;
         this.rows = [];
         for (var i = 0; i < this.rowCount; i++) {
         var row: tile[] = [];
@@ -111,12 +111,9 @@ export class board
       for(let i = 0; i < this.rowCount; i++) {
           for(let j = 0; j < this.colCount; j++) {
               if(this.rows[i][j].isBomb) {
-                  this.rows[i][j].revealTile();
+                  this.rows[i][j].isRevealed = true;
               }
           }
       }
-    this.gameOver = true;
-    setTimeout(() => alert("YOU LOSE BITCH"), 500);
   }
-
 }
