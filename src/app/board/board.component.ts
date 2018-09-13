@@ -134,7 +134,7 @@ export class BoardComponent implements OnChanges {
           this.flaggedMines--; 
         }
       }
-      else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0) { // place flag
+      else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0 && !this.board.rows[row][col].isRevealed) { // place flag
         this.board.rows[row][col].isFlagged = true;
         this.flagCount--;
         if(this.board.rows[row][col].isBomb) {
@@ -146,7 +146,7 @@ export class BoardComponent implements OnChanges {
           this.gameOverDialog();
         }
       }
-      else {
+      else if (this.flagCount === 0 && !this.board.rows[row][col].isRevealed) {
         alert("No flags remaining, remove a flag and try again.");
       }
     }
