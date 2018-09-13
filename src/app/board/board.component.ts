@@ -133,7 +133,7 @@ export class BoardComponent implements OnChanges {
           this.flaggedMines--; 
         }
       }
-      else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0){ // place flag
+      else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0) { // place flag
         this.board.rows[row][col].isFlagged = true;
         this.flagCount--;
         if(this.board.rows[row][col].isBomb) {
