@@ -85,13 +85,13 @@ export class BoardComponent implements OnChanges {
       this.digitalTimer = ""; //Reset value
 
       //Initializations
-      var minutes = Math.floor(this.timerCount / 60);
-      var hours = Math.floor(minutes / 60);
+      let minutes = Math.floor(this.timerCount / 60);
+      let hours = Math.floor(minutes / 60);
       if (hours > 0)
       {
         minutes = minutes - hours * 60;
       }
-      var seconds = this.timerCount % 60;
+      let seconds = this.timerCount % 60;
 
       //If time has exeeded 1 hour
       if (hours != 0)
