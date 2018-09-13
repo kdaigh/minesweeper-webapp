@@ -35,10 +35,7 @@ export class BoardComponent implements OnChanges {
   ngOnChanges() {
     this.newGame();
   }
-
-  /**
-   * @pre 
-   */
+  
   newGame()
   {
     this.flagCount = this.mineCount; //Initialize flagCount

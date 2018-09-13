@@ -28,7 +28,10 @@ export class board
      }
     this.placeMines();
     }
-
+    /**
+     * @pre There must be a board in existence
+     * @post Places the user-defined number of mines 
+     */
     placeMines()
     {
       var mines_placed = 0;
@@ -43,7 +46,12 @@ export class board
         }
       }
     }
-    //Calculate what number to put in the tile.
+  /**
+   * @pre There must be a board in existence
+   * @param row The row of the tile that was clicked
+   * @param col The column of the tile that was clicked
+   * @post Calculates adjacent bombs to any given tile and places numbers accordingly
+   */
   placeNumber(row: number, col: number): void
   {
     let bombCount = 0;
@@ -90,7 +98,12 @@ export class board
     }
     this.rows[row][col].adjBombs = bombCount;
   }
-
+  /**
+   * @pre There must be a board in existence
+   * @param row The row of the coordinate to be checked
+   * @param col The column of the coordinate to be checked
+   * @post Checks if a coordinate is within the bounds of the board
+   */
   boundsCheck(row, col): boolean {
     console.log("row: " + row + "col: " + col);
     if(row < 0 || row > this.rowCount-1 || col < 0 || col > this.colCount-1) {
@@ -100,7 +113,12 @@ export class board
       return true;
     }
   }
-
+  /**
+   * @pre There must be a board in existence
+   * @param row The row of the coordinate to be checked
+   * @param col The column of the coordinate to be checked
+   * @post Checks if there is a bomb at the given coordinate
+   */
   bombCheck(row: number, col: number): boolean {
     if (this.rows[row][col].isBomb) {
       return true
@@ -109,7 +127,10 @@ export class board
       return false;
     }
   }
- 
+  /**
+   * @pre There must be a board in existence
+   * @post If the user hits a bomb and ends the game, reveals all the mines
+   */
   revealMines() {
       for(let i = 0; i < this.rowCount; i++) {
           for(let j = 0; j < this.colCount; j++) {
@@ -120,7 +141,13 @@ export class board
           }
       }
   }
-
+  /**
+   * @pre There must be a board in existence
+   * @param row The row of the clicked tile
+   * @param col The column of the clicked tile
+   * @post When a tile is clicked, tiles fanning out from the clicked tile are revealed.
+   * If the function hits a number in any direction, the revealing ceases.
+   */
   recursive_reveal(row: number, col: number) : void
   {
     this.placeNumber(row, col);

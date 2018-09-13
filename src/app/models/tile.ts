@@ -13,17 +13,19 @@ export class tile {
         this.col = col;
         this.adjBombs = 0;
     }
-
+    /**
+     * @pre There must be a board in existence
+     * @post Reveals the tile if it is not already revealed
+     */
     revealTile() {
         if (this.isRevealed === false){
             this.isRevealed = true;
         }
-        // if (this.isBomb) {
-        //    setTimeout(() => alert("GAME OVER"), 500);
-        // }
-        
-        }
-
+    }
+    /**
+     * @pre There must be a board in existence
+     * @post Flags a tile if it is not already flagged
+     */
     flagTile() {
         if (this.isFlagged === false){
             this.isFlagged = true;
