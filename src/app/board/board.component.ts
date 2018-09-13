@@ -182,10 +182,19 @@ export class BoardComponent implements OnChanges {
     this.timerCount = 0;
     this.stopTimer = true;
     if (this.hasWon) {
-      alert("YOU WIN BITCH");
+      alert("Congratulations! You win!");
     }
     else {
-      alert("YOU LOSE BITCH");
+      alert("We all encounter failures in our lives.");
     }
+  }
+
+  // After game ends, show the user how many bombs they flagged and how long the game took
+  showGameStats(flagMineCount: number, timeCount: number)
+  {
+    //Show user how many mines they flagged, how long it took them to complete
+    //Call inside gameOverDialog()
+    //Clear input boxes, return to initial page
+
   }
 }
