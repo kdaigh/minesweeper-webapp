@@ -2,17 +2,20 @@ import { tile } from "./tile";
 
 export class board
 {
+    isGameOver: boolean;
     public rows: any[];
     public rowCount: number;
     public colCount: number;
     public mineCount: number;
     public tilesRevealed: number;
+    
 
     constructor(rows: number, cols: number, mines: number) {
         this.rowCount = rows;
         this.colCount = cols;
         this.mineCount = mines;
         this.tilesRevealed = 0;
+        this.isGameOver = false;
         this.rows = [];
         for (var i = 0; i < this.rowCount; i++) {
         var row: tile[] = [];
@@ -112,6 +115,7 @@ export class board
           for(let j = 0; j < this.colCount; j++) {
               if(this.rows[i][j].isBomb) {
                   this.rows[i][j].isRevealed = true;
+                  this.isGameOver = true;
               }
           }
       }
@@ -120,7 +124,7 @@ export class board
   recursive_reveal(row: number, col: number) : void
   {
     this.placeNumber(row, col);
-    if (!(this.rows[row][col].adjBombs > 0))
+    if (!(this.rows[row][col].adjBombs > 0) && !this.isGameOver)
     {
       if (this.boundsCheck(row - 1, col - 1)) { // top left tile
         if (!this.rows[row - 1][col - 1].isBomb && !this.rows[row - 1][col - 1].isRevealed) {
