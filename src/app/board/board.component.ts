@@ -1,17 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { minefield } from '../models/minefield';
-import { tile } from '../models/tile';
-=======
-import { tile } from '../models/tile';
-import { board } from '../models/board'
->>>>>>> 103ee4d2a8dccbc4b367489c4f4de7435a22d922
-=======
 import { board } from '../models/board';
 import { tile } from '../models/tile';
->>>>>>> c9944212e72b5bcce8a7a466f9a7c8fc4d3a9b62
 
 @Component({
   selector: 'app-board',
@@ -205,11 +195,6 @@ export class BoardComponent implements OnChanges {
     //Clear input boxes, return to initial page
 
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> c9944212e72b5bcce8a7a466f9a7c8fc4d3a9b62
   generate_table() {
     // get the reference for the body
     var body = document.getElementsByName("minefield")[0];
@@ -219,19 +204,11 @@ export class BoardComponent implements OnChanges {
     var tblBody = document.createElement("tbody");
    
     // creating all cells
-<<<<<<< HEAD
-    for (var i = 0; i < this.boardHeight; i++) {
-      // creates a table row
-      var row = document.createElement("tr");
-   
-      for (var j = 0; j < this.boardWidth; j++) {
-=======
     for (var i = 0; i < this.rowCount; i++) {
       // creates a table row
       var row = document.createElement("tr");
    
       for (var j = 0; j < this.columnCount; j++) {
->>>>>>> c9944212e72b5bcce8a7a466f9a7c8fc4d3a9b62
         // Create a <td> element and a text node, make the text
         // node the contents of the <td>, and put the <td> at
         // the end of the table row
@@ -253,9 +230,4 @@ export class BoardComponent implements OnChanges {
     tbl.setAttribute("border", "2");
   }
 
-<<<<<<< HEAD
-=======
->>>>>>> 103ee4d2a8dccbc4b367489c4f4de7435a22d922
-=======
->>>>>>> c9944212e72b5bcce8a7a466f9a7c8fc4d3a9b62
 }
