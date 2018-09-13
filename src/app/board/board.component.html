@@ -3,7 +3,7 @@
 
     <div class="inputDiv">
         Timer<br>
-        <input readonly [value]="timerCount" class="inputBox">
+        <input readonly [value]="digitalTimer" class="inputBox">
     </div>
         
     <div class="inputDiv">
@@ -16,9 +16,15 @@
                cellpadding="0">
             <tr *ngFor="let rows of board.rows">
                 <td *ngFor="let tile of rows"
+<<<<<<< HEAD
                     (click)="tile.revealTile()"
                     (click)="placeNumber(tile.row, tile.col)" 
                     (contextmenu)="tile.flagTile(); updateFlag()" >
+=======
+                    (click)="board.recursive_reveal(tile.row, tile.col)"
+                    (click)="tileCheck(tile.row, tile.col)"
+                    (contextmenu)="flagCheck(tile.row, tile.col)" >
+>>>>>>> ceeae3af353c7e63a97bb5377015fd3cbb80c07d
                     <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
                     <img *ngIf="!tile.isRevealed && tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/flag-mine.png" />
                     <img *ngIf="tile.isRevealed && tile.isBomb" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/mine.png" />
