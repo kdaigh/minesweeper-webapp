@@ -1,47 +1,67 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { minefield } from '../models/minefield';
 import { tile } from '../models/tile';
 =======
 import { tile } from '../models/tile';
 import { board } from '../models/board'
 >>>>>>> 103ee4d2a8dccbc4b367489c4f4de7435a22d922
+=======
+import { board } from '../models/board';
+import { tile } from '../models/tile';
+>>>>>>> c9944212e72b5bcce8a7a466f9a7c8fc4d3a9b62
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
+  styleUrls: ['./board.component.css'],
 })
 export class BoardComponent implements OnChanges {
   @Input() columnCount: number;
   @Input() rowCount: number;
   @Input() mineCount: number;
   @Input() num: number;
+  flaggedMines: number;
   flagCount;
   timerCount;
+  hasWon: boolean;
+  isGameOver: boolean;
+  revealedTiles: number;
   digitalTimer: string;
+  stopTimer: boolean;
   timerID: string;
+  isOutOfFlags = false;
   public board: board;
 
-  constructor(private st: SimpleTimer)
-  {
-    
+  constructor(private st: SimpleTimer) {
+    this.hasWon = false;
+    this.stopTimer = false;
+    this.isGameOver = false;
+    this.revealedTiles = 0;
+    this.flaggedMines = 0;
   }
 
   ngOnChanges() {
     this.newGame();
   }
 
-  newGame()
-  {
+  /**
+   * @pre 
+   */
+  newGame() {
     this.flagCount = this.mineCount; //Initialize flagCount
+    this.isGameOver = false;
+    this.hasWon = false;
+    this.revealedTiles = 0;
+    this.flaggedMines = 0;
     this.setupTimer();
     this.board = new board(this.rowCount, this.columnCount, this.mineCount);
   }
 
-  setupTimer()
-  {
+  setupTimer() {
+    this.stopTimer = false;
     this.timerCount = 0; //Reset timer count
     if (this.timerID == undefined) //If timer has not been subscribed
     {
@@ -50,8 +70,7 @@ export class BoardComponent implements OnChanges {
     }
   }
 
-  subscribeTimer()
-  {
+  subscribeTimer() {
     if (this.mineCount == 0) //Page startup
     {
       this.st.unsubscribe(this.timerID);
@@ -59,68 +78,138 @@ export class BoardComponent implements OnChanges {
     }
     else
     {
+      this.stopTimer = false;
       this.timerID = this.st.subscribe('Timer', () => this.updateTimer());
     }
   }
 
   updateTimer()
   {
-    this.timerCount++;
+    if(!this.stopTimer) {
+      this.timerCount++;
 
-    /////////////////////Update digital timer string/////////////////////
+      /////////////////////Update digital timer string/////////////////////
 
-    this.digitalTimer = ""; //Reset value
+      this.digitalTimer = ""; //Reset value
 
-    //Initializations
-    var minutes = Math.floor(this.timerCount / 60);
-    var hours = Math.floor(minutes / 60);
-    if (hours > 0)
-    {
-      minutes = minutes - hours * 60;
-    }
-    var seconds = this.timerCount % 60;
-
-    //If time has exeeded 1 hour
-    if (hours != 0)
-    {
-      this.digitalTimer += hours + ":"; //Add hours
-
-      if (minutes < 10)
+      //Initializations
+      let minutes = Math.floor(this.timerCount / 60);
+      let hours = Math.floor(minutes / 60);
+      if (hours > 0)
       {
-        this.digitalTimer += "0"; //Add minutes leading zero if needed
+        minutes = minutes - hours * 60;
       }
-      this.digitalTimer += minutes + ":"; //Add minutes
+      let seconds = this.timerCount % 60;
 
-      if (seconds < 10)
+      //If time has exeeded 1 hour
+      if (hours != 0)
       {
-        this.digitalTimer += "0"; //Add seconds leading zero if needed
-      }
-      this.digitalTimer += seconds;
-    }
+        this.digitalTimer += hours + ":"; //Add hours
 
-    //If time has not exeeded 1 hour
-    else
-    {
-      if (minutes != 0) //If time has exeeded 1 minute
-      {
-        this.digitalTimer += minutes + ":";
+        if (minutes < 10)
+        {
+          this.digitalTimer += "0"; //Add minutes leading zero if needed
+        }
+        this.digitalTimer += minutes + ":"; //Add minutes
 
         if (seconds < 10)
         {
           this.digitalTimer += "0"; //Add seconds leading zero if needed
         }
+        this.digitalTimer += seconds;
       }
-      this.digitalTimer += seconds;
+
+      //If time has not exeeded 1 hour
+      else
+      {
+        if (minutes != 0) //If time has exeeded 1 minute
+        {
+          this.digitalTimer += minutes + ":";
+
+          if (seconds < 10)
+          {
+            this.digitalTimer += "0"; //Add seconds leading zero if needed
+          }
+        }
+        this.digitalTimer += seconds;
+      }
+    }
+  }
+
+  flagCheck(row: number, col: number) {
+    if(!this.isGameOver) {
+      if(this.board.rows[row][col].isFlagged) { // flag is already placed, so remove flag and add to flag count
+        this.board.rows[row][col].isFlagged = false;
+        this.flagCount++;
+        if(this.board.rows[row][col].isBomb) {
+          this.flaggedMines--; 
+        }
+      }
+      else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0) { // place flag
+        this.board.rows[row][col].isFlagged = true;
+        this.flagCount--;
+        if(this.board.rows[row][col].isBomb) {
+          this.flaggedMines++;
+        }
+        if(this.flaggedMines === this.mineCount) { // check for win
+          this.hasWon = true;
+          this.isGameOver = true;
+          this.gameOverDialog();
+        }
+      }
+      else {
+        alert("No flags remaining, remove a flag and try again.");
+      }
+    }
+  }
+
+  tileCheck(row: number, col: number) {
+    if(!this.isGameOver) {
+      if(this.board.rows[row][col].isBomb) { // bomb was clicked, end game
+        this.board.revealMines();
+        this.isGameOver = true;
+        this.gameOverDialog();
+      }
+      else if(this.board.rows[row][col].isFlagged) { // flagged tile was clicked but wasn't a bomb
+        this.board.rows[row][col].isFlagged = false;
+        this.board.rows[row][col].isRevealed = true;
+        this.flagCount++;
+        this.revealedTiles++;
+        this.board.placeNumber(row, col);
+      }
+      else { // non-flag, non-bomb tile was clicked, reveal tile
+        this.revealedTiles++
+        this.board.rows[row][col].isRevealed = true;
+        this.board.placeNumber(row, col);
+      }
     }
   }
   
-  //Checks all conditions of the board and calculates if the game is complete.
-  isGameOver()
+  // Checks all conditions of the board and calculates if the game is complete.
+  gameOverDialog(): void {
+    this.timerCount = 0;
+    this.stopTimer = true;
+    if (this.hasWon) {
+      setTimeout(() => alert("Congratulations! You win!"), 500);
+    }
+    else {
+      setTimeout(() => alert("We all encounter failures in our lives."), 500);
+    }
+  }
+
+  // After game ends, show the user how many bombs they flagged and how long the game took
+  showGameStats(flagMineCount: number, timeCount: number)
   {
+    //Show user how many mines they flagged, how long it took them to complete
+    //Call inside gameOverDialog()
+    //Clear input boxes, return to initial page
 
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> c9944212e72b5bcce8a7a466f9a7c8fc4d3a9b62
   generate_table() {
     // get the reference for the body
     var body = document.getElementsByName("minefield")[0];
@@ -130,11 +219,19 @@ export class BoardComponent implements OnChanges {
     var tblBody = document.createElement("tbody");
    
     // creating all cells
+<<<<<<< HEAD
     for (var i = 0; i < this.boardHeight; i++) {
       // creates a table row
       var row = document.createElement("tr");
    
       for (var j = 0; j < this.boardWidth; j++) {
+=======
+    for (var i = 0; i < this.rowCount; i++) {
+      // creates a table row
+      var row = document.createElement("tr");
+   
+      for (var j = 0; j < this.columnCount; j++) {
+>>>>>>> c9944212e72b5bcce8a7a466f9a7c8fc4d3a9b62
         // Create a <td> element and a text node, make the text
         // node the contents of the <td>, and put the <td> at
         // the end of the table row
@@ -156,6 +253,9 @@ export class BoardComponent implements OnChanges {
     tbl.setAttribute("border", "2");
   }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 103ee4d2a8dccbc4b367489c4f4de7435a22d922
+=======
+>>>>>>> c9944212e72b5bcce8a7a466f9a7c8fc4d3a9b62
 }

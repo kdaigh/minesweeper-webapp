@@ -19,11 +19,17 @@
                cellpadding="0">
             <tr *ngFor="let rows of board.rows">
                 <td *ngFor="let tile of rows"
+<<<<<<< HEAD
                     (click)="tile.revealTile()"
                     (click)="board.placeNumber(tile.row, tile.col)"
                     (contextmenu)="tile.flagTile()" >
 >>>>>>> 103ee4d2a8dccbc4b367489c4f4de7435a22d922
 
+=======
+                    (click)="board.recursive_reveal(tile.row, tile.col)"
+                    (click)="tileCheck(tile.row, tile.col)"
+                    (contextmenu)="flagCheck(tile.row, tile.col)" >
+>>>>>>> c9944212e72b5bcce8a7a466f9a7c8fc4d3a9b62
                     <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
                     <img *ngIf="!tile.isRevealed && tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/flag-mine.png" />
                     <img *ngIf="tile.isRevealed && tile.isBomb" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/mine.png" />
@@ -41,5 +47,4 @@
         </table>
     </div>
 </body>
-
 
