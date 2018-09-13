@@ -23,8 +23,7 @@ export class BoardComponent implements OnChanges {
   timerID: string;
   public board: board;
 
-  constructor(private st: SimpleTimer)
-  {
+  constructor(private st: SimpleTimer) {
     this.hasWon = false;
     this.stopTimer = false;
     this.isGameOver = false;
@@ -39,8 +38,7 @@ export class BoardComponent implements OnChanges {
   /**
    * @pre 
    */
-  newGame()
-  {
+  newGame() {
     this.flagCount = this.mineCount; //Initialize flagCount
     this.isGameOver = false;
     this.hasWon = false;
@@ -50,8 +48,7 @@ export class BoardComponent implements OnChanges {
     this.board = new board(this.rowCount, this.columnCount, this.mineCount);
   }
 
-  setupTimer()
-  {
+  setupTimer() {
     this.stopTimer = false;
     this.timerCount = 0; //Reset timer count
     if (this.timerID == undefined) //If timer has not been subscribed
@@ -61,8 +58,7 @@ export class BoardComponent implements OnChanges {
     }
   }
 
-  subscribeTimer()
-  {
+  subscribeTimer() {
     if (this.mineCount == 0) //Page startup
     {
       this.st.unsubscribe(this.timerID);
@@ -85,13 +81,13 @@ export class BoardComponent implements OnChanges {
       this.digitalTimer = ""; //Reset value
 
       //Initializations
-      var minutes = Math.floor(this.timerCount / 60);
-      var hours = Math.floor(minutes / 60);
+      let minutes = Math.floor(this.timerCount / 60);
+      let hours = Math.floor(minutes / 60);
       if (hours > 0)
       {
         minutes = minutes - hours * 60;
       }
-      var seconds = this.timerCount % 60;
+      let seconds = this.timerCount % 60;
 
       //If time has exeeded 1 hour
       if (hours != 0)
@@ -137,7 +133,7 @@ export class BoardComponent implements OnChanges {
           this.flaggedMines--; 
         }
       }
-      else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0){ // place flag
+      else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0) { // place flag
         this.board.rows[row][col].isFlagged = true;
         this.flagCount--;
         if(this.board.rows[row][col].isBomb) {
@@ -150,7 +146,7 @@ export class BoardComponent implements OnChanges {
         }
       }
       else {
-        alert("No flags remaining, remove a flag and try again");
+        alert("No flags remaining, remove a flag and try again.");
       }
     }
   }

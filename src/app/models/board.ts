@@ -17,9 +17,9 @@ export class board
         this.tilesRevealed = 0;
         this.isGameOver = false;
         this.rows = [];
-        for (var i = 0; i < this.rowCount; i++) {
-        var row: tile[] = [];
-        for (var j = 0; j < this.colCount; j++) {
+        for (let i = 0; i < this.rowCount; i++) {
+        let row: tile[] = [];
+        for (let j = 0; j < this.colCount; j++) {
             row.push(new tile(i,j)); //Append new tile to row
         }
         document.addEventListener('contextmenu', event => event.preventDefault());
@@ -31,11 +31,11 @@ export class board
 
     placeMines()
     {
-      var mines_placed = 0;
+      let mines_placed = 0;
       while(mines_placed < this.mineCount)
       {
-        var mine_row = Math.floor(Math.random() * this.rowCount) + 0;
-        var mine_col = Math.floor(Math.random() * this.colCount) + 0;
+        let mine_row = Math.floor(Math.random() * this.rowCount) + 0;
+        let mine_col = Math.floor(Math.random() * this.colCount) + 0;
         if (this.rows[mine_row][mine_col].isBomb == false)
         {
           this.rows[mine_row][mine_col].isBomb = true;
