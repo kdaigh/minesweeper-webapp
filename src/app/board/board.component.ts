@@ -179,10 +179,10 @@ export class BoardComponent implements OnChanges {
     this.timerCount = 0;
     this.stopTimer = true;
     if (this.hasWon) {
-      alert("Congratulations! You win!");
+      setTimeout(() => alert("Congratulations! You win!"), 500);
     }
     else {
-      alert("We all encounter failures in our lives.");
+      setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
   }
 
