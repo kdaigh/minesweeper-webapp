@@ -18,18 +18,11 @@ export class tile {
         if (this.isRevealed === false){
             this.isRevealed = true;
         }
-<<<<<<< HEAD
-        if (this.isBomb) {
-           setTimeout(() => alert("YOU LOSE BITCH"), 500);
-        }
-    }
-=======
         // if (this.isBomb) {
         //    setTimeout(() => alert("GAME OVER"), 500);
         // }
         
         }
->>>>>>> ceeae3af353c7e63a97bb5377015fd3cbb80c07d
 
     flagTile(){
         if(this.isFlagged === false){

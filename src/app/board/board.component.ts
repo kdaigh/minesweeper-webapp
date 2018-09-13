@@ -1,12 +1,6 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
-<<<<<<< HEAD
-import { tile } from '../models/tile';
-import { board } from '../models/board';
-import { TileComponent } from '../tile/tile.component';
-=======
 import { board } from '../models/board'
->>>>>>> ceeae3af353c7e63a97bb5377015fd3cbb80c07d
 
 @Component({
   selector: 'app-board',
@@ -18,12 +12,8 @@ export class BoardComponent implements OnChanges {
   @Input() rowCount: number;
   @Input() mineCount: number;
   @Input() num: number;
-<<<<<<< HEAD
-  flagCount: number;
-=======
   flaggedMines: number;
   flagCount;
->>>>>>> ceeae3af353c7e63a97bb5377015fd3cbb80c07d
   timerCount;
   hasWon: boolean;
   isGameOver: boolean;
@@ -33,38 +23,6 @@ export class BoardComponent implements OnChanges {
   timerID: string;
   isOutOfFlags = false;
   public board: board;
-<<<<<<< HEAD
-  provider: [tile]
-  constructor(private st: SimpleTimer)
-  {
-
-    
-  }
-
-  createBoard()
-   {
-    this.board = new board();
-    
-    //Setup new board
-     for (var i = 0; i < this.rowCount; i++)
-     {
-       var row: tile[] = [];
-
-       for (var j = 0; j < this.columnCount; j++)
-       {
-          row.push(new tile(i,j)); //Append new tile to row
-       }
-       
-       this.board.rows.push(row); //Append new row to board
-     }
-     this.placeMines();
-     document.addEventListener('contextmenu', event => event.preventDefault());
-     if(this.flagCount === 0){
-       
-     }
-   }
-
-=======
 
   constructor(private st: SimpleTimer) {
     this.hasWon = false;
@@ -74,7 +32,6 @@ export class BoardComponent implements OnChanges {
     this.flaggedMines = 0;
   }
 
->>>>>>> ceeae3af353c7e63a97bb5377015fd3cbb80c07d
   ngOnChanges() {
     this.newGame();
   }
@@ -117,27 +74,8 @@ export class BoardComponent implements OnChanges {
 
   updateTimer()
   {
-<<<<<<< HEAD
-    this.timerCount++;
-  }
-
-  updateFlag(){
-    this.flagCount--;
-    if(this.flagCount === 0){
-      this.isOutOfFlags = true;
-    }
-  }
-
-
-  //returns the current tile you are on.
-  getTile()
-  {
-    return;
-  }
-=======
     if(!this.stopTimer) {
       this.timerCount++;
->>>>>>> ceeae3af353c7e63a97bb5377015fd3cbb80c07d
 
       /////////////////////Update digital timer string/////////////////////
 
@@ -214,16 +152,6 @@ export class BoardComponent implements OnChanges {
     }
   }
 
-<<<<<<< HEAD
-  boundsCheck(row: number, col: number): boolean {
-    console.log("row: " + row + "col: " + col);
-    console.log(this.flagCount);
-    if(row < 0 || row > this.rowCount-1 || col < 0 || col > this.columnCount-1) {
-      return false;
-    }
-    else {
-      return true;
-=======
   tileCheck(row: number, col: number) {
     if(!this.isGameOver) {
       if(this.board.rows[row][col].isBomb) { // bomb was clicked, end game
@@ -243,7 +171,6 @@ export class BoardComponent implements OnChanges {
         this.board.rows[row][col].isRevealed = true;
         this.board.placeNumber(row, col);
       }
->>>>>>> ceeae3af353c7e63a97bb5377015fd3cbb80c07d
     }
   }
   
