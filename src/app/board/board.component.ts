@@ -5,7 +5,7 @@ import { board } from '../models/board'
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
+  styleUrls: ['./board.component.css'],
 })
 export class BoardComponent implements OnChanges {
   @Input() columnCount: number;
@@ -21,6 +21,7 @@ export class BoardComponent implements OnChanges {
   digitalTimer: string;
   stopTimer: boolean;
   timerID: string;
+  isOutOfFlags = false;
   public board: board;
 
   constructor(private st: SimpleTimer) {
@@ -178,10 +179,10 @@ export class BoardComponent implements OnChanges {
     this.timerCount = 0;
     this.stopTimer = true;
     if (this.hasWon) {
-      alert("Congratulations! You win!");
+      setTimeout(() => alert("Congratulations! You win!"), 500);
     }
     else {
-      alert("We all encounter failures in our lives.");
+      setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
   }
 

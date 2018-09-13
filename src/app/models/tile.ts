@@ -24,8 +24,8 @@ export class tile {
         
         }
 
-    flagTile() {
-        if (this.isFlagged === false){
+    flagTile(){
+        if(this.isFlagged === false){
             this.isFlagged = true;
         }
     }
