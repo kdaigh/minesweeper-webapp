@@ -31,6 +31,7 @@ export class UserInputComponent implements OnInit {
     });
   }
 
+  
   validateForm(): void {
     var numOfRows = this.boardFormGroup.value.RowCount;
     var numOfColumns = this.boardFormGroup.value.ColumnCount;

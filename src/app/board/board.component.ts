@@ -35,6 +35,13 @@ export class BoardComponent implements OnChanges {
     this.newGame();
   }
 
+  /**
+   * Initializes properties for a new game
+   * 
+   * @pre: User input has changed
+   * 
+   * @post: flagCount, isGameOver, hasWon, revealedTiles, flaggedMines, board, and the timer component has been initalized
+   */
   newGame() {
     this.flagCount = this.mineCount; //Initialize flagCount
     this.isGameOver = false;
@@ -45,6 +52,13 @@ export class BoardComponent implements OnChanges {
     
   }
 
+  /**
+   * Resets timerCount and subscribes the timer
+   * 
+   * @pre: newGame has been called
+   * 
+   * @post: timerCount is reset and the timer is subscribed
+   */
   setupTimer() {
     this.stopTimer = false;
     this.timerCount = 0; //Reset timer count
@@ -55,8 +69,15 @@ export class BoardComponent implements OnChanges {
     }
   }
 
+  /**
+   * Unsubscribes timer on application startup, subscribes timer when called otherwise
+   * 
+   * @pre: setupTimer has been called
+   * 
+   * @post: Timer is unsubscribed on application startup, timer is subscribed otherwise
+   */
   subscribeTimer() {
-    if (this.mineCount == 0) //Page startup
+    if (this.mineCount == 0) //Application startup
     {
       this.st.unsubscribe(this.timerID);
       this.timerID = undefined;
@@ -68,6 +89,13 @@ export class BoardComponent implements OnChanges {
     }
   }
 
+  /**
+   * Iterates the timerCount, converts value to a digital clock format, updates digitalTimer
+   * 
+   * @pre: Timer has been subscribed
+   * 
+   * @post: timerCount has been iterated, digitalTimer correctly represents the time elapsed
+   */
   updateTimer()
   {
     if(!this.stopTimer) {
@@ -182,8 +210,6 @@ export class BoardComponent implements OnChanges {
     console.log(this.board.tilesRevealed);
     //this.timerCount = 0;
   }
-
-  
   
   generate_table() {
     // get the reference for the body
