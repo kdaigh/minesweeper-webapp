@@ -69,7 +69,6 @@ export class UserInputComponent implements OnInit {
       this.newBoard();
     }
   }
-
   newBoard() {
     console.log("newBoard() called");
     this.columnCount = this.boardFormGroup.value.ColumnCount;
