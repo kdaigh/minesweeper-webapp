@@ -36,13 +36,15 @@
         
 
     <div class="displayStats">
-        <tr *ngIf="isGameOver == true"></tr>
+        <tr *ngIf="is == true"></tr>
         <b>Stats</b><br>
         <p id="flaggedMines"></p>
         <p id="Timer"></p>
         <br> 
 
     </div>
+    <app-board *ngIf="board.is" [columnCount]="columnCount" [rowCount]="rowCount" [mineCount]="mineCount" [num]="num"></app-board>
+
 </body>
 
 

@@ -2,7 +2,7 @@ import { tile } from "./tile";
 
 export class board
 {
-    isGameOver: boolean;
+    public isGameOver: boolean;
     public rows: any[];
     public rowCount: number;
     public colCount: number;
