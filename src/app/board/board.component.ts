@@ -167,6 +167,7 @@ export class BoardComponent implements OnChanges {
         if(this.flaggedMines === this.mineCount) { // check for win
           this.hasWon = true;
           this.isGameOver = true;
+          this.board.isGameOver = true;
           this.gameOverDialog();
         }
       }
@@ -187,11 +188,10 @@ export class BoardComponent implements OnChanges {
         this.board.rows[row][col].isFlagged = false;
         this.board.rows[row][col].isRevealed = true;
         this.flagCount++;
-        //this.revealedTiles++;
         this.board.placeNumber(row, col);
       }
       else { // non-flag, non-bomb tile was clicked, reveal tile
-        //this.revealedTiles++
+        
         this.board.rows[row][col].isRevealed = true;
         this.board.placeNumber(row, col);
       }
@@ -207,8 +207,6 @@ export class BoardComponent implements OnChanges {
     else {
       setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
-    console.log(this.board.tilesRevealed);
-    //this.timerCount = 0;
   }
   
   generate_table() {
