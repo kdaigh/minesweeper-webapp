@@ -70,6 +70,11 @@ export class BoardComponent implements OnChanges {
     }
   }
 
+  /**
+   * Iterates the timerCount, converts value to a digital clock format, updates digitalTimer
+   * @pre: Timer has been subscribed
+   * @post: timerCount has been iterated, digitalTimer correctly represents the time elapsed
+   */
   updateTimer()
   {
     if(!this.stopTimer) {
