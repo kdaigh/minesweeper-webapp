@@ -159,13 +159,12 @@ export class board
           if (this.rows[row - 1][col - 1].adjBombs > 0) {
 
             this.rows[row - 1][col - 1].revealTile();
-
           }
           else {
             this.rows[row - 1][col - 1].revealTile();
             this.recursive_reveal(row - 1, col - 1);
-
           }
+          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row - 1, col)) { // top tile
@@ -173,6 +172,7 @@ export class board
           if (this.rows[row - 1][col].adjBombs > 0){
             
             this.rows[row - 1][col].revealTile();
+
             
           }
           else{
@@ -180,6 +180,7 @@ export class board
             this.recursive_reveal(row - 1, col);
             
           }
+          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row - 1, col + 1)) { // top right tile
@@ -187,13 +188,14 @@ export class board
           if (this.rows[row - 1][col + 1].adjBombs > 0) {
 
             this.rows[row - 1][col + 1].revealTile();
-
           }
           else {
             this.rows[row - 1][col + 1].revealTile();
             this.recursive_reveal(row - 1, col + 1);
 
           }
+          this.tilesRevealed++;
+
         }
       }
       if (this.boundsCheck(row, col - 1)) { // left tile 
@@ -206,6 +208,7 @@ export class board
             this.rows[row][col - 1].revealTile();
             this.recursive_reveal(row, col - 1);
           }
+          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row, col + 1)) { // right tile
@@ -217,6 +220,7 @@ export class board
             this.rows[row][col + 1].revealTile();
             this.recursive_reveal(row, col + 1);
           }
+          this.tilesRevealed++;
         }
       }
     if (this.boundsCheck(row + 1, col)) { // bottom tile
@@ -228,6 +232,7 @@ export class board
             this.rows[row + 1][col].revealTile();
             this.recursive_reveal(row + 1, col);
           }
+        this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row + 1, col - 1)) { // bottom left tile
@@ -241,6 +246,7 @@ export class board
             this.rows[row + 1][col - 1].revealTile();
             this.recursive_reveal(row + 1, col - 1);
           }
+          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row + 1, col + 1)) { // bottom right tile
@@ -255,6 +261,8 @@ export class board
             this.recursive_reveal(row + 1, col + 1);
 
           }
+          this.tilesRevealed++;
+
         }
       }
     }

@@ -18,7 +18,6 @@ export class BoardComponent implements OnChanges {
   timerCount: number;
   hasWon: boolean;
   isGameOver: boolean;
-  revealedTiles: number;
   digitalTimer: string;
   stopTimer: boolean;
   timerID: string;
@@ -29,7 +28,6 @@ export class BoardComponent implements OnChanges {
     this.hasWon = false;
     this.stopTimer = false;
     this.isGameOver = false;
-    this.revealedTiles = 0;
     this.flaggedMines = 0;
   }
 
@@ -41,7 +39,6 @@ export class BoardComponent implements OnChanges {
     this.flagCount = this.mineCount; //Initialize flagCount
     this.isGameOver = false;
     this.hasWon = false;
-    this.revealedTiles = 0;
     this.flaggedMines = 0;
     this.setupTimer();
     this.board = new board(this.rowCount, this.columnCount, this.mineCount);
@@ -162,11 +159,11 @@ export class BoardComponent implements OnChanges {
         this.board.rows[row][col].isFlagged = false;
         this.board.rows[row][col].isRevealed = true;
         this.flagCount++;
-        this.revealedTiles++;
+        //this.revealedTiles++;
         this.board.placeNumber(row, col);
       }
       else { // non-flag, non-bomb tile was clicked, reveal tile
-        this.revealedTiles++
+        //this.revealedTiles++
         this.board.rows[row][col].isRevealed = true;
         this.board.placeNumber(row, col);
       }
@@ -175,7 +172,6 @@ export class BoardComponent implements OnChanges {
   
   // Checks all conditions of the board and calculates if the game is complete.
   gameOverDialog(): void {
-    
     this.stopTimer = true;
     if (this.hasWon) {
       setTimeout(() => alert("Congratulations! You win!"), 500);
@@ -183,19 +179,12 @@ export class BoardComponent implements OnChanges {
     else {
       setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
-    this.showGameStats(this.flaggedMines, this.timerCount);
-    this.timerCount = 0;
+    console.log(this.board.tilesRevealed);
+    //this.timerCount = 0;
   }
 
-  // After game ends, show the user how many bombs they flagged and how long the game took
-  showGameStats(flagMineCount: number, timeCount: number)
-  {
-    var x = "Mines Flagged: " + flagMineCount.toString();
-    document.getElementById("flaggedMines").innerHTML = x;
-    var y = "Time: " + timeCount.toString();
-    document.getElementById("Timer").innerHTML = y;
-
-  }
+  
+  
   generate_table() {
     // get the reference for the body
     var body = document.getElementsByName("minefield")[0];

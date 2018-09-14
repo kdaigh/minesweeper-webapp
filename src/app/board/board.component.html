@@ -33,17 +33,12 @@
         </table>
     </div>
 
-        
-
-    <div class="displayStats">
+    <div *ngIf = "board.isGameOver"class="displayStats">
         <b>Stats</b><br>
-        <p id="flaggedMines"></p>
-        <p id="Timer"></p>
-        <br> 
-
+        <p>Mines Flagged: {{flaggedMines}}</p>
+        <p>Time: {{timerCount}} seconds</p>
+        <p>Tiles Revealed: {{board.tilesRevealed}}</p>
     </div>
-    
-
 </body>
 
 
