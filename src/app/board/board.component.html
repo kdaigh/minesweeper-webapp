@@ -19,18 +19,18 @@
                     (click)="board.recursive_reveal(tile.row, tile.col)"
                     (click)="tileCheck(tile.row, tile.col)"
                     (contextmenu)="flagCheck(tile.row, tile.col)" >
-                    <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
-                    <img *ngIf="!tile.isRevealed && tile.isFlagged" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/flag-mine.png" />
-                    <img *ngIf="tile.isRevealed && tile.isBomb" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/mine.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 0" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 1" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-1.png"/>
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 2" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-2.png"/>
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 3" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-3.png"/>
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 4" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-4.png"/>
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 5" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-5.png"/>
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 6" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-6.png"/>
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 7" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-7.png"/>
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 8" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-8.png"/>
+                    <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="../../assets/TilePictures/CoveredTile.png" />
+                    <img *ngIf="!tile.isRevealed && tile.isFlagged" src="../../assets/TilePictures/FlagTile.png" />
+                    <img *ngIf="tile.isRevealed && tile.isBomb" src="../../assets/TilePictures/MineTile.png" />
+                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 0" src="../../assets/TilePictures/UncoveredTile.png" />
+                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 1" src="../../assets/TilePictures/Numbers/One.png"/>
+                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 2" src="../../assets/TilePictures/Numbers/Two.png"/>
+                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 3" src="../../assets/TilePictures/Numbers/Three.png"/>
+                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 4" src="../../assets/TilePictures/Numbers/Four.png"/>
+                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 5" src="../../assets/TilePictures/Numbers/Five.png"/>
+                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 6" src="../../assets/TilePictures/Numbers/Six.png"/>
+                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 7" src="../../assets/TilePictures/Numbers/Seven.png"/>
+                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 8" src="../../assets/TilePictures/Numbers/Eight.png"/>
                 </td>
             </tr>
         </table>
