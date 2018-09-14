@@ -21,13 +21,14 @@ table{
 
 .displayStats{
     background-color: grey;
-    width: 150px;
+    width: 300px;
     border: 150px grey;
     padding: 5px;
     margin: auto;
     text-align: center;
+    font: bold;
 }
 
 p{
-    text-align: left;
+    text-align: center;
 }
