@@ -1,11 +1,12 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
-import { board } from '../models/board'
+import { board } from '../models/board';
+import { tile } from '../models/tile';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
+  styleUrls: ['./board.component.css'],
 })
 export class BoardComponent implements OnChanges {
   @Input() columnCount: number;
@@ -21,10 +22,10 @@ export class BoardComponent implements OnChanges {
   digitalTimer: string;
   stopTimer: boolean;
   timerID: string;
+  isOutOfFlags = false;
   public board: board;
 
-  constructor(private st: SimpleTimer)
-  {
+  constructor(private st: SimpleTimer) {
     this.hasWon = false;
     this.stopTimer = false;
     this.isGameOver = false;
@@ -35,9 +36,8 @@ export class BoardComponent implements OnChanges {
   ngOnChanges() {
     this.newGame();
   }
-  
-  newGame()
-  {
+
+  newGame() {
     this.flagCount = this.mineCount; //Initialize flagCount
     this.isGameOver = false;
     this.hasWon = false;
@@ -47,8 +47,7 @@ export class BoardComponent implements OnChanges {
     this.board = new board(this.rowCount, this.columnCount, this.mineCount);
   }
 
-  setupTimer()
-  {
+  setupTimer() {
     this.stopTimer = false;
     this.timerCount = 0; //Reset timer count
     if (this.timerID == undefined) //If timer has not been subscribed
@@ -58,8 +57,7 @@ export class BoardComponent implements OnChanges {
     }
   }
 
-  subscribeTimer()
-  {
+  subscribeTimer() {
     if (this.mineCount == 0) //Page startup
     {
       this.st.unsubscribe(this.timerID);
@@ -82,13 +80,13 @@ export class BoardComponent implements OnChanges {
       this.digitalTimer = ""; //Reset value
 
       //Initializations
-      var minutes = Math.floor(this.timerCount / 60);
-      var hours = Math.floor(minutes / 60);
+      let minutes = Math.floor(this.timerCount / 60);
+      let hours = Math.floor(minutes / 60);
       if (hours > 0)
       {
         minutes = minutes - hours * 60;
       }
-      var seconds = this.timerCount % 60;
+      let seconds = this.timerCount % 60;
 
       //If time has exeeded 1 hour
       if (hours != 0)
@@ -134,7 +132,7 @@ export class BoardComponent implements OnChanges {
           this.flaggedMines--; 
         }
       }
-      else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0){ // place flag
+      else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0 && !this.board.rows[row][col].isRevealed) { // place flag
         this.board.rows[row][col].isFlagged = true;
         this.flagCount--;
         if(this.board.rows[row][col].isBomb) {
@@ -146,8 +144,8 @@ export class BoardComponent implements OnChanges {
           this.gameOverDialog();
         }
       }
-      else {
-        alert("No flags remaining, remove a flag and try again");
+      else if (this.flagCount === 0 && !this.board.rows[row][col].isRevealed) {
+        alert("No flags remaining, remove a flag and try again.");
       }
     }
   }
@@ -179,10 +177,10 @@ export class BoardComponent implements OnChanges {
     this.timerCount = 0;
     this.stopTimer = true;
     if (this.hasWon) {
-      alert("Congratulations! You win!");
+      setTimeout(() => alert("Congratulations! You win!"), 500);
     }
     else {
-      alert("We all encounter failures in our lives.");
+      setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
   }
 
@@ -194,4 +192,39 @@ export class BoardComponent implements OnChanges {
     //Clear input boxes, return to initial page
 
   }
+  generate_table() {
+    // get the reference for the body
+    var body = document.getElementsByName("minefield")[0];
+   
+    // creates a <table> element and a <tbody> element
+    var tbl = document.createElement("table");
+    var tblBody = document.createElement("tbody");
+   
+    // creating all cells
+    for (var i = 0; i < this.rowCount; i++) {
+      // creates a table row
+      var row = document.createElement("tr");
+   
+      for (var j = 0; j < this.columnCount; j++) {
+        // Create a <td> element and a text node, make the text
+        // node the contents of the <td>, and put the <td> at
+        // the end of the table row
+        var cell = document.createElement("td");
+        var obj = document.createElement("tileObj");
+        cell.appendChild(obj);
+        row.appendChild(cell);
+      }
+   
+      // add the row to the end of the table body
+      tblBody.appendChild(row);
+    }
+   
+    // put the <tbody> in the <table>
+    tbl.appendChild(tblBody);
+    // appends <table> into <body>
+    body.appendChild(tbl);
+    // sets the border attribute of tbl to 2;
+    tbl.setAttribute("border", "2");
+  }
+
 }

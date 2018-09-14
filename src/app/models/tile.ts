@@ -22,12 +22,8 @@ export class tile {
             this.isRevealed = true;
         }
     }
-    /**
-     * @pre There must be a board in existence
-     * @post Flags a tile if it is not already flagged
-     */
-    flagTile() {
-        if (this.isFlagged === false){
+    flagTile(){
+        if(this.isFlagged === false){
             this.isFlagged = true;
         }
     }
