@@ -155,7 +155,7 @@ export class board
     if (!(this.rows[row][col].adjBombs > 0) && !this.isGameOver)
     {
       if (this.boundsCheck(row - 1, col - 1)) { // top left tile
-        if (!this.rows[row - 1][col - 1].isBomb && !this.rows[row - 1][col - 1].isRevealed) {
+        if (!this.rows[row - 1][col - 1].isBomb && !this.rows[row - 1][col - 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row - 1][col - 1].adjBombs > 0) {
 
             this.rows[row - 1][col - 1].revealTile();
@@ -169,7 +169,7 @@ export class board
         }
       }
       if (this.boundsCheck(row - 1, col)) { // top tile
-        if (!this.rows[row - 1][col].isBomb && !this.rows[row - 1][col].isRevealed) {
+        if (!this.rows[row - 1][col].isBomb && !this.rows[row - 1][col].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row - 1][col].adjBombs > 0){
             
             this.rows[row - 1][col].revealTile();
@@ -183,7 +183,7 @@ export class board
         }
       }
       if (this.boundsCheck(row - 1, col + 1)) { // top right tile
-        if (!this.rows[row - 1][col + 1].isBomb && !this.rows[row - 1][col + 1].isRevealed) {
+        if (!this.rows[row - 1][col + 1].isBomb && !this.rows[row - 1][col + 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row - 1][col + 1].adjBombs > 0) {
 
             this.rows[row - 1][col + 1].revealTile();
@@ -197,7 +197,7 @@ export class board
         }
       }
       if (this.boundsCheck(row, col - 1)) { // left tile 
-        if (!this.rows[row][col - 1].isBomb && !this.rows[row][col - 1].isRevealed){
+        if (!this.rows[row][col - 1].isBomb && !this.rows[row][col - 1].isRevealed && !this.rows[row][col].isFlagged){
           if (this.rows[row][col - 1].adjBombs > 0) {
             this.rows[row][col - 1].revealTile();
             
@@ -209,7 +209,7 @@ export class board
         }
       }
       if (this.boundsCheck(row, col + 1)) { // right tile
-        if (!this.rows[row][col + 1].isBomb && !this.rows[row][col + 1].isRevealed) {
+        if (!this.rows[row][col + 1].isBomb && !this.rows[row][col + 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row][col + 1].adjBombs > 0) {
             this.rows[row][col + 1].revealTile();
           }
@@ -220,7 +220,7 @@ export class board
         }
       }
     if (this.boundsCheck(row + 1, col)) { // bottom tile
-        if (!this.rows[row + 1][col].isBomb && !this.rows[row + 1][col].isRevealed) {
+      if (!this.rows[row + 1][col].isBomb && !this.rows[row + 1][col].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row + 1][col].adjBombs > 0) {
             this.rows[row + 1][col].revealTile();
           }
@@ -231,7 +231,7 @@ export class board
         }
       }
       if (this.boundsCheck(row + 1, col - 1)) { // bottom left tile
-        if (!this.rows[row + 1][col - 1].isBomb && !this.rows[row + 1][col - 1].isRevealed) {
+        if (!this.rows[row + 1][col - 1].isBomb && !this.rows[row + 1][col - 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row + 1][col - 1].adjBombs > 0) {
 
             this.rows[row + 1][col - 1].revealTile();
@@ -244,7 +244,7 @@ export class board
         }
       }
       if (this.boundsCheck(row + 1, col + 1)) { // bottom right tile
-        if (!this.rows[row + 1][col + 1].isBomb && !this.rows[row + 1][col + 1].isRevealed) {
+        if (!this.rows[row + 1][col + 1].isBomb && !this.rows[row + 1][col + 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row + 1][col + 1].adjBombs > 0) {
 
             this.rows[row + 1][col + 1].revealTile();
