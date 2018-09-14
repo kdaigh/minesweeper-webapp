@@ -22,13 +22,17 @@ export class board
         for (let j = 0; j < this.colCount; j++) {
             row.push(new tile(i,j)); //Append new tile to row
         }
-        document.addEventListener('contextmenu', event => event.preventDefault());
+        
         this.rows.push(row); //Append new row to board
 
      }
     this.placeMines();
+    document.addEventListener('contextmenu', event => event.preventDefault());
     }
-
+    /**
+     * @pre There must be a board in existence
+     * @post Places the user-defined number of mines 
+     */
     placeMines()
     {
       let mines_placed = 0;
@@ -43,7 +47,12 @@ export class board
         }
       }
     }
-    //Calculate what number to put in the tile.
+  /**
+   * @pre There must be a board in existence
+   * @param row The row of the tile that was clicked
+   * @param col The column of the tile that was clicked
+   * @post Calculates adjacent bombs to any given tile and places numbers accordingly
+   */
   placeNumber(row: number, col: number): void
   {
     let bombCount = 0;
@@ -90,7 +99,12 @@ export class board
     }
     this.rows[row][col].adjBombs = bombCount;
   }
-
+  /**
+   * @pre There must be a board in existence
+   * @param row The row of the coordinate to be checked
+   * @param col The column of the coordinate to be checked
+   * @post Checks if a coordinate is within the bounds of the board
+   */
   boundsCheck(row, col): boolean {
     console.log("row: " + row + "col: " + col);
     if(row < 0 || row > this.rowCount-1 || col < 0 || col > this.colCount-1) {
@@ -100,7 +114,12 @@ export class board
       return true;
     }
   }
-
+  /**
+   * @pre There must be a board in existence
+   * @param row The row of the coordinate to be checked
+   * @param col The column of the coordinate to be checked
+   * @post Checks if there is a bomb at the given coordinate
+   */
   bombCheck(row: number, col: number): boolean {
     if (this.rows[row][col].isBomb) {
       return true
@@ -109,7 +128,10 @@ export class board
       return false;
     }
   }
- 
+  /**
+   * @pre There must be a board in existence
+   * @post If the user hits a bomb and ends the game, reveals all the mines
+   */
   revealMines() {
       for(let i = 0; i < this.rowCount; i++) {
           for(let j = 0; j < this.colCount; j++) {
@@ -120,14 +142,20 @@ export class board
           }
       }
   }
-
+  /**
+   * @pre There must be a board in existence
+   * @param row The row of the clicked tile
+   * @param col The column of the clicked tile
+   * @post When a tile is clicked, tiles fanning out from the clicked tile are revealed.
+   * If the function hits a number in any direction, the revealing ceases.
+   */
   recursive_reveal(row: number, col: number) : void
   {
     this.placeNumber(row, col);
     if (!(this.rows[row][col].adjBombs > 0) && !this.isGameOver)
     {
       if (this.boundsCheck(row - 1, col - 1)) { // top left tile
-        if (!this.rows[row - 1][col - 1].isBomb && !this.rows[row - 1][col - 1].isRevealed) {
+        if (!this.rows[row - 1][col - 1].isBomb && !this.rows[row - 1][col - 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row - 1][col - 1].adjBombs > 0) {
 
             this.rows[row - 1][col - 1].revealTile();
@@ -141,7 +169,7 @@ export class board
         }
       }
       if (this.boundsCheck(row - 1, col)) { // top tile
-        if (!this.rows[row - 1][col].isBomb && !this.rows[row - 1][col].isRevealed) {
+        if (!this.rows[row - 1][col].isBomb && !this.rows[row - 1][col].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row - 1][col].adjBombs > 0){
             
             this.rows[row - 1][col].revealTile();
@@ -155,7 +183,7 @@ export class board
         }
       }
       if (this.boundsCheck(row - 1, col + 1)) { // top right tile
-        if (!this.rows[row - 1][col + 1].isBomb && !this.rows[row - 1][col + 1].isRevealed) {
+        if (!this.rows[row - 1][col + 1].isBomb && !this.rows[row - 1][col + 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row - 1][col + 1].adjBombs > 0) {
 
             this.rows[row - 1][col + 1].revealTile();
@@ -169,7 +197,7 @@ export class board
         }
       }
       if (this.boundsCheck(row, col - 1)) { // left tile 
-        if (!this.rows[row][col - 1].isBomb && !this.rows[row][col - 1].isRevealed){
+        if (!this.rows[row][col - 1].isBomb && !this.rows[row][col - 1].isRevealed && !this.rows[row][col].isFlagged){
           if (this.rows[row][col - 1].adjBombs > 0) {
             this.rows[row][col - 1].revealTile();
             
@@ -181,7 +209,7 @@ export class board
         }
       }
       if (this.boundsCheck(row, col + 1)) { // right tile
-        if (!this.rows[row][col + 1].isBomb && !this.rows[row][col + 1].isRevealed) {
+        if (!this.rows[row][col + 1].isBomb && !this.rows[row][col + 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row][col + 1].adjBombs > 0) {
             this.rows[row][col + 1].revealTile();
           }
@@ -192,7 +220,7 @@ export class board
         }
       }
     if (this.boundsCheck(row + 1, col)) { // bottom tile
-        if (!this.rows[row + 1][col].isBomb && !this.rows[row + 1][col].isRevealed) {
+      if (!this.rows[row + 1][col].isBomb && !this.rows[row + 1][col].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row + 1][col].adjBombs > 0) {
             this.rows[row + 1][col].revealTile();
           }
@@ -203,7 +231,7 @@ export class board
         }
       }
       if (this.boundsCheck(row + 1, col - 1)) { // bottom left tile
-        if (!this.rows[row + 1][col - 1].isBomb && !this.rows[row + 1][col - 1].isRevealed) {
+        if (!this.rows[row + 1][col - 1].isBomb && !this.rows[row + 1][col - 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row + 1][col - 1].adjBombs > 0) {
 
             this.rows[row + 1][col - 1].revealTile();
@@ -216,7 +244,7 @@ export class board
         }
       }
       if (this.boundsCheck(row + 1, col + 1)) { // bottom right tile
-        if (!this.rows[row + 1][col + 1].isBomb && !this.rows[row + 1][col + 1].isRevealed) {
+        if (!this.rows[row + 1][col + 1].isBomb && !this.rows[row + 1][col + 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row + 1][col + 1].adjBombs > 0) {
 
             this.rows[row + 1][col + 1].revealTile();
