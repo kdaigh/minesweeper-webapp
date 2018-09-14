@@ -18,7 +18,7 @@ export class tile {
      * @post Reveals the tile if it is not already revealed
      */
     revealTile() {
-        if (this.isRevealed === false){
+        if (this.isRevealed === false && !this.isFlagged){
             this.isRevealed = true;
         }
     }
