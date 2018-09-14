@@ -14,14 +14,24 @@ export class tile {
         this.adjBombs = 0;
     }
     /**
+     * Reveals the clicked on tile and updates the tile's member variables and image
+     * 
      * @pre There must be a board in existence
-     * @post Reveals the tile if it is not already revealed
+     * 
+     * @post Reveals the tile if it is not already revealed, changes member variables accordingly
      */
     revealTile() {
         if (this.isRevealed === false && !this.isFlagged){
             this.isRevealed = true;
         }
     }
+    /**
+     * Flags the clicked(right click) on tile and updates the tile's image
+     * 
+     * @pre There must be a board in existence
+     * 
+     * @post Changes member variables and the image of the tile 
+     */
     flagTile(){
         if(this.isFlagged === false){
             this.isFlagged = true;
