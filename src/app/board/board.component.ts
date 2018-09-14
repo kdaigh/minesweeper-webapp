@@ -37,9 +37,6 @@ export class BoardComponent implements OnChanges {
     this.newGame();
   }
 
-  /**
-   * @pre 
-   */
   newGame() {
     this.flagCount = this.mineCount; //Initialize flagCount
     this.isGameOver = false;
