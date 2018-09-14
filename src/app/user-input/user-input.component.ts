@@ -63,12 +63,17 @@ export class UserInputComponent implements OnInit {
       {
         alert('Bomb count must be less than total number of cells and at least 1.');
       }
+      else if (cellCount > 2499)
+      {
+        alert('Cell count cannot exceed 2500');
+      }
     }
     else
     {
       this.newBoard();
     }
   }
+
   newBoard() {
     console.log("newBoard() called");
     this.columnCount = this.boardFormGroup.value.ColumnCount;
