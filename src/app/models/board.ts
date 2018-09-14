@@ -22,11 +22,12 @@ export class board
         for (let j = 0; j < this.colCount; j++) {
             row.push(new tile(i,j)); //Append new tile to row
         }
-        document.addEventListener('contextmenu', event => event.preventDefault());
+        
         this.rows.push(row); //Append new row to board
 
      }
     this.placeMines();
+    document.addEventListener('contextmenu', event => event.preventDefault());
     }
     /**
      * @pre There must be a board in existence
