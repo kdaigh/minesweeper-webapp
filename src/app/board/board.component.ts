@@ -15,7 +15,7 @@ export class BoardComponent implements OnChanges {
   @Input() num: number;
   flaggedMines: number;
   flagCount;
-  timerCount;
+  timerCount: number;
   hasWon: boolean;
   isGameOver: boolean;
   revealedTiles: number;
@@ -52,6 +52,7 @@ export class BoardComponent implements OnChanges {
     this.flaggedMines = 0;
     this.setupTimer();
     this.board = new board(this.rowCount, this.columnCount, this.mineCount);
+    
   }
 
   /**
@@ -202,7 +203,7 @@ export class BoardComponent implements OnChanges {
   
   // Checks all conditions of the board and calculates if the game is complete.
   gameOverDialog(): void {
-    this.timerCount = 0;
+    
     this.stopTimer = true;
     if (this.hasWon) {
       setTimeout(() => alert("Congratulations! You win!"), 500);
@@ -210,14 +211,17 @@ export class BoardComponent implements OnChanges {
     else {
       setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
+    this.showGameStats(this.flaggedMines, this.timerCount);
+    this.timerCount = 0;
   }
 
   // After game ends, show the user how many bombs they flagged and how long the game took
   showGameStats(flagMineCount: number, timeCount: number)
   {
-    //Show user how many mines they flagged, how long it took them to complete
-    //Call inside gameOverDialog()
-    //Clear input boxes, return to initial page
+    var x = "Mines Flagged: " + flagMineCount.toString();
+    document.getElementById("flaggedMines").innerHTML = x;
+    var y = "Time: " + timeCount.toString();
+    document.getElementById("Timer").innerHTML = y;
 
   }
   
