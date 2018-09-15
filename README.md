@@ -28,6 +28,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Works Cited
 
+## Favicon
+https://fontawesome.com/icons/bomb?style=solid
+
 ## Timer
 https://www.npmjs.com/package/ng2-simple-timer
 
