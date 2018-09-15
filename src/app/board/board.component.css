@@ -18,3 +18,17 @@ table{
     line-height: 0px;
     padding-bottom: 10px;
 }
+
+.displayStats{
+    background-color: grey;
+    width: 300px;
+    border: 150px grey;
+    padding: 5px;
+    margin: auto;
+    text-align: center;
+    font: bold;
+}
+
+p{
+    text-align: center;
+}

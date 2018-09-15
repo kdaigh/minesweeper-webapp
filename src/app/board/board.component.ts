@@ -15,10 +15,9 @@ export class BoardComponent implements OnChanges {
   @Input() num: number;
   flaggedMines: number;
   flagCount;
-  timerCount;
+  timerCount: number;
   hasWon: boolean;
   isGameOver: boolean;
-  revealedTiles: number;
   digitalTimer: string;
   stopTimer: boolean;
   timerID: string;
@@ -29,7 +28,6 @@ export class BoardComponent implements OnChanges {
     this.hasWon = false;
     this.stopTimer = false;
     this.isGameOver = false;
-    this.revealedTiles = 0;
     this.flaggedMines = 0;
   }
 
@@ -48,10 +46,10 @@ export class BoardComponent implements OnChanges {
     this.flagCount = this.mineCount; //Initialize flagCount
     this.isGameOver = false;
     this.hasWon = false;
-    this.revealedTiles = 0;
     this.flaggedMines = 0;
     this.setupTimer();
     this.board = new board(this.rowCount, this.columnCount, this.mineCount);
+    
   }
 
   /**
@@ -169,6 +167,7 @@ export class BoardComponent implements OnChanges {
         if(this.flaggedMines === this.mineCount) { // check for win
           this.hasWon = true;
           this.isGameOver = true;
+          this.board.isGameOver = true;
           this.gameOverDialog();
         }
       }
@@ -189,11 +188,10 @@ export class BoardComponent implements OnChanges {
         this.board.rows[row][col].isFlagged = false;
         this.board.rows[row][col].isRevealed = true;
         this.flagCount++;
-        this.revealedTiles++;
         this.board.placeNumber(row, col);
       }
       else { // non-flag, non-bomb tile was clicked, reveal tile
-        this.revealedTiles++
+        
         this.board.rows[row][col].isRevealed = true;
         this.board.placeNumber(row, col);
       }
@@ -202,7 +200,6 @@ export class BoardComponent implements OnChanges {
   
   // Checks all conditions of the board and calculates if the game is complete.
   gameOverDialog(): void {
-    this.timerCount = 0;
     this.stopTimer = true;
     if (this.hasWon) {
       setTimeout(() => alert("Congratulations! You win!"), 500);
@@ -210,15 +207,6 @@ export class BoardComponent implements OnChanges {
     else {
       setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
-  }
-
-  // After game ends, show the user how many bombs they flagged and how long the game took
-  showGameStats(flagMineCount: number, timeCount: number)
-  {
-    //Show user how many mines they flagged, how long it took them to complete
-    //Call inside gameOverDialog()
-    //Clear input boxes, return to initial page
-
   }
   
   generate_table() {

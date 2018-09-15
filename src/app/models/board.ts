@@ -2,7 +2,7 @@ import { tile } from "./tile";
 
 export class board
 {
-    isGameOver: boolean;
+    public isGameOver: boolean;
     public rows: any[];
     public rowCount: number;
     public colCount: number;
@@ -30,7 +30,10 @@ export class board
     document.addEventListener('contextmenu', event => event.preventDefault());
     }
     /**
+     * Given the number of mines the user wanted, places mines at random coordinates
+     * 
      * @pre There must be a board in existence
+     *
      * @post Places the user-defined number of mines 
      */
     placeMines()
@@ -48,9 +51,14 @@ export class board
       }
     }
   /**
+   * Calculates what number to place in every tile, then places the correct number according to how many bombs are adjacent to that tile
+   * 
    * @pre There must be a board in existence
+   * 
    * @param row The row of the tile that was clicked
+   * 
    * @param col The column of the tile that was clicked
+   * 
    * @post Calculates adjacent bombs to any given tile and places numbers accordingly
    */
   placeNumber(row: number, col: number): void
@@ -100,10 +108,15 @@ export class board
     this.rows[row][col].adjBombs = bombCount;
   }
   /**
+   * For a given tile at coordinates (row, col), checks if the tile is within the bounds of the board
+   * 
    * @pre There must be a board in existence
+   * 
    * @param row The row of the coordinate to be checked
+   * 
    * @param col The column of the coordinate to be checked
-   * @post Checks if a coordinate is within the bounds of the board
+   * 
+   * @post Returns true if the tile is within the bounds of the board, returns false otherwise
    */
   boundsCheck(row, col): boolean {
     console.log("row: " + row + "col: " + col);
@@ -115,9 +128,14 @@ export class board
     }
   }
   /**
+   * For a given tile at coordinates (row, col), checks if the tile is a bomb
+   * 
    * @pre There must be a board in existence
+   * 
    * @param row The row of the coordinate to be checked
+   * 
    * @param col The column of the coordinate to be checked
+   * 
    * @post Checks if there is a bomb at the given coordinate
    */
   bombCheck(row: number, col: number): boolean {
@@ -129,7 +147,10 @@ export class board
     }
   }
   /**
+   * After the user hits a bomb and the game ends, all of the mines are revealed.
+   * 
    * @pre There must be a board in existence
+   * 
    * @post If the user hits a bomb and ends the game, reveals all the mines
    */
   revealMines() {
@@ -143,9 +164,16 @@ export class board
       }
   }
   /**
+   * Clicking on a tile calls the recursive reveal function, the function then reveals tiles
+   * fanning out in every direction if they are empty or contain a number. Once the function 
+   * reaches a numbered tile, the recursion stops.
+   * 
    * @pre There must be a board in existence
+   * 
    * @param row The row of the clicked tile
+   * 
    * @param col The column of the clicked tile
+   * 
    * @post When a tile is clicked, tiles fanning out from the clicked tile are revealed.
    * If the function hits a number in any direction, the revealing ceases.
    */
@@ -159,13 +187,12 @@ export class board
           if (this.rows[row - 1][col - 1].adjBombs > 0) {
 
             this.rows[row - 1][col - 1].revealTile();
-
           }
           else {
             this.rows[row - 1][col - 1].revealTile();
             this.recursive_reveal(row - 1, col - 1);
-
           }
+          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row - 1, col)) { // top tile
@@ -173,6 +200,7 @@ export class board
           if (this.rows[row - 1][col].adjBombs > 0){
             
             this.rows[row - 1][col].revealTile();
+
             
           }
           else{
@@ -180,6 +208,7 @@ export class board
             this.recursive_reveal(row - 1, col);
             
           }
+          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row - 1, col + 1)) { // top right tile
@@ -187,13 +216,14 @@ export class board
           if (this.rows[row - 1][col + 1].adjBombs > 0) {
 
             this.rows[row - 1][col + 1].revealTile();
-
           }
           else {
             this.rows[row - 1][col + 1].revealTile();
             this.recursive_reveal(row - 1, col + 1);
 
           }
+          this.tilesRevealed++;
+
         }
       }
       if (this.boundsCheck(row, col - 1)) { // left tile 
@@ -206,6 +236,7 @@ export class board
             this.rows[row][col - 1].revealTile();
             this.recursive_reveal(row, col - 1);
           }
+          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row, col + 1)) { // right tile
@@ -217,6 +248,7 @@ export class board
             this.rows[row][col + 1].revealTile();
             this.recursive_reveal(row, col + 1);
           }
+          this.tilesRevealed++;
         }
       }
     if (this.boundsCheck(row + 1, col)) { // bottom tile
@@ -228,6 +260,7 @@ export class board
             this.rows[row + 1][col].revealTile();
             this.recursive_reveal(row + 1, col);
           }
+        this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row + 1, col - 1)) { // bottom left tile
@@ -241,6 +274,7 @@ export class board
             this.rows[row + 1][col - 1].revealTile();
             this.recursive_reveal(row + 1, col - 1);
           }
+          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row + 1, col + 1)) { // bottom right tile
@@ -255,6 +289,8 @@ export class board
             this.recursive_reveal(row + 1, col + 1);
 
           }
+          this.tilesRevealed++;
+
         }
       }
     }
