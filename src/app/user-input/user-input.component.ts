@@ -25,8 +25,8 @@ export class UserInputComponent implements OnInit {
 
   createForm(): void {
     this.boardFormGroup = this.formBuilder.group({
-      ColumnCount: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
-      RowCount: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
+      ColumnCount: ['', Validators.compose([Validators.min(2), Validators.max(30), Validators.required, Validators.pattern('^\\d+$')])],
+      RowCount: ['', Validators.compose([Validators.min(2), Validators.max(30), Validators.required, Validators.pattern('^\\d+$')])],
       MineCount: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
     });
   }
@@ -48,24 +48,20 @@ export class UserInputComponent implements OnInit {
 
     if (!isValid)
     {
-      const isDimensionValid: boolean = numOfRows >= 2 && numOfColumns >= 2 && numOfRows <=30 && numOfColumns <= 30;
+      const isDimensionValid: boolean = numOfRows >= 2 && numOfColumns >= 2 && numOfRows <= 30 && numOfColumns < 30;
       const isBombCountValid: boolean = bombCount >= 1 && bombCount < cellCount;
 
       if (!isDimensionValid && !isBombCountValid)
       {
-        alert('Board dimensions must be at least 2x2.\nBomb count must be less than total number of cells and at least 1.');
+        alert('Board dimensions must be at least 2x2 and less than 30x30.\nBomb count must be less than total number of cells and at least 1.');
       }
       else if (!isDimensionValid)
       {
-        alert('Board dimensions must be at least 2x2.');
+        alert('Board dimensions must be at least 2x2 and less than 30x30.');
       }
       else if (!isBombCountValid)
       {
         alert('Bomb count must be less than total number of cells and at least 1.');
-      }
-      else if (cellCount > 2499)
-      {
-        alert('Cell count cannot exceed 2500');
       }
     }
     else
