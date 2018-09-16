@@ -243,5 +243,4 @@ export class BoardComponent implements OnChanges {
     // sets the border attribute of tbl to 2;
     tbl.setAttribute("border", "2");
   }
-
 }

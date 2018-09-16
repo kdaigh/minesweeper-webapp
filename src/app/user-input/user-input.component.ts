@@ -48,7 +48,7 @@ export class UserInputComponent implements OnInit {
 
     if (!isValid)
     {
-      const isDimensionValid: boolean = numOfRows >= 2 && numOfColumns >= 2;
+      const isDimensionValid: boolean = numOfRows >= 2 && numOfColumns >= 2 && numOfRows <=30 && numOfColumns <= 30;
       const isBombCountValid: boolean = bombCount >= 1 && bombCount < cellCount;
 
       if (!isDimensionValid && !isBombCountValid)
