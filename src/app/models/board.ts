@@ -187,7 +187,7 @@ export class board
    * @param col The column of the clicked tile
    * 
    * @post When a tile is clicked, tiles fanning out from the clicked tile are revealed.
-   * If the function hits a number in any direction, the revealing ceases.
+   * If the function hits a number in any direction, the revealing/recursion ceases.
    */
   recursive_reveal(row: number, col: number) : void
   {
