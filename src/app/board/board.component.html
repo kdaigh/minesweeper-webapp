@@ -1,5 +1,5 @@
 <body>
-    <hr width="420px">
+    <hr width="275px">
 
     <div class="inputDiv">
         Timer<br>
@@ -14,7 +14,7 @@
     <div>
         <table cellspacing="0" cellpadding="0">
             <tr *ngFor="let rows of board.rows">
-                <td *ngFor="let tile of rows" (click)="board.recursive_reveal(tile.row, tile.col)" (click)="tileCheck(tile.row, tile.col)"
+                <td *ngFor="let tile of rows" (click)="tileCheck(tile.row, tile.col)"
                     (contextmenu)="flagCheck(tile.row, tile.col)">
                     <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="../../assets/TilePictures/CoveredTile.png" />
                     <img *ngIf="!tile.isRevealed && tile.isFlagged" src="../../assets/TilePictures/FlagTile.png" />
@@ -36,9 +36,8 @@
     <div *ngIf = "board.isGameOver"class="displayStats">
         <b>Stats<br>
         <p>Mines Flagged: {{flaggedMines}}</p>
-        <p>Time: {{timerCount}} seconds</p>
+        <p>Time: {{digitalTimer}}</p>
         <p>Tiles Revealed: {{board.tilesRevealed}}</p></b>
     </div>
 </body>
-
 

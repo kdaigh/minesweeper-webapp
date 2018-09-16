@@ -28,6 +28,8 @@ export class board
     this.placeMines();
     document.addEventListener('contextmenu', event => event.preventDefault());
     }
+
+    
     /**
      * Given the number of mines the user wanted, places mines at random coordinates
      * 
@@ -49,6 +51,8 @@ export class board
         }
       }
     }
+
+
   /**
    * Calculates what number to place in every tile, then places the correct number according to how many bombs are adjacent to that tile
    * 
@@ -106,6 +110,8 @@ export class board
     }
     this.rows[row][col].adjBombs = bombCount;
   }
+
+
   /**
    * For a given tile at coordinates (row, col), checks if the tile is within the bounds of the board
    * 
@@ -126,6 +132,8 @@ export class board
       return true;
     }
   }
+
+
   /**
    * For a given tile at coordinates (row, col), checks if the tile is a bomb
    * 
@@ -145,6 +153,8 @@ export class board
       return false;
     }
   }
+
+
   /**
    * After the user hits a bomb and the game ends, all of the mines are revealed.
    * 
@@ -162,6 +172,8 @@ export class board
           }
       }
   }
+
+
   /**
    * Clicking on a tile calls the recursive reveal function, the function then reveals tiles
    * fanning out in every direction if they are empty or contain a number. Once the function 
@@ -174,7 +186,7 @@ export class board
    * @param col The column of the clicked tile
    * 
    * @post When a tile is clicked, tiles fanning out from the clicked tile are revealed.
-   * If the function hits a number in any direction, the revealing ceases.
+   * If the function hits a number in any direction, the revealing/recursion ceases.
    */
   recursive_reveal(row: number, col: number) : void
   {

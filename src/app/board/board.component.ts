@@ -1,7 +1,6 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { board } from '../models/board';
-import { tile } from '../models/tile';
 
 @Component({
   selector: 'app-board',
@@ -189,12 +188,11 @@ export class BoardComponent implements OnChanges {
         this.board.rows[row][col].isFlagged = false;
         this.board.rows[row][col].isRevealed = true;
         this.flagCount++;
-        this.board.placeNumber(row, col);
+        this.board.recursive_reveal(row, col);
       }
       else { // non-flag, non-bomb tile was clicked, reveal tile
-        
         this.board.rows[row][col].isRevealed = true;
-        this.board.placeNumber(row, col);
+        this.board.recursive_reveal(row, col);
       }
     }
   }
@@ -209,7 +207,6 @@ export class BoardComponent implements OnChanges {
       setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
   }
-  
   generate_table() {
     // get the reference for the body
     var body = document.getElementsByName("minefield")[0];
@@ -244,5 +241,4 @@ export class BoardComponent implements OnChanges {
     // sets the border attribute of tbl to 2;
     tbl.setAttribute("border", "2");
   }
-
 }
