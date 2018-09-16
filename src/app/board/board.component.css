@@ -21,12 +21,11 @@ table{
 
 .displayStats{
     background-color: grey;
-    width: 300px;
+    width: 250px;
     border: 150px grey;
     padding: 5px;
     margin: auto;
     text-align: center;
-    font: bold;
 }
 
 p{
