@@ -14,7 +14,6 @@ export class board
         this.rowCount = rows;
         this.colCount = cols;
         this.mineCount = mines;
-        this.tilesRevealed = 0;
         this.isGameOver = false;
         this.rows = [];
         for (let i = 0; i < this.rowCount; i++) {
@@ -200,7 +199,6 @@ export class board
           if (this.rows[row - 1][col].adjBombs > 0){
             
             this.rows[row - 1][col].revealTile();
-
             
           }
           else{
@@ -216,24 +214,27 @@ export class board
           if (this.rows[row - 1][col + 1].adjBombs > 0) {
 
             this.rows[row - 1][col + 1].revealTile();
+
           }
           else {
             this.rows[row - 1][col + 1].revealTile();
+
             this.recursive_reveal(row - 1, col + 1);
 
           }
           this.tilesRevealed++;
-
         }
       }
       if (this.boundsCheck(row, col - 1)) { // left tile 
         if (!this.rows[row][col - 1].isBomb && !this.rows[row][col - 1].isRevealed && !this.rows[row][col].isFlagged){
           if (this.rows[row][col - 1].adjBombs > 0) {
             this.rows[row][col - 1].revealTile();
+   
             
           }
           else {
             this.rows[row][col - 1].revealTile();
+ 
             this.recursive_reveal(row, col - 1);
           }
           this.tilesRevealed++;
@@ -243,9 +244,11 @@ export class board
         if (!this.rows[row][col + 1].isBomb && !this.rows[row][col + 1].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row][col + 1].adjBombs > 0) {
             this.rows[row][col + 1].revealTile();
+
           }
           else {
             this.rows[row][col + 1].revealTile();
+
             this.recursive_reveal(row, col + 1);
           }
           this.tilesRevealed++;
@@ -255,9 +258,11 @@ export class board
       if (!this.rows[row + 1][col].isBomb && !this.rows[row + 1][col].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row + 1][col].adjBombs > 0) {
             this.rows[row + 1][col].revealTile();
+
           }
           else {
             this.rows[row + 1][col].revealTile();
+
             this.recursive_reveal(row + 1, col);
           }
         this.tilesRevealed++;
@@ -272,6 +277,7 @@ export class board
           }
           else {
             this.rows[row + 1][col - 1].revealTile();
+
             this.recursive_reveal(row + 1, col - 1);
           }
           this.tilesRevealed++;
@@ -282,15 +288,15 @@ export class board
           if (this.rows[row + 1][col + 1].adjBombs > 0) {
 
             this.rows[row + 1][col + 1].revealTile();
-
+  
           }
           else {
             this.rows[row + 1][col + 1].revealTile();
-            this.recursive_reveal(row + 1, col + 1);
 
+            this.recursive_reveal(row + 1, col + 1);
+            
           }
           this.tilesRevealed++;
-
         }
       }
     }

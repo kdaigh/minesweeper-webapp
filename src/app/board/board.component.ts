@@ -23,6 +23,7 @@ export class BoardComponent implements OnChanges {
   timerID: string;
   isOutOfFlags = false;
   public board: board;
+  public tile: tile;
 
   constructor(private st: SimpleTimer) {
     this.hasWon = false;
