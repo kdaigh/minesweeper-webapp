@@ -34,6 +34,9 @@ https://www.npmjs.com/package/ng2-simple-timer
 ## Documentation generator
 https://compodoc.github.io/compodoc/
 
+## Favicon
+https://fontawesome.com/icons/bomb?style=solid
+
 ## Documentation Link Icon
 https://fontawesome.com/v4.7.0/icon/book
 
