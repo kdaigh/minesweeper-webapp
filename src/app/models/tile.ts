@@ -13,6 +13,7 @@ export class tile {
         this.col = col;
         this.adjBombs = 0;
     }
+    
     /**
      * Reveals the clicked on tile and updates the tile's member variables and image
      * 
@@ -25,6 +26,7 @@ export class tile {
             this.isRevealed = true;
         }
     }
+
     /**
      * Flags the clicked(right click) on tile and updates the tile's image
      * 

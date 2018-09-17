@@ -8,7 +8,6 @@ export class board
     public colCount: number;
     public mineCount: number;
     public tilesRevealed: number;
-    
 
     constructor(rows: number, cols: number, mines: number) {
         this.rowCount = rows;
@@ -22,15 +21,12 @@ export class board
         for (let j = 0; j < this.colCount; j++) {
             row.push(new tile(i,j)); //Append new tile to row
         }
-        
         this.rows.push(row); //Append new row to board
-
      }
     this.placeMines();
     document.addEventListener('contextmenu', event => event.preventDefault());
     }
 
-    
     /**
      * Given the number of mines the user wanted, places mines at random coordinates
      * 
