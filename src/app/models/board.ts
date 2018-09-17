@@ -7,7 +7,6 @@ export class board
     public rowCount: number;
     public colCount: number;
     public mineCount: number;
-    public tilesRevealed: number;
     
 
     constructor(rows: number, cols: number, mines: number) {
@@ -109,6 +108,8 @@ export class board
       }
     }
     this.rows[row][col].adjBombs = bombCount;
+    if(this.rows[row][col].isRevealed){
+    }
   }
 
 
@@ -203,7 +204,6 @@ export class board
             this.rows[row - 1][col - 1].revealTile();
             this.recursive_reveal(row - 1, col - 1);
           }
-          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row - 1, col)) { // top tile
@@ -218,7 +218,6 @@ export class board
             this.recursive_reveal(row - 1, col);
             
           }
-          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row - 1, col + 1)) { // top right tile
@@ -234,7 +233,6 @@ export class board
             this.recursive_reveal(row - 1, col + 1);
 
           }
-          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row, col - 1)) { // left tile 
@@ -249,7 +247,6 @@ export class board
  
             this.recursive_reveal(row, col - 1);
           }
-          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row, col + 1)) { // right tile
@@ -263,7 +260,6 @@ export class board
 
             this.recursive_reveal(row, col + 1);
           }
-          this.tilesRevealed++;
         }
       }
     if (this.boundsCheck(row + 1, col)) { // bottom tile
@@ -277,7 +273,6 @@ export class board
 
             this.recursive_reveal(row + 1, col);
           }
-        this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row + 1, col - 1)) { // bottom left tile
@@ -292,7 +287,6 @@ export class board
 
             this.recursive_reveal(row + 1, col - 1);
           }
-          this.tilesRevealed++;
         }
       }
       if (this.boundsCheck(row + 1, col + 1)) { // bottom right tile
@@ -308,7 +302,6 @@ export class board
             this.recursive_reveal(row + 1, col + 1);
             
           }
-          this.tilesRevealed++;
         }
       }
     }
