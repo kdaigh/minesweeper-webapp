@@ -27,11 +27,11 @@ export class BoardComponent implements OnChanges {
   /**
    * Initializes variables for timer and winning conditions
    * 
-   * @pre: None
+   * Pre: None
    * 
    * @param st angular class used to display the game time
    * 
-   * @post: hasWon, stopTime, isGameOver, simple timer, and flaggedMines have been initalized
+   * Post: hasWon, stopTime, isGameOver, simple timer, and flaggedMines have been initalized
    */
   constructor(private st: SimpleTimer) {
     this.hasWon = false;
@@ -43,9 +43,9 @@ export class BoardComponent implements OnChanges {
     /**
    * Starts a new game
    * 
-   * @pre: User provides valid information and clicks "play game"
+   * Pre: User provides valid information and clicks "play game"
    * 
-   * @post: newGame is called, initializes properties for new game
+   * Post: newGame is called, initializes properties for new game
    */
   ngOnChanges() {
     this.newGame();
@@ -54,9 +54,9 @@ export class BoardComponent implements OnChanges {
   /**
    * Initializes properties for a new game
    * 
-   * @pre: User input has changed
+   * Pre: User input has changed
    * 
-   * @post: flagCount, isGameOver, hasWon, revealedTiles, flaggedMines, board, and the timer component has been initalized
+   * Post: flagCount, isGameOver, hasWon, revealedTiles, flaggedMines, board, and the timer component has been initalized
    */
   newGame() {
     this.flagCount = this.mineCount; //Initialize flagCount
@@ -72,9 +72,9 @@ export class BoardComponent implements OnChanges {
   /**
    * Resets timerCount and subscribes the timer
    * 
-   * @pre: newGame has been called
+   * Pre: newGame has been called
    * 
-   * @post: timerCount is reset and the timer is subscribed
+   * Post: timerCount is reset and the timer is subscribed
    */
   setupTimer() {
     this.stopTimer = false;
@@ -89,9 +89,9 @@ export class BoardComponent implements OnChanges {
   /**
    * Unsubscribes timer on application startup, subscribes timer when called otherwise
    * 
-   * @pre: setupTimer has been called
+   * Pre: setupTimer has been called
    * 
-   * @post: Timer is unsubscribed on application startup, timer is subscribed otherwise
+   * Post: Timer is unsubscribed on application startup, timer is subscribed otherwise
    */
   subscribeTimer() {
     if (this.mineCount == 0) //Application startup
@@ -109,9 +109,9 @@ export class BoardComponent implements OnChanges {
   /**
    * Iterates the timerCount, converts value to a digital clock format, updates digitalTimer
    * 
-   * @pre: Timer has been subscribed
+   * Pre: Timer has been subscribed
    * 
-   * @post: timerCount has been iterated, digitalTimer correctly represents the time elapsed
+   * Post: timerCount has been iterated, digitalTimer correctly represents the time elapsed
    */
   updateTimer()
   {
@@ -169,9 +169,9 @@ export class BoardComponent implements OnChanges {
   /**
    * Checks all conditions on current tile, places flag and adjusts flag count as necessary. 
    * 
-   * @pre: The board exists.
+   * Pre: The board exists.
    * 
-   * @post: flag is placed if allowed, if not alert will pop up if not flags remaining.
+   * Post: flag is placed if allowed, if not alert will pop up if not flags remaining.
    */
   flagCheck(row: number, col: number) {
     if(!this.isGameOver) {
@@ -204,13 +204,13 @@ export class BoardComponent implements OnChanges {
     /**
    * Determines revealing behavior of a left-clicked tile
    * 
-   * @pre: User left-clicks a tile and game is not over
+   * Pre: User left-clicks a tile and game is not over
    * 
    * @param row The row of the tile being flagged
    * 
    * @param col The column of the tile being flagged
    * 
-   * @post tile is revealed, game ends if it's a mine
+   * Post tile is revealed, game ends if it's a mine
    */
   tileCheck(row: number, col: number) {
     if(!this.isGameOver) {

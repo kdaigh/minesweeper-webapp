@@ -26,9 +26,9 @@ export class UserInputComponent implements OnInit {
    /**
    * Creates validators for the inputs that need to be checked.
    * 
-   * @pre none.
+   * Pre: none.
    * 
-   * @post ColumnCount, RowCount, and MineCount validators are set.
+   * Post: ColumnCount, RowCount, and MineCount validators are set.
    */
   createForm(): void {
     this.boardFormGroup = this.formBuilder.group({
@@ -42,9 +42,9 @@ export class UserInputComponent implements OnInit {
    * Validates user inputs and provides dialog feedback when the user does not pass correct input. 
    * Calls new board when input has been validated.
    * 
-   * @pre User has provided input.
+   * Pre: User has provided input.
    * 
-   * @post newBoard is called after valid input.
+   * Post: newBoard is called after valid input.
    */
   validateForm(): void {
     var numOfRows = this.boardFormGroup.value.RowCount;
@@ -84,9 +84,9 @@ export class UserInputComponent implements OnInit {
    /**
    * Transfers all user inputs to the board.
    * 
-   * @pre Inputs have been validated.
+   * Pre: Inputs have been validated.
    * 
-   * @post board now has correct column, row, and mine count.
+   * Post: board now has correct column, row, and mine count.
    */
   newBoard() {
     this.columnCount = this.boardFormGroup.value.ColumnCount;

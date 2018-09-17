@@ -30,9 +30,9 @@ export class board
     /**
      * Given the number of mines the user wanted, places mines at random coordinates
      * 
-     * @pre There must be a board in existence
+     * Pre: There must be a board in existence
      *
-     * @post Places the user-defined number of mines 
+     * Post: Places the user-defined number of mines 
      */
     placeMines()
     {
@@ -53,13 +53,13 @@ export class board
   /**
    * Calculates what number to place in every tile, then places the correct number according to how many bombs are adjacent to that tile
    * 
-   * @pre There must be a board in existence
+   * Pre: There must be a board in existence
    * 
    * @param row The row of the tile that was clicked
    * 
    * @param col The column of the tile that was clicked
    * 
-   * @post Calculates adjacent bombs to any given tile and places numbers accordingly
+   * Post: Calculates adjacent bombs to any given tile and places numbers accordingly
    */
   placeNumber(row: number, col: number): void
   {
@@ -112,13 +112,13 @@ export class board
   /**
    * For a given tile at coordinates (row, col), checks if the tile is within the bounds of the board
    * 
-   * @pre There must be a board in existence
+   * Pre: There must be a board in existence
    * 
    * @param row The row of the coordinate to be checked
    * 
    * @param col The column of the coordinate to be checked
    * 
-   * @post Returns true if the tile is within the bounds of the board, returns false otherwise
+   * Post: Returns true if the tile is within the bounds of the board, returns false otherwise
    */
   boundsCheck(row, col): boolean {
     console.log("row: " + row + "col: " + col);
@@ -134,13 +134,13 @@ export class board
   /**
    * For a given tile at coordinates (row, col), checks if the tile is a bomb
    * 
-   * @pre There must be a board in existence
+   * Pre: There must be a board in existence
    * 
    * @param row The row of the coordinate to be checked
    * 
    * @param col The column of the coordinate to be checked
    * 
-   * @post Checks if there is a bomb at the given coordinate
+   * Post: Checks if there is a bomb at the given coordinate
    */
   bombCheck(row: number, col: number): boolean {
     if (this.rows[row][col].isBomb) {
@@ -155,9 +155,9 @@ export class board
   /**
    * After the user hits a bomb and the game ends, all of the mines are revealed.
    * 
-   * @pre There must be a board in existence
+   * Pre There must be a board in existence
    * 
-   * @post If the user hits a bomb and ends the game, reveals all the mines
+   * Post: If the user hits a bomb and ends the game, reveals all the mines
    */
   revealMines() {
       for(let i = 0; i < this.rowCount; i++) {
@@ -176,13 +176,13 @@ export class board
    * fanning out in every direction if they are empty or contain a number. Once the function 
    * reaches a numbered tile, the recursion stops.
    * 
-   * @pre There must be a board in existence
+   * Pre: There must be a board in existence
    * 
    * @param row The row of the clicked tile
    * 
    * @param col The column of the clicked tile
    * 
-   * @post When a tile is clicked, tiles fanning out from the clicked tile are revealed.
+   * Post: When a tile is clicked, tiles fanning out from the clicked tile are revealed.
    * If the function hits a number in any direction, the revealing/recursion ceases.
    */
   recursive_reveal(row: number, col: number) : void
