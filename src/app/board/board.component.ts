@@ -23,6 +23,15 @@ export class BoardComponent implements OnChanges {
   isOutOfFlags = false;
   public board: board;
 
+  /**
+   * Initializes variables for timer and winning conditions
+   * 
+   * @pre: None
+   * 
+   * @param st angular class used to display the game time
+   * 
+   * @post: hasWon, stopTime, isGameOver, simple timer, and flaggedMines have been initalized
+   */
   constructor(private st: SimpleTimer) {
     this.hasWon = false;
     this.stopTimer = false;
@@ -30,6 +39,13 @@ export class BoardComponent implements OnChanges {
     this.flaggedMines = 0;
   }
 
+    /**
+   * Starts a new game
+   * 
+   * @pre: User provides valid information and clicks "play game"
+   * 
+   * @post: newGame is called, initializes properties for new game
+   */
   ngOnChanges() {
     this.newGame();
   }
@@ -148,6 +164,21 @@ export class BoardComponent implements OnChanges {
     }
   }
 
+    /**
+   * Determines flagging behavior of a right-clicked tile
+   * 
+   * @pre: User right-clicks a tile and game is not over
+   * 
+   * @param row The row of the tile being flagged
+   * 
+   * @param col The column of the tile being flagged
+   * 
+   * @post tile is either flagged or unflagged
+   * 
+   * @post flaggedMines/flaggedTiles/flagCount are either incremented or decremented
+   * 
+   * @post winning conditions are checked 
+   */
   flagCheck(row: number, col: number) {
     if(!this.isGameOver) {
       if(this.board.rows[row][col].isFlagged) { // flag is already placed, so remove flag and add to flag count
@@ -176,6 +207,17 @@ export class BoardComponent implements OnChanges {
     }
   }
 
+    /**
+   * Determines revealing behavior of a left-clicked tile
+   * 
+   * @pre: User left-clicks a tile and game is not over
+   * 
+   * @param row The row of the tile being flagged
+   * 
+   * @param col The column of the tile being flagged
+   * 
+   * @post tile is revealed, game ends if it's a mine
+   */
   tileCheck(row: number, col: number) {
     if(!this.isGameOver) {
       if(this.board.rows[row][col].isBomb) { // bomb was clicked, end game

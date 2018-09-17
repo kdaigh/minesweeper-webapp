@@ -39,13 +39,6 @@ export class UserInputComponent implements OnInit {
     var bombCount = this.boardFormGroup.value.MineCount;
     var isValid = this.boardFormGroup.valid && bombCount < cellCount;
 
-    console.log("validateForm() called");
-    console.log("Height: " + numOfRows);
-    console.log("Width: " + numOfColumns);
-    console.log("Cell count: " + cellCount);
-    console.log("Bomb count: " + bombCount);
-    console.log("Form is valid: " + isValid);
-
     if (!isValid)
     {
       const isDimensionValid: boolean = numOfRows >= 2 && numOfColumns >= 2 && numOfRows <= 30 && numOfColumns < 30;
@@ -71,12 +64,10 @@ export class UserInputComponent implements OnInit {
   }
 
   newBoard() {
-    console.log("newBoard() called");
     this.columnCount = this.boardFormGroup.value.ColumnCount;
     this.rowCount = this.boardFormGroup.value.RowCount;
     this.mineCount= this.boardFormGroup.value.MineCount;
     this.showBoard = true;
     this.num = this.num + 1;
-    console.log(this.num);
   }
 }
