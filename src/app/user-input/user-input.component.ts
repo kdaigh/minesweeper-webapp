@@ -52,8 +52,13 @@ export class UserInputComponent implements OnInit {
     var cellCount = numOfRows * numOfColumns;
     var bombCount = this.boardFormGroup.value.MineCount;
     var isValid = this.boardFormGroup.valid && bombCount < cellCount;
+    var areInputsIntegers = numOfRows % 1 == 0 && numOfColumns % 1 == 0 && bombCount % 1 == 0;
 
-    if (!isValid)
+    if (!areInputsIntegers)
+    {
+      alert('All inputs must be integers.');
+    }
+    else if (!isValid)
     {
       const isDimensionValid: boolean = numOfRows >= 2 && numOfColumns >= 2 && numOfRows <=30 && numOfColumns <= 30;
       const isBombCountValid: boolean = bombCount >= 1 && bombCount < cellCount;
