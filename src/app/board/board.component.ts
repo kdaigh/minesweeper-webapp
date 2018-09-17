@@ -20,6 +20,7 @@ export class BoardComponent implements OnChanges {
   digitalTimer: string;
   stopTimer: boolean;
   timerID: string;
+  revealedTilesCount: number;
   isOutOfFlags = false;
   public board: board;
 
@@ -46,6 +47,7 @@ export class BoardComponent implements OnChanges {
     this.isGameOver = false;
     this.hasWon = false;
     this.flaggedMines = 0;
+    this.revealedTilesCount = 0;
     this.setupTimer();
     this.board = new board(this.rowCount, this.columnCount, this.mineCount);
     
@@ -148,6 +150,13 @@ export class BoardComponent implements OnChanges {
     }
   }
 
+  /**
+   * Checks all conditions on current tile, places flag and adjusts flag count as necessary. 
+   * 
+   * @pre: The board exists.
+   * 
+   * @post: flag is placed if allowed, if not alert will pop up if not flags remaining.
+   */
   flagCheck(row: number, col: number) {
     if(!this.isGameOver) {
       if(this.board.rows[row][col].isFlagged) { // flag is already placed, so remove flag and add to flag count
@@ -205,39 +214,5 @@ export class BoardComponent implements OnChanges {
     else {
       setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
-  }
-  generate_table() {
-    // get the reference for the body
-    var body = document.getElementsByName("minefield")[0];
-   
-    // creates a <table> element and a <tbody> element
-    var tbl = document.createElement("table");
-    var tblBody = document.createElement("tbody");
-   
-    // creating all cells
-    for (var i = 0; i < this.rowCount; i++) {
-      // creates a table row
-      var row = document.createElement("tr");
-   
-      for (var j = 0; j < this.columnCount; j++) {
-        // Create a <td> element and a text node, make the text
-        // node the contents of the <td>, and put the <td> at
-        // the end of the table row
-        var cell = document.createElement("td");
-        var obj = document.createElement("tileObj");
-        cell.appendChild(obj);
-        row.appendChild(cell);
-      }
-   
-      // add the row to the end of the table body
-      tblBody.appendChild(row);
-    }
-   
-    // put the <tbody> in the <table>
-    tbl.appendChild(tblBody);
-    // appends <table> into <body>
-    body.appendChild(tbl);
-    // sets the border attribute of tbl to 2;
-    tbl.setAttribute("border", "2");
   }
 }
