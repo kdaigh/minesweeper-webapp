@@ -472,8 +472,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>For a given tile at coordinates (row, col), checks if the tile is a bomb</p>
-<p>Pre: There must be a board in existence</p>
+                            <div class="io-description"><p>For a given tile at coordinates (row, col), checks if the tile is a bomb.</p>
+<p>Pre: There must be a board in existence.</p>
+<p>Post: Checks if there is a bomb at the given coordinate.</p>
 </div>
 
                             <div class="io-description">
@@ -500,7 +501,7 @@
                                                     
 
                                                         <td>
-                                                                <code><p>The row of the coordinate to be checked</p>
+                                                                <code><p>The row of the coordinate to be checked.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -516,8 +517,7 @@
                                                     
 
                                                         <td>
-                                                                <code><p>The column of the coordinate to be checked</p>
-<p>Post: Checks if there is a bomb at the given coordinate</p>
+                                                                <code><p>The column of the coordinate to be checked.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -566,8 +566,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>For a given tile at coordinates (row, col), checks if the tile is within the bounds of the board</p>
-<p>Pre: There must be a board in existence</p>
+                            <div class="io-description"><p>For a given tile at coordinates (row, col), checks if the tile is within the bounds of the board.</p>
+<p>Pre: There must be a board in existence.</p>
+<p>Post: Returns true if the tile is within the bounds of the board, returns false otherwise.</p>
 </div>
 
                             <div class="io-description">
@@ -590,7 +591,7 @@
                                                     
 
                                                         <td>
-                                                                <code><p>The row of the coordinate to be checked</p>
+                                                                <code><p>The row of the coordinate to be checked.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -603,8 +604,7 @@
                                                     
 
                                                         <td>
-                                                                <code><p>The column of the coordinate to be checked</p>
-<p>Post: Returns true if the tile is within the bounds of the board, returns false otherwise</p>
+                                                                <code><p>The column of the coordinate to be checked.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -653,9 +653,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Given the number of mines the user wanted, places mines at random coordinates</p>
-<p>Pre: There must be a board in existence</p>
-<p>Post: Places the user-defined number of mines </p>
+                            <div class="io-description"><p>Given the number of mines the user wanted, places mines at random coordinates.</p>
+<p>Pre: There must be a board in existence.</p>
+<p>Post: Places the user-defined number of mines .</p>
 </div>
 
                             <div class="io-description">
@@ -695,8 +695,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Calculates what number to place in every tile, then places the correct number according to how many bombs are adjacent to that tile</p>
-<p>Pre: There must be a board in existence</p>
+                            <div class="io-description"><p>Calculates what number to place in every tile, then places the correct number according to how many bombs are adjacent to that tile.</p>
+<p>Pre: There must be a board in existence.</p>
+<p>Post: Calculates adjacent bombs to any given tile and places numbers accordingly.</p>
 </div>
 
                             <div class="io-description">
@@ -723,7 +724,7 @@
                                                     
 
                                                         <td>
-                                                                <code><p>The row of the tile that was clicked</p>
+                                                                <code><p>The row of the tile that was clicked.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -739,8 +740,7 @@
                                                     
 
                                                         <td>
-                                                                <code><p>The column of the tile that was clicked</p>
-<p>Post: Calculates adjacent bombs to any given tile and places numbers accordingly</p>
+                                                                <code><p>The column of the tile that was clicked.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -792,7 +792,9 @@
                             <div class="io-description"><p>Clicking on a tile calls the recursive reveal function, the function then reveals tiles
 fanning out in every direction if they are empty or contain a number. Once the function 
 reaches a numbered tile, the recursion stops.</p>
-<p>Pre: There must be a board in existence</p>
+<p>Pre: There must be a board in existence.</p>
+<p>Post: When a tile is clicked, tiles fanning out from the clicked tile are revealed.
+If the function hits a number in any direction, the revealing/recursion ceases.</p>
 </div>
 
                             <div class="io-description">
@@ -819,7 +821,7 @@ reaches a numbered tile, the recursion stops.</p>
                                                     
 
                                                         <td>
-                                                                <code><p>The row of the clicked tile</p>
+                                                                <code><p>The row of the clicked tile.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -835,9 +837,7 @@ reaches a numbered tile, the recursion stops.</p>
                                                     
 
                                                         <td>
-                                                                <code><p>The column of the clicked tile</p>
-<p>Post: When a tile is clicked, tiles fanning out from the clicked tile are revealed.
-If the function hits a number in any direction, the revealing/recursion ceases.</p>
+                                                                <code><p>The column of the clicked tile.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -887,8 +887,8 @@ If the function hits a number in any direction, the revealing/recursion ceases.<
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>After the user hits a bomb and the game ends, all of the mines are revealed.</p>
-<p>Pre There must be a board in existence</p>
-<p>Post: If the user hits a bomb and ends the game, reveals all the mines</p>
+<p>Pre: There must be a board in existence.</p>
+<p>Post: If the user hits a bomb and ends the game, reveals all the mines.</p>
 </div>
 
                             <div class="io-description">
@@ -940,11 +940,11 @@ export class board
     }
 
     /**
-     * Given the number of mines the user wanted, places mines at random coordinates
+     * Given the number of mines the user wanted, places mines at random coordinates.
      * 
-     * Pre: There must be a board in existence
+     * Pre: There must be a board in existence.
      *
-     * Post: Places the user-defined number of mines 
+     * Post: Places the user-defined number of mines .
      */
     placeMines()
     {
@@ -963,15 +963,15 @@ export class board
 
 
   /**
-   * Calculates what number to place in every tile, then places the correct number according to how many bombs are adjacent to that tile
+   * Calculates what number to place in every tile, then places the correct number according to how many bombs are adjacent to that tile.
    * 
-   * Pre: There must be a board in existence
+   * Pre: There must be a board in existence.
    * 
-   * @param row The row of the tile that was clicked
+   * Post: Calculates adjacent bombs to any given tile and places numbers accordingly.
    * 
-   * @param col The column of the tile that was clicked
+   * @param row The row of the tile that was clicked.
    * 
-   * Post: Calculates adjacent bombs to any given tile and places numbers accordingly
+   * @param col The column of the tile that was clicked.
    */
   placeNumber(row: number, col: number): void
   {
@@ -1022,15 +1022,15 @@ export class board
 
 
   /**
-   * For a given tile at coordinates (row, col), checks if the tile is within the bounds of the board
+   * For a given tile at coordinates (row, col), checks if the tile is within the bounds of the board.
    * 
-   * Pre: There must be a board in existence
+   * Pre: There must be a board in existence.
    * 
-   * @param row The row of the coordinate to be checked
+   * Post: Returns true if the tile is within the bounds of the board, returns false otherwise.
    * 
-   * @param col The column of the coordinate to be checked
+   * @param row The row of the coordinate to be checked.
    * 
-   * Post: Returns true if the tile is within the bounds of the board, returns false otherwise
+   * @param col The column of the coordinate to be checked.
    */
   boundsCheck(row, col): boolean {
     console.log(&quot;row: &quot; + row + &quot;col: &quot; + col);
@@ -1044,15 +1044,15 @@ export class board
 
 
   /**
-   * For a given tile at coordinates (row, col), checks if the tile is a bomb
+   * For a given tile at coordinates (row, col), checks if the tile is a bomb.
    * 
-   * Pre: There must be a board in existence
+   * Pre: There must be a board in existence.
    * 
-   * @param row The row of the coordinate to be checked
+   * Post: Checks if there is a bomb at the given coordinate.
    * 
-   * @param col The column of the coordinate to be checked
+   * @param row The row of the coordinate to be checked.
    * 
-   * Post: Checks if there is a bomb at the given coordinate
+   * @param col The column of the coordinate to be checked.
    */
   bombCheck(row: number, col: number): boolean {
     if (this.rows[row][col].isBomb) {
@@ -1067,9 +1067,9 @@ export class board
   /**
    * After the user hits a bomb and the game ends, all of the mines are revealed.
    * 
-   * Pre There must be a board in existence
+   * Pre: There must be a board in existence.
    * 
-   * Post: If the user hits a bomb and ends the game, reveals all the mines
+   * Post: If the user hits a bomb and ends the game, reveals all the mines.
    */
   revealMines() {
       for(let i &#x3D; 0; i &lt; this.rowCount; i++) {
@@ -1088,14 +1088,14 @@ export class board
    * fanning out in every direction if they are empty or contain a number. Once the function 
    * reaches a numbered tile, the recursion stops.
    * 
-   * Pre: There must be a board in existence
-   * 
-   * @param row The row of the clicked tile
-   * 
-   * @param col The column of the clicked tile
+   * Pre: There must be a board in existence.
    * 
    * Post: When a tile is clicked, tiles fanning out from the clicked tile are revealed.
    * If the function hits a number in any direction, the revealing/recursion ceases.
+   * 
+   * @param row The row of the clicked tile.
+   * 
+   * @param col The column of the clicked tile.
    */
   recursive_reveal(row: number, col: number) : void
   {

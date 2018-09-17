@@ -17,11 +17,11 @@ export class tile {
     }
     
     /**
-     * Reveals the clicked on tile and updates the tile's member variables and image
+     * Reveals the clicked on tile and updates the tile's member variables and image.
      * 
-     * Pre: There must be a board in existence
+     * Pre: There must be a board in existence.
      * 
-     * Post: Reveals the tile if it is not already revealed, changes member variables accordingly
+     * Post: Reveals the tile if it is not already revealed, changes member variables accordingly.
      */
     revealTile() {
         if (this.isRevealed === false && !this.isFlagged){
@@ -30,11 +30,11 @@ export class tile {
     }
 
     /**
-     * Flags the clicked(right click) on tile and updates the tile's image
+     * Flags the clicked(right click) on tile and updates the tile's image.
      * 
-     * Pre: There must be a board in existence
+     * Pre: There must be a board in existence.
      * 
-     * Post: Changes member variables and the image of the tile 
+     * Post: Changes member variables and the image of the tile.
      */
     flagTile(){
         if(this.isFlagged === false){

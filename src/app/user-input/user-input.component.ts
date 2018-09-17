@@ -91,7 +91,7 @@ export class UserInputComponent implements OnInit {
    * 
    * Pre: Inputs have been validated.
    * 
-   * Post: board now has correct column, row, and mine count.
+   * Post: Board now has correct column, row, and mine count.
    */
   newBoard() {
     this.columnCount = this.boardFormGroup.value.ColumnCount;

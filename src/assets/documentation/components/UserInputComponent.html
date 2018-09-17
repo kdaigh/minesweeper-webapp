@@ -265,7 +265,7 @@
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Creates validators for the inputs that need to be checked.</p>
-<p>Pre: none.</p>
+<p>Pre: None.</p>
 <p>Post: ColumnCount, RowCount, and MineCount validators are set.</p>
 </div>
 
@@ -308,7 +308,7 @@
                     <td class="col-md-4">
                             <div class="io-description"><p>Transfers all user inputs to the board.</p>
 <p>Pre: Inputs have been validated.</p>
-<p>Post: board now has correct column, row, and mine count.</p>
+<p>Post: Board now has correct column, row, and mine count.</p>
 </div>
 
                             <div class="io-description">
@@ -665,7 +665,7 @@ export class UserInputComponent implements OnInit {
    /**
    * Creates validators for the inputs that need to be checked.
    * 
-   * Pre: none.
+   * Pre: None.
    * 
    * Post: ColumnCount, RowCount, and MineCount validators are set.
    */
@@ -730,7 +730,7 @@ export class UserInputComponent implements OnInit {
    * 
    * Pre: Inputs have been validated.
    * 
-   * Post: board now has correct column, row, and mine count.
+   * Post: Board now has correct column, row, and mine count.
    */
   newBoard() {
     this.columnCount &#x3D; this.boardFormGroup.value.ColumnCount;

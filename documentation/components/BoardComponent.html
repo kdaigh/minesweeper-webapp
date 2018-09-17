@@ -245,8 +245,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Initializes variables for timer and winning conditions</p>
-<p>Pre: None</p>
+                            <div class="io-description"><p>Initializes variables for timer and winning conditions.</p>
+<p>Pre: None.</p>
+<p>Post: hasWon, stopTime, isGameOver, simple timer, and flaggedMines have been initalized.</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -256,7 +257,6 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
-                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -271,11 +271,6 @@
                                                             No
                                                     </td>
                                                     
-                                                        <td>
-                                                                <code><p>angular class used to display the game time</p>
-<p>Post: hasWon, stopTime, isGameOver, simple timer, and flaggedMines have been initalized</p>
-</code>
-                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -488,13 +483,17 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">src/app/board/board.component.ts:236</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="242" class="link-to-prism">src/app/board/board.component.ts:242</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Presents dialogue at the end of the game.</p>
+<p>Pre: Game has been completed.</p>
+<p>Post: Stops timer and lets user know if they won or lost.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -533,9 +532,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Initializes properties for a new game</p>
-<p>Pre: User input has changed</p>
-<p>Post: flagCount, isGameOver, hasWon, revealedTiles, flaggedMines, board, and the timer component has been initalized</p>
+                            <div class="io-description"><p>Initializes properties for a new game.</p>
+<p>Pre: User input has changed.</p>
+<p>Post: flagCount, isGameOver, hasWon, revealedTiles, flaggedMines, board, and the timer component has been initalized.</p>
 </div>
 
                             <div class="io-description">
@@ -575,9 +574,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Starts a new game</p>
-<p>Pre: User provides valid information and clicks &quot;play game&quot;</p>
-<p>Post: newGame is called, initializes properties for new game</p>
+                            <div class="io-description"><p>Starts a new game.</p>
+<p>Pre: User provides valid information and clicks &quot;play game&quot;.</p>
+<p>Post: newGame is called, initializes properties for new game.</p>
 </div>
 
                             <div class="io-description">
@@ -617,9 +616,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Resets timerCount and subscribes the timer</p>
-<p>Pre: newGame has been called</p>
-<p>Post: timerCount is reset and the timer is subscribed</p>
+                            <div class="io-description"><p>Resets timerCount and subscribes the timer.</p>
+<p>Pre: newGame has been called.</p>
+<p>Post: timerCount is reset and the timer is subscribed.</p>
 </div>
 
                             <div class="io-description">
@@ -701,8 +700,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Determines revealing behavior of a left-clicked tile</p>
-<p>Pre: User left-clicks a tile and game is not over</p>
+                            <div class="io-description"><p>Determines revealing behavior of a left-clicked tile.</p>
+<p>Pre: User left-clicks a tile and game is not over.</p>
+<p>Post: tile is revealed, game ends if it&#39;s a mine.</p>
 </div>
 
                             <div class="io-description">
@@ -729,7 +729,7 @@
                                                     
 
                                                         <td>
-                                                                <code><p>The row of the tile being flagged</p>
+                                                                <code><p>The row of the tile being flagged.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -745,8 +745,7 @@
                                                     
 
                                                         <td>
-                                                                <code><p>The column of the tile being flagged</p>
-<p>Post tile is revealed, game ends if it&#39;s a mine</p>
+                                                                <code><p>The column of the tile being flagged.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -795,9 +794,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Iterates the timerCount, converts value to a digital clock format, updates digitalTimer</p>
-<p>Pre: Timer has been subscribed</p>
-<p>Post: timerCount has been iterated, digitalTimer correctly represents the time elapsed</p>
+                            <div class="io-description"><p>Iterates the timerCount, converts value to a digital clock format, updates digitalTimer.</p>
+<p>Pre: Timer has been subscribed.</p>
+<p>Post: timerCount has been iterated, digitalTimer correctly represents the time elapsed.</p>
 </div>
 
                             <div class="io-description">
@@ -1216,13 +1215,13 @@ export class BoardComponent implements OnChanges {
   public board: board;
 
   /**
-   * Initializes variables for timer and winning conditions
+   * Initializes variables for timer and winning conditions.
    * 
-   * Pre: None
+   * Pre: None.
    * 
-   * @param st angular class used to display the game time
+   * Post: hasWon, stopTime, isGameOver, simple timer, and flaggedMines have been initalized.
    * 
-   * Post: hasWon, stopTime, isGameOver, simple timer, and flaggedMines have been initalized
+   * @param SimpleTimer Angular class used to display the elapsed time.
    */
   constructor(private st: SimpleTimer) {
     this.hasWon &#x3D; false;
@@ -1231,23 +1230,23 @@ export class BoardComponent implements OnChanges {
     this.flaggedMines &#x3D; 0;
   }
 
-    /**
-   * Starts a new game
+  /**
+   * Starts a new game.
    * 
-   * Pre: User provides valid information and clicks &quot;play game&quot;
+   * Pre: User provides valid information and clicks &quot;play game&quot;.
    * 
-   * Post: newGame is called, initializes properties for new game
+   * Post: newGame is called, initializes properties for new game.
    */
   ngOnChanges() {
     this.newGame();
   }
 
   /**
-   * Initializes properties for a new game
+   * Initializes properties for a new game.
    * 
-   * Pre: User input has changed
+   * Pre: User input has changed.
    * 
-   * Post: flagCount, isGameOver, hasWon, revealedTiles, flaggedMines, board, and the timer component has been initalized
+   * Post: flagCount, isGameOver, hasWon, revealedTiles, flaggedMines, board, and the timer component has been initalized.
    */
   newGame() {
     this.flagCount &#x3D; this.mineCount; //Initialize flagCount
@@ -1261,11 +1260,11 @@ export class BoardComponent implements OnChanges {
   }
 
   /**
-   * Resets timerCount and subscribes the timer
+   * Resets timerCount and subscribes the timer.
    * 
-   * Pre: newGame has been called
+   * Pre: newGame has been called.
    * 
-   * Post: timerCount is reset and the timer is subscribed
+   * Post: timerCount is reset and the timer is subscribed.
    */
   setupTimer() {
     this.stopTimer &#x3D; false;
@@ -1298,11 +1297,11 @@ export class BoardComponent implements OnChanges {
   }
 
   /**
-   * Iterates the timerCount, converts value to a digital clock format, updates digitalTimer
+   * Iterates the timerCount, converts value to a digital clock format, updates digitalTimer.
    * 
-   * Pre: Timer has been subscribed
+   * Pre: Timer has been subscribed.
    * 
-   * Post: timerCount has been iterated, digitalTimer correctly represents the time elapsed
+   * Post: timerCount has been iterated, digitalTimer correctly represents the time elapsed.
    */
   updateTimer()
   {
@@ -1392,16 +1391,16 @@ export class BoardComponent implements OnChanges {
     }
   }
 
-    /**
-   * Determines revealing behavior of a left-clicked tile
+  /**
+   * Determines revealing behavior of a left-clicked tile.
    * 
-   * Pre: User left-clicks a tile and game is not over
+   * Pre: User left-clicks a tile and game is not over.
    * 
-   * @param row The row of the tile being flagged
+   * Post: tile is revealed, game ends if it&#x27;s a mine.
    * 
-   * @param col The column of the tile being flagged
+   * @param row The row of the tile being flagged.
    * 
-   * Post tile is revealed, game ends if it&#x27;s a mine
+   * @param col The column of the tile being flagged.
    */
   tileCheck(row: number, col: number) {
     if(!this.isGameOver) {
@@ -1423,7 +1422,13 @@ export class BoardComponent implements OnChanges {
     }
   }
   
-  // Checks all conditions of the board and calculates if the game is complete.
+  /**
+   * Presents dialogue at the end of the game.
+   * 
+   * Pre: Game has been completed.
+   * 
+   * Post: Stops timer and lets user know if they won or lost.
+   */
   gameOverDialog(): void {
     this.stopTimer &#x3D; true;
     if (this.hasWon) {
