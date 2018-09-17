@@ -23,22 +23,35 @@ export class UserInputComponent implements OnInit {
     this.createForm();
   }
 
+   /**
+   * Creates validators for the inputs that need to be checked.
+   * 
+   * @pre none.
+   * 
+   * @post ColumnCount, RowCount, and MineCount validators are set.
+   */
   createForm(): void {
     this.boardFormGroup = this.formBuilder.group({
-      ColumnCount: ['', Validators.compose([Validators.min(2), Validators.max(30), Validators.required, Validators.pattern('^\\d+$')])],
-      RowCount: ['', Validators.compose([Validators.min(2), Validators.max(30), Validators.required, Validators.pattern('^\\d+$')])],
+      ColumnCount: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
+      RowCount: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
       MineCount: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
     });
   }
 
-  
+   /**
+   * Validates user inputs and provides dialog feedback when the user does not pass correct input. 
+   * Calls new board when input has been validated.
+   * 
+   * @pre User has provided input.
+   * 
+   * @post newBoard is called after valid input.
+   */
   validateForm(): void {
     var numOfRows = this.boardFormGroup.value.RowCount;
     var numOfColumns = this.boardFormGroup.value.ColumnCount;
     var cellCount = numOfRows * numOfColumns;
     var bombCount = this.boardFormGroup.value.MineCount;
     var isValid = this.boardFormGroup.valid && bombCount < cellCount;
-    var areInputsIntegers = numOfRows % 1 == 0 && numOfColumns % 1 == 0 && bombCount % 1 == 0;
 
     console.log("validateForm() called");
     console.log("Height: " + numOfRows);
@@ -47,26 +60,26 @@ export class UserInputComponent implements OnInit {
     console.log("Bomb count: " + bombCount);
     console.log("Form is valid: " + isValid);
 
-    if (!areInputsIntegers)
+    if (!isValid)
     {
-      alert('All inputs must be integers.')
-    }
-    else if (!isValid)
-    {
-      const isDimensionValid: boolean = numOfRows >= 2 && numOfColumns >= 2 && numOfRows <= 30 && numOfColumns <= 30;
+      const isDimensionValid: boolean = numOfRows >= 2 && numOfColumns >= 2 && numOfRows <=30 && numOfColumns <= 30;
       const isBombCountValid: boolean = bombCount >= 1 && bombCount < cellCount;
 
       if (!isDimensionValid && !isBombCountValid)
       {
-        alert('Board dimensions must be at least 2x2 and less than 30x30.\nBomb count must be less than total number of cells and at least 1.');
+        alert('Board dimensions must be at least 2x2.\nBomb count must be less than total number of cells and at least 1.');
       }
       else if (!isDimensionValid)
       {
-        alert('Board dimensions must be at least 2x2 and less than 30x30.');
+        alert('Board dimensions must be at least 2x2.');
       }
       else if (!isBombCountValid)
       {
         alert('Bomb count must be less than total number of cells and at least 1.');
+      }
+      else if (cellCount > 2499)
+      {
+        alert('Cell count cannot exceed 2500');
       }
     }
     else
@@ -75,6 +88,13 @@ export class UserInputComponent implements OnInit {
     }
   }
 
+   /**
+   * Transfers all user inputs to the board.
+   * 
+   * @pre Inputs have been validated.
+   * 
+   * @post board now has correct column, row, and mine count.
+   */
   newBoard() {
     console.log("newBoard() called");
     this.columnCount = this.boardFormGroup.value.ColumnCount;
