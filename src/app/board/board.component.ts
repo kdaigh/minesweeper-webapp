@@ -20,6 +20,7 @@ export class BoardComponent implements OnChanges {
   digitalTimer: string;
   stopTimer: boolean;
   timerID: string;
+  revealedTilesCount: number;
   isOutOfFlags = false;
   public board: board;
 
@@ -62,6 +63,7 @@ export class BoardComponent implements OnChanges {
     this.isGameOver = false;
     this.hasWon = false;
     this.flaggedMines = 0;
+    this.revealedTilesCount = 0;
     this.setupTimer();
     this.board = new board(this.rowCount, this.columnCount, this.mineCount);
     
@@ -164,20 +166,12 @@ export class BoardComponent implements OnChanges {
     }
   }
 
-    /**
-   * Determines flagging behavior of a right-clicked tile
+  /**
+   * Checks all conditions on current tile, places flag and adjusts flag count as necessary. 
    * 
-   * @pre: User right-clicks a tile and game is not over
+   * @pre: The board exists.
    * 
-   * @param row The row of the tile being flagged
-   * 
-   * @param col The column of the tile being flagged
-   * 
-   * @post tile is either flagged or unflagged
-   * 
-   * @post flaggedMines/flaggedTiles/flagCount are either incremented or decremented
-   * 
-   * @post winning conditions are checked 
+   * @post: flag is placed if allowed, if not alert will pop up if not flags remaining.
    */
   flagCheck(row: number, col: number) {
     if(!this.isGameOver) {
