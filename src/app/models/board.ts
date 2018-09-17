@@ -55,11 +55,11 @@ export class board
    * 
    * Pre: There must be a board in existence
    * 
+   * Post: Calculates adjacent bombs to any given tile and places numbers accordingly
+   * 
    * @param row The row of the tile that was clicked
    * 
    * @param col The column of the tile that was clicked
-   * 
-   * Post: Calculates adjacent bombs to any given tile and places numbers accordingly
    */
   placeNumber(row: number, col: number): void
   {
@@ -114,11 +114,11 @@ export class board
    * 
    * Pre: There must be a board in existence
    * 
+   * Post: Returns true if the tile is within the bounds of the board, returns false otherwise
+   * 
    * @param row The row of the coordinate to be checked
    * 
    * @param col The column of the coordinate to be checked
-   * 
-   * Post: Returns true if the tile is within the bounds of the board, returns false otherwise
    */
   boundsCheck(row, col): boolean {
     console.log("row: " + row + "col: " + col);
@@ -136,11 +136,11 @@ export class board
    * 
    * Pre: There must be a board in existence
    * 
+   * Post: Checks if there is a bomb at the given coordinate
+   * 
    * @param row The row of the coordinate to be checked
    * 
    * @param col The column of the coordinate to be checked
-   * 
-   * Post: Checks if there is a bomb at the given coordinate
    */
   bombCheck(row: number, col: number): boolean {
     if (this.rows[row][col].isBomb) {
@@ -155,7 +155,7 @@ export class board
   /**
    * After the user hits a bomb and the game ends, all of the mines are revealed.
    * 
-   * Pre There must be a board in existence
+   * Pre: There must be a board in existence
    * 
    * Post: If the user hits a bomb and ends the game, reveals all the mines
    */
@@ -178,12 +178,12 @@ export class board
    * 
    * Pre: There must be a board in existence
    * 
+   * Post: When a tile is clicked, tiles fanning out from the clicked tile are revealed.
+   * If the function hits a number in any direction, the revealing/recursion ceases.
+   * 
    * @param row The row of the clicked tile
    * 
    * @param col The column of the clicked tile
-   * 
-   * Post: When a tile is clicked, tiles fanning out from the clicked tile are revealed.
-   * If the function hits a number in any direction, the revealing/recursion ceases.
    */
   recursive_reveal(row: number, col: number) : void
   {

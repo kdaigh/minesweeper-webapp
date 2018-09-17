@@ -26,7 +26,7 @@ export class UserInputComponent implements OnInit {
    /**
    * Creates validators for the inputs that need to be checked.
    * 
-   * Pre: none.
+   * Pre: None.
    * 
    * Post: ColumnCount, RowCount, and MineCount validators are set.
    */

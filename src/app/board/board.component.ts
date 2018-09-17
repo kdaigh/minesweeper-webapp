@@ -29,9 +29,9 @@ export class BoardComponent implements OnChanges {
    * 
    * Pre: None
    * 
-   * @param st angular class used to display the game time
-   * 
    * Post: hasWon, stopTime, isGameOver, simple timer, and flaggedMines have been initalized
+   * 
+   * @param st angular class used to display the game time
    */
   constructor(private st: SimpleTimer) {
     this.hasWon = false;
@@ -40,7 +40,7 @@ export class BoardComponent implements OnChanges {
     this.flaggedMines = 0;
   }
 
-    /**
+  /**
    * Starts a new game
    * 
    * Pre: User provides valid information and clicks "play game"
@@ -201,16 +201,16 @@ export class BoardComponent implements OnChanges {
     }
   }
 
-    /**
+  /**
    * Determines revealing behavior of a left-clicked tile
    * 
    * Pre: User left-clicks a tile and game is not over
    * 
+   * Post: tile is revealed, game ends if it's a mine
+   * 
    * @param row The row of the tile being flagged
    * 
    * @param col The column of the tile being flagged
-   * 
-   * Post tile is revealed, game ends if it's a mine
    */
   tileCheck(row: number, col: number) {
     if(!this.isGameOver) {
@@ -232,7 +232,13 @@ export class BoardComponent implements OnChanges {
     }
   }
   
-  // Checks all conditions of the board and calculates if the game is complete.
+  /**
+   * Presents dialogue at the end of the game
+   * 
+   * Pre: Game has been completed
+   * 
+   * Post: Stops timer and lets user know if they won or lost
+   */
   gameOverDialog(): void {
     this.stopTimer = true;
     if (this.hasWon) {
