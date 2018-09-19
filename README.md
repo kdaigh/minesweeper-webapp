@@ -1,6 +1,7 @@
 # Minesweeper
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+Documentation link: https://minesweeper-project.firebaseapp.com/assets/documentation/index.html
 
 # Works Cited
 
