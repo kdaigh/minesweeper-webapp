@@ -5,61 +5,61 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Documentation link: https://minesweeper-project.firebaseapp.com/assets/documentation/index.html
 
 # Meeting Log
-**8/31/2018**
+**8/31/2018**<br/>
 In class, all members present 
 Decided on web based implementation, scheduled next meeting 
 
-**9/3/2018** 
+**9/3/2018**<br/>
 Blake and Bunty's house, all members present 
 
 Decided on JavaScript, downloaded Visual Studio, and created "Minesweeper" repository. Each of us downloaded a clone of the repository gained collaborative access on GitHub. Downloaded Angular to make the web-app creation process easier. 
 
-**9/5/2018** 
+**9/5/2018**<br/> 
 In class, all members present 
 
 Discussed the angular tutorial and what we should tackle later in tonight's meeting 
 
-**9/5/2018** 
+**9/5/2018**<br/> 
 Blake and Bunty's house, all members present 
 
 Determined group member roles/which component each member will work on, started working on heirarchy and necessary components 
 
-**9/6/2018** 
+**9/6/2018**<br/> 
 LEEP G415, all members present 
 
 Discussed how to pass information between components in angular, presented what we had gotten done since the last meeting 
 
-**9/7/2018** 
+**9/7/2018**<br/> 
 In Class, all members present 
 
 Scheduled next meeting 
 
-**9/8/2018** 
+**9/8/2018**<br/> 
 Blake and Bunty's house, all members present 
 
 Discussed what we need to accomplish next,  ate pancakes, created Tile component 
 
-**9/10/2018** 
+**9/10/2018**<br/> 
 In Class, Austin Wildman absent 
 
 Scheduled next meeting, discussed what we need to accomplish in later meeting 
 
-**9/10/2018** 
+**9/10/2018**<br/> 
 In Lab, Blake Jordan absent 
 
 Found a bug where several tables appear when "New Game" is clicked, fixed it 
 
-**9/10/2018** 
+**9/10/2018**<br/> 
 Blake and Bunty's house, Austin Wildman absent 
 
 Got board to appear in the middle of the web page, modelled the tiles to look like minesweeper, added "Game Over" functionality when bomb was clicked, added flagging ability with right click 
 
-**9/13/2018** 
+**9/13/2018**<br/> 
 Blake and Bunty's house, all members present 
 
 Made a To-Do list for wrapping up the project 
 
-**9/16/2018** 
+**9/16/2018**<br/> 
 Blake and Bunty's house, all members present 
 
 Fixed a few last minute bugs, finished documentation 
