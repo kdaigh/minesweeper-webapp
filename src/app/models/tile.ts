@@ -5,6 +5,7 @@ export class tile {
     adjBombs: number;
     row: number;
     col: number;
+    cheatReveal: boolean;
 
 
     constructor(row: number, col: number) {

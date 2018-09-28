@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   selector: 'app-user-input',
   templateUrl: './user-input.component.html',
   styleUrls: ['./user-input.component.css']
+
 })
 export class UserInputComponent implements OnInit {
 
@@ -100,4 +101,13 @@ export class UserInputComponent implements OnInit {
     this.showBoard = true;
     this.num = this.num + 1;
   }
+
+  /*cheat_reveal() : void
+  {console.log("gitting here");
+    for(let i = 0; i < this.rowCount; i++) {
+        for(let j = 0; j < this.columnCount; j++) {
+          this.board.rows[i][j].cheatReveal();
+            }
+        }
+    }*/
 }

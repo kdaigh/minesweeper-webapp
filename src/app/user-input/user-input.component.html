@@ -2,7 +2,9 @@
   <h1>Minesweeper</h1>
 </header>
 
+
 <body>
+
 
     <div [formGroup]="boardFormGroup">
       <div class="inputDiv">
@@ -23,7 +25,6 @@
 
     <br>
     <button type="button" (click)="validateForm()">New Game</button>
-
 </body>
 <app-board *ngIf="showBoard" [columnCount]="columnCount" [rowCount]="rowCount" [mineCount]="mineCount" [num]="num" ></app-board>
 <app-documentation></app-documentation>

@@ -303,15 +303,16 @@ export class board
       }
     }
   }
-}
+
 //does the cheating
 cheat_reveal() : void
-{
-  for(let Kyle = 0; i < this.rowCount; i++) {
-      for(let Ethan = 0; j < this.colCount; j++) {
-        this.rows[Ethan][Kyle].cheatReveal();
+{console.log("gitting here");
+  for(let i = 0; i < this.rowCount; i++) {
+      for(let j = 0; j < this.colCount; j++) {
+        this.rows[i][j].cheatReveal();
           }
       }
   }
-}
+
+
 }
