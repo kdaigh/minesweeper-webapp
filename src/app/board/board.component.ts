@@ -249,6 +249,7 @@ export class BoardComponent implements OnChanges {
     }
   }
   cheating(): void {
+    console.log("in Cheating");
     this.board.cheat_reveal();
   }
 }

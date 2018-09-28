@@ -306,10 +306,10 @@ export class board
 
 //does the cheating
 cheat_reveal() : void
-{console.log("gitting here");
-  for(let i = 0; i < this.rowCount; i++) {
+{
+  for(let i = 0; i < this.rowCount ; i++) {
       for(let j = 0; j < this.colCount; j++) {
-        this.rows[i][j].cheatReveal();
+        this.rows[i][j].cheatreveal();
           }
       }
   }

@@ -17,8 +17,8 @@
             <tr *ngFor="let rows of board.rows">
                 <td *ngFor="let tile of rows" (click)="tileCheck(tile.row, tile.col)"
                     (contextmenu)="flagCheck(tile.row, tile.col)">
-                    <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="../../assets/TilePictures/CoveredTile.png" />
-                    <img *ngIf="!tile.isRevealed && tile.isFlagged" src="../../assets/TilePictures/FlagTile.png" />
+                    <img *ngIf="!tile.isRevealed && !tile.isFlagged && !tile.cheatReveal" src="../../assets/TilePictures/CoveredTile.png" />
+                    <img *ngIf="!tile.isRevealed && tile.isFlagged && !tile.cheatReveal" src="../../assets/TilePictures/FlagTile.png" />
                     <img *ngIf="(tile.isRevealed || tile.cheatReveal) && tile.isBomb" src="../../assets/TilePictures/MineTile.png" />
                     <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 0" src="../../assets/TilePictures/UncoveredTile.png" />
                     <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 1" src="../../assets/TilePictures/Numbers/One.png" />
@@ -33,7 +33,7 @@
             </tr>
         </table>
     </div>
-    <button type="button" click="cheating()">Cheat On</button>
+    <button type="button" (click)="cheating()">Cheat On</button>
     <div *ngIf = "board.isGameOver"class="displayStats">
         <b>Stats<br>
         <p>Mines Flagged: {{flaggedMines}}</p>
