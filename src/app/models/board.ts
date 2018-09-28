@@ -29,7 +29,7 @@ export class board
 
     /**
      * Given the number of mines the user wanted, places mines at random coordinates.
-     * 
+     *
      * Pre: There must be a board in existence.
      *
      * Post: Places the user-defined number of mines .
@@ -52,13 +52,13 @@ export class board
 
   /**
    * Calculates what number to place in every tile, then places the correct number according to how many bombs are adjacent to that tile.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: Calculates adjacent bombs to any given tile and places numbers accordingly.
-   * 
+   *
    * @param row The row of the tile that was clicked.
-   * 
+   *
    * @param col The column of the tile that was clicked.
    */
   placeNumber(row: number, col: number): void
@@ -111,13 +111,13 @@ export class board
 
   /**
    * For a given tile at coordinates (row, col), checks if the tile is within the bounds of the board.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: Returns true if the tile is within the bounds of the board, returns false otherwise.
-   * 
+   *
    * @param row The row of the coordinate to be checked.
-   * 
+   *
    * @param col The column of the coordinate to be checked.
    */
   boundsCheck(row, col): boolean {
@@ -133,19 +133,19 @@ export class board
 
   /**
    * For a given tile at coordinates (row, col), checks if the tile is a bomb.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: Checks if there is a bomb at the given coordinate.
-   * 
+   *
    * @param row The row of the coordinate to be checked.
-   * 
+   *
    * @param col The column of the coordinate to be checked.
    */
   bombCheck(row: number, col: number): boolean {
     if (this.rows[row][col].isBomb) {
       return true
-    } 
+    }
     else {
       return false;
     }
@@ -154,9 +154,9 @@ export class board
 
   /**
    * After the user hits a bomb and the game ends, all of the mines are revealed.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: If the user hits a bomb and ends the game, reveals all the mines.
    */
   revealMines() {
@@ -173,16 +173,16 @@ export class board
 
   /**
    * Clicking on a tile calls the recursive reveal function, the function then reveals tiles
-   * fanning out in every direction if they are empty or contain a number. Once the function 
+   * fanning out in every direction if they are empty or contain a number. Once the function
    * reaches a numbered tile, the recursion stops.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: When a tile is clicked, tiles fanning out from the clicked tile are revealed.
    * If the function hits a number in any direction, the revealing/recursion ceases.
-   * 
+   *
    * @param row The row of the clicked tile.
-   * 
+   *
    * @param col The column of the clicked tile.
    */
   recursive_reveal(row: number, col: number) : void
@@ -206,15 +206,15 @@ export class board
       if (this.boundsCheck(row - 1, col)) { // top tile
         if (!this.rows[row - 1][col].isBomb && !this.rows[row - 1][col].isRevealed && !this.rows[row][col].isFlagged) {
           if (this.rows[row - 1][col].adjBombs > 0){
-            
+
             this.rows[row - 1][col].revealTile();
 
-            
+
           }
           else{
             this.rows[row - 1][col].revealTile();
             this.recursive_reveal(row - 1, col);
-            
+
           }
           this.tilesRevealed++;
         }
@@ -234,11 +234,11 @@ export class board
 
         }
       }
-      if (this.boundsCheck(row, col - 1)) { // left tile 
+      if (this.boundsCheck(row, col - 1)) { // left tile
         if (!this.rows[row][col - 1].isBomb && !this.rows[row][col - 1].isRevealed && !this.rows[row][col].isFlagged){
           if (this.rows[row][col - 1].adjBombs > 0) {
             this.rows[row][col - 1].revealTile();
-            
+
           }
           else {
             this.rows[row][col - 1].revealTile();
@@ -303,4 +303,15 @@ export class board
       }
     }
   }
+}
+//does the cheating
+cheat_reveal() : void
+{
+  for(let Kyle = 0; i < this.rowCount; i++) {
+      for(let Ethan = 0; j < this.colCount; j++) {
+        this.rows[Ethan][Kyle].cheatReveal();
+          }
+      }
+  }
+}
 }

@@ -14,13 +14,26 @@ export class tile {
         this.row = row;
         this.col = col;
         this.adjBombs = 0;
+        this.cheatReveal = false;
     }
-    
+
+    // Sets the boards cheat reveal vaiable to true
+    revealCheat()
+    {
+      if(this.cheatReveal == false)
+      {
+        this.cheatReveal = true;
+      }
+      else
+      {
+        this.cheatReveal = false;
+      }
+    }
     /**
      * Reveals the clicked on tile and updates the tile's member variables and image.
-     * 
+     *
      * Pre: There must be a board in existence.
-     * 
+     *
      * Post: Reveals the tile if it is not already revealed, changes member variables accordingly.
      */
     revealTile() {
@@ -31,9 +44,9 @@ export class tile {
 
     /**
      * Flags the clicked(right click) on tile and updates the tile's image.
-     * 
+     *
      * Pre: There must be a board in existence.
-     * 
+     *
      * Post: Changes member variables and the image of the tile.
      */
     flagTile(){
