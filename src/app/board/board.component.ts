@@ -182,6 +182,10 @@ export class BoardComponent implements OnChanges {
           this.flaggedMines--;
         }
       }
+      else if (this.board.rows[row][col].cheatReveal)
+      {
+        alert("You cannot play while in cheat mode");
+      }
       else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0 && !this.board.rows[row][col].isRevealed) { // place flag
         this.board.rows[row][col].isFlagged = true;
         this.flagCount--;
@@ -213,11 +217,16 @@ export class BoardComponent implements OnChanges {
    * @param col The column of the tile being flagged.
    */
   tileCheck(row: number, col: number) {
+
     if(!this.isGameOver) {
       if(this.board.rows[row][col].isBomb) { // bomb was clicked, end game
         this.board.revealMines();
         this.isGameOver = true;
         this.gameOverDialog();
+      }
+      else if (this.board.rows[row][col].cheatReveal)
+      {
+        alert("You cannot play while in cheat mode");
       }
       else if(this.board.rows[row][col].isFlagged) { // flagged tile was clicked but wasn't a bomb
         this.board.rows[row][col].isFlagged = false;
