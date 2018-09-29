@@ -250,6 +250,8 @@ export class BoardComponent implements OnChanges {
   }
   cheating(): void {
     console.log("in Cheating");
-    this.board.cheat_reveal();
+    if (!this.board.isGameOver){
+      this.board.cheat_reveal();
+    }
   }
 }
