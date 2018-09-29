@@ -219,7 +219,7 @@ export class BoardComponent implements OnChanges {
   tileCheck(row: number, col: number) {
 
     if(!this.isGameOver) {
-      if(this.board.rows[row][col].isBomb) { // bomb was clicked, end game
+      if(this.board.rows[row][col].isBomb && (this.board.rows[row][col].cheatReveal==false)) { // bomb was clicked, end game
         this.board.revealMines();
         this.isGameOver = true;
         this.gameOverDialog();
