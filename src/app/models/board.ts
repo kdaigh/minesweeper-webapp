@@ -162,9 +162,12 @@ export class board
   revealMines() {
       for(let i = 0; i < this.rowCount; i++) {
           for(let j = 0; j < this.colCount; j++) {
-              if(this.rows[i][j].isBomb) {
+              if((this.rows[i][j].isBomb && this.board.rows[i][j].cheatReveal == false) {
                   this.rows[i][j].isRevealed = true;
                   this.isGameOver = true;
+              }
+              else{
+                alert("You cannot play while in cheat mode");
               }
           }
       }
