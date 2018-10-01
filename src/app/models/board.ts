@@ -162,13 +162,13 @@ export class board
   revealMines() {
       for(let i = 0; i < this.rowCount; i++) {
           for(let j = 0; j < this.colCount; j++) {
-              if(this.rows[i][j].isBomb) {
+            if(this.rows[i][j].isBomb) {
                   this.rows[i][j].isRevealed = true;
                   this.isGameOver = true;
+                }
               }
           }
       }
-  }
 
 
   /**
@@ -303,15 +303,16 @@ export class board
       }
     }
   }
-}
+
 //does the cheating
 cheat_reveal() : void
 {
-  for(let Kyle = 0; i < this.rowCount; i++) {
-      for(let Ethan = 0; j < this.colCount; j++) {
-        this.rows[Ethan][Kyle].cheatReveal();
+  for(let i = 0; i < this.rowCount ; i++) {
+      for(let j = 0; j < this.colCount; j++) {
+        this.rows[i][j].cheatreveal();
           }
       }
   }
-}
+
+
 }

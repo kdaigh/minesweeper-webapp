@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   selector: 'app-user-input',
   templateUrl: './user-input.component.html',
   styleUrls: ['./user-input.component.css']
+
 })
 export class UserInputComponent implements OnInit {
 
@@ -25,25 +26,25 @@ export class UserInputComponent implements OnInit {
 
    /**
    * Creates validators for the inputs that need to be checked.
-   * 
+   *
    * Pre: None.
-   * 
+   *
    * Post: ColumnCount, RowCount, and MineCount validators are set.
    */
   createForm(): void {
     this.boardFormGroup = this.formBuilder.group({
-      ColumnCount: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
-      RowCount: ['', Validators.compose([Validators.min(2), Validators.required, Validators.pattern('^\\d+$')])],
+      ColumnCount: ['', Validators.compose([Validators.min(2),Validators.max(30), Validators.required, Validators.pattern('^\\d+$')])],
+      RowCount: ['', Validators.compose([Validators.min(2),Validators.max(30), Validators.required, Validators.pattern('^\\d+$')])],
       MineCount: ['', Validators.compose([Validators.min(1), Validators.required, Validators.pattern('^\\d+$')])],
     });
   }
 
    /**
-   * Validates user inputs and provides dialog feedback when the user does not pass correct input. 
+   * Validates user inputs and provides dialog feedback when the user does not pass correct input.
    * Calls new board when input has been validated.
-   * 
+   *
    * Pre: User has provided input.
-   * 
+   *
    * Post: newBoard is called after valid input.
    */
   validateForm(): void {
@@ -69,7 +70,7 @@ export class UserInputComponent implements OnInit {
       }
       else if (!isDimensionValid)
       {
-        alert('Board dimensions must be at least 2x2.');
+        alert('Board dimensions must be at least 2x2, and at max 30x30');
       }
       else if (!isBombCountValid)
       {
@@ -88,9 +89,9 @@ export class UserInputComponent implements OnInit {
 
    /**
    * Transfers all user inputs to the board.
-   * 
+   *
    * Pre: Inputs have been validated.
-   * 
+   *
    * Post: Board now has correct column, row, and mine count.
    */
   newBoard() {
@@ -100,4 +101,13 @@ export class UserInputComponent implements OnInit {
     this.showBoard = true;
     this.num = this.num + 1;
   }
+
+  /*cheat_reveal() : void
+  {console.log("gitting here");
+    for(let i = 0; i < this.rowCount; i++) {
+        for(let j = 0; j < this.columnCount; j++) {
+          this.board.rows[i][j].cheatReveal();
+            }
+        }
+    }*/
 }

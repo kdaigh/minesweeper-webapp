@@ -5,6 +5,7 @@ export class tile {
     adjBombs: number;
     row: number;
     col: number;
+    cheatReveal: boolean;
 
 
     constructor(row: number, col: number) {
@@ -18,9 +19,9 @@ export class tile {
     }
 
     // Sets the boards cheat reveal vaiable to true
-    revealCheat()
-    {
-      if(this.cheatReveal == false)
+    cheatreveal()
+    { console.log(this.cheatReveal);
+      if(!this.cheatReveal)
       {
         this.cheatReveal = true;
       }
