@@ -24,6 +24,11 @@ export class board
         this.rows.push(row); //Append new row to board
      }
     this.placeMines();
+    for(let x = 0; x < this.rowCount ; x++) {
+        for(let y = 0; y < this.colCount; y++) {
+          this.placeNumber(x,y);
+            }
+        }
     document.addEventListener('contextmenu', event => event.preventDefault());
     }
 
@@ -64,9 +69,9 @@ export class board
   placeNumber(row: number, col: number): void
   {
     let bombCount = 0;
-    if(this.rows[row][col].isBomb) {
-      this.revealMines();
-    }
+  //  if(this.rows[row][col].isBomb) {
+  //    this.revealMines();
+//    }
     if(this.boundsCheck(row-1, col-1)) { // top left tile
       if(this.bombCheck(row-1, col-1)) {
         bombCount++;
@@ -187,7 +192,7 @@ export class board
    */
   recursive_reveal(row: number, col: number) : void
   {
-    this.placeNumber(row, col);
+    //this.placeNumber(row, col);
     if (!(this.rows[row][col].adjBombs > 0) && !this.isGameOver)
     {
       if (this.boundsCheck(row - 1, col - 1)) { // top left tile
