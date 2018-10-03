@@ -309,6 +309,7 @@ cheat_reveal() : void
 {
   for(let i = 0; i < this.rowCount ; i++) {
       for(let j = 0; j < this.colCount; j++) {
+        this.placeNumber(i, j);
         this.rows[i][j].cheatreveal();
           }
       }
