@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+/**
+* User Input Component
+*/
 @Component({
   selector: 'app-user-input',
   templateUrl: './user-input.component.html',
   styleUrls: ['./user-input.component.css']
-
 })
 export class UserInputComponent implements OnInit {
 
@@ -15,6 +18,13 @@ export class UserInputComponent implements OnInit {
   showBoard: boolean;
   num: number = 0;
 
+  /**
+  * Creates instance of the user input class
+  *
+  * Pre: None.
+  *
+  * Post: Instance has been created.
+  */
   constructor(private formBuilder: FormBuilder) {
     this.boardFormGroup = this.formBuilder.group({});
     this.showBoard = false;
@@ -101,13 +111,4 @@ export class UserInputComponent implements OnInit {
     this.showBoard = true;
     this.num = this.num + 1;
   }
-
-  /*cheat_reveal() : void
-  {console.log("gitting here");
-    for(let i = 0; i < this.rowCount; i++) {
-        for(let j = 0; j < this.columnCount; j++) {
-          this.board.rows[i][j].cheatReveal();
-            }
-        }
-    }*/
 }
