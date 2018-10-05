@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+* Documentation Component
+*/
 @Component({
   selector: 'app-documentation',
   templateUrl: './documentation.component.html',
