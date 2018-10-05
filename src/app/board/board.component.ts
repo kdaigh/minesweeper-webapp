@@ -122,11 +122,11 @@ export class BoardComponent implements OnChanges {
     if(!this.stopTimer) {
       this.timerCount++;
 
-      /////////////////////Update digital timer string/////////////////////
+      /********* Update digital timer string **********/
 
-      this.digitalTimer = ""; //Reset value
+      this.digitalTimer = ""; // Reset value
 
-      //Initializations
+      // Initializations
       let minutes = Math.floor(this.timerCount / 60);
       let hours = Math.floor(minutes / 60);
       if (hours > 0)
@@ -135,34 +135,34 @@ export class BoardComponent implements OnChanges {
       }
       let seconds = this.timerCount % 60;
 
-      //If time has exeeded 1 hour
+      // If time has exeeded 1 hour
       if (hours != 0)
       {
-        this.digitalTimer += hours + ":"; //Add hours
+        this.digitalTimer += hours + ":"; //A dd hours
 
         if (minutes < 10)
         {
-          this.digitalTimer += "0"; //Add minutes leading zero if needed
+          this.digitalTimer += "0"; // Add minutes leading zero if needed
         }
-        this.digitalTimer += minutes + ":"; //Add minutes
+        this.digitalTimer += minutes + ":"; // Add minutes
 
         if (seconds < 10)
         {
-          this.digitalTimer += "0"; //Add seconds leading zero if needed
+          this.digitalTimer += "0"; // Add seconds leading zero if needed
         }
         this.digitalTimer += seconds;
       }
 
-      //If time has not exeeded 1 hour
+      // If time has not exeeded 1 hour
       else
       {
-        if (minutes != 0) //If time has exeeded 1 minute
+        if (minutes != 0) // If time has exeeded 1 minute
         {
           this.digitalTimer += minutes + ":";
 
           if (seconds < 10)
           {
-            this.digitalTimer += "0"; //Add seconds leading zero if needed
+            this.digitalTimer += "0"; // Add seconds leading zero if needed
           }
         }
         this.digitalTimer += seconds;
