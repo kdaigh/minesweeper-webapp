@@ -1,6 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 import { board } from '../models/board';
+import {Howl, Howler} from 'howler';
 
 @Component({
   selector: 'app-board',
@@ -165,7 +166,21 @@ export class BoardComponent implements OnChanges {
       }
     }
   }
-
+  playAudio(sound: string) : void {
+    console.log("PLAYING SOUNDS")
+    var bomb = new Audio('https://www.freesfx.co.uk/rx2/mp3s/6/17955_1464205617.mp3');
+    var click = new Audio('https://www.freesfx.co.uk/rx2/mp3s/5/16988_1461335349.mp3')
+    var flag = new Audio('https://www.freesfx.co.uk/rx2/mp3s/6/18007_1464272917.mp3')
+    if (sound == "b"){
+      bomb.play();
+    }
+    else if(sound == "c"){
+      click.play();
+    }
+    else if (sound == "f"){
+      flag.play();
+    }
+  }
   /**
    * Checks all conditions on current tile, places flag and adjusts flag count as necessary.
    *
@@ -187,6 +202,7 @@ export class BoardComponent implements OnChanges {
         alert("You cannot play while in cheat mode");
       }
       else if (!this.board.rows[row][col].isFlagged && this.flagCount > 0 && !this.board.rows[row][col].isRevealed) { // place flag
+        this.playAudio("f");
         this.board.rows[row][col].isFlagged = true;
         this.flagCount--;
         if(this.board.rows[row][col].isBomb) {
@@ -205,6 +221,7 @@ export class BoardComponent implements OnChanges {
     }
   }
 
+
   /**
    * Determines revealing behavior of a left-clicked tile.
    *
@@ -220,6 +237,7 @@ export class BoardComponent implements OnChanges {
 
     if(!this.isGameOver) {
       if(this.board.rows[row][col].isBomb && (this.board.rows[row][col].cheatReveal==false)) { // bomb was clicked, end game
+        this.playAudio("b");
         this.board.revealMines();
         this.isGameOver = true;
         this.gameOverDialog();
@@ -229,12 +247,14 @@ export class BoardComponent implements OnChanges {
         alert("You cannot play while in cheat mode");
       }
       else if(this.board.rows[row][col].isFlagged) { // flagged tile was clicked but wasn't a bomb
+        this.playAudio("c");
         this.board.rows[row][col].isFlagged = false;
         this.board.rows[row][col].isRevealed = true;
         this.flagCount++;
         this.board.recursive_reveal(row, col);
       }
       else { // non-flag, non-bomb tile was clicked, reveal tile
+        this.playAudio("c");
         this.board.rows[row][col].isRevealed = true;
         this.board.recursive_reveal(row, col);
       }
