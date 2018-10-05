@@ -5,6 +5,7 @@ export class tile {
     adjBombs: number;
     row: number;
     col: number;
+    cheatReveal: boolean;
 
 
     constructor(row: number, col: number) {
@@ -14,13 +15,26 @@ export class tile {
         this.row = row;
         this.col = col;
         this.adjBombs = 0;
+        this.cheatReveal = false; //added variable to make it reveal when the true
     }
-    
+
+    // Sets the boards cheat reveal vaiable to true and false.
+    cheatreveal()
+    { console.log(this.cheatReveal);
+      if(!this.cheatReveal)
+      {
+        this.cheatReveal = true;
+      }
+      else
+      {
+        this.cheatReveal = false;
+      }
+    }
     /**
      * Reveals the clicked on tile and updates the tile's member variables and image.
-     * 
+     *
      * Pre: There must be a board in existence.
-     * 
+     *
      * Post: Reveals the tile if it is not already revealed, changes member variables accordingly.
      */
     revealTile() {
@@ -31,9 +45,9 @@ export class tile {
 
     /**
      * Flags the clicked(right click) on tile and updates the tile's image.
-     * 
+     *
      * Pre: There must be a board in existence.
-     * 
+     *
      * Post: Changes member variables and the image of the tile.
      */
     flagTile(){

@@ -1,42 +1,50 @@
+<!DOCTYPE html>
+<html>
+<!--creates table that holds the game-->
 <body>
     <hr width="275px">
 
+    <!--displays timer-->
     <div class="inputDiv">
         Timer<br>
         <input readonly [value]="digitalTimer" class="inputBox">
     </div>
 
+    <!--displays the number of flags left-->
     <div class="inputDiv">
         Flags<br>
         <input readonly [value]="flagCount" class="inputBox">
     </div>
 
     <div>
+        <!--table that checks if flagged revealed or cheat mode and shows the appropriate picture-->
         <table cellspacing="0" cellpadding="0">
             <tr *ngFor="let rows of board.rows">
                 <td *ngFor="let tile of rows" (click)="tileCheck(tile.row, tile.col)"
                     (contextmenu)="flagCheck(tile.row, tile.col)">
-                    <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="../../assets/TilePictures/CoveredTile.png" />
-                    <img *ngIf="!tile.isRevealed && tile.isFlagged" src="../../assets/TilePictures/FlagTile.png" />
-                    <img *ngIf="tile.isRevealed && tile.isBomb" src="../../assets/TilePictures/MineTile.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 0" src="../../assets/TilePictures/UncoveredTile.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 1" src="../../assets/TilePictures/Numbers/One.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 2" src="../../assets/TilePictures/Numbers/Two.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 3" src="../../assets/TilePictures/Numbers/Three.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 4" src="../../assets/TilePictures/Numbers/Four.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 5" src="../../assets/TilePictures/Numbers/Five.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 6" src="../../assets/TilePictures/Numbers/Six.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 7" src="../../assets/TilePictures/Numbers/Seven.png" />
-                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 8" src="../../assets/TilePictures/Numbers/Eight.png" />
+                    <img *ngIf="!tile.isRevealed && !tile.isFlagged && !tile.cheatReveal" src="../../assets/TilePictures/CoveredTile.png" />
+                    <img *ngIf="!tile.isRevealed && tile.isFlagged && !tile.cheatReveal" src="../../assets/TilePictures/FlagTile.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && tile.isBomb" src="../../assets/TilePictures/MineTile.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 0" src="../../assets/TilePictures/UncoveredTile.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 1" src="../../assets/TilePictures/Numbers/One.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 2" src="../../assets/TilePictures/Numbers/Two.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 3" src="../../assets/TilePictures/Numbers/Three.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 4" src="../../assets/TilePictures/Numbers/Four.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 5" src="../../assets/TilePictures/Numbers/Five.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 6" src="../../assets/TilePictures/Numbers/Six.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 7" src="../../assets/TilePictures/Numbers/Seven.png" />
+                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 8" src="../../assets/TilePictures/Numbers/Eight.png" />
                 </td>
             </tr>
         </table>
     </div>
-
+    <!--displays button for cheat mode option-->
+    <button type="button" (click)="cheating()">Cheat Mode</button>
+    <!--displays the stats if the game is over-->
     <div *ngIf = "board.isGameOver"class="displayStats">
         <b>Stats<br>
         <p>Mines Flagged: {{flaggedMines}}</p>
         <p>Time: {{digitalTimer}}</p> </b>
     </div>
 </body>
-
+</html>
