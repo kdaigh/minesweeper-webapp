@@ -3,6 +3,9 @@ import { SimpleTimer } from 'ng2-simple-timer';
 import { board } from '../models/board';
 import {Howl, Howler} from 'howler';
 
+/**
+* Board Component
+*/
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -181,6 +184,7 @@ export class BoardComponent implements OnChanges {
       flag.play();
     }
   }
+
   /**
    * Checks all conditions on current tile, places flag and adjusts flag count as necessary.
    *
@@ -220,7 +224,6 @@ export class BoardComponent implements OnChanges {
       }
     }
   }
-
 
   /**
    * Determines revealing behavior of a left-clicked tile.
@@ -277,7 +280,14 @@ export class BoardComponent implements OnChanges {
       setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
   }
-  //calls the cheat_reveal function to start the cheating.
+
+  /**
+   * Calls the cheat_reveal() function to start cheating.
+   *
+   * Pre: Game board is generated and game is active.
+   *
+   * Post: cheat_reveal() function has been called.
+   */
   cheating(): void {
     console.log("in Cheating");
     if (!this.board.isGameOver){
