@@ -125,6 +125,9 @@
                                 <a href="#boundsCheck">boundsCheck</a>
                             </li>
                             <li>
+                                <a href="#cheat_reveal">cheat_reveal</a>
+                            </li>
+                            <li>
                                 <a href="#placeMines">placeMines</a>
                             </li>
                             <li>
@@ -465,7 +468,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/app/models/board.ts:145</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/app/models/board.ts:151</a></div>
                             </td>
                         </tr>
 
@@ -559,7 +562,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/app/models/board.ts:123</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/app/models/board.ts:129</a></div>
                             </td>
                         </tr>
 
@@ -628,6 +631,44 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="cheat_reveal"></a>
+                        <span class="name">
+                            <b>
+                            cheat_reveal
+                            </b>
+                            <a href="#cheat_reveal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cheat_reveal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="315" class="link-to-prism">src/app/models/board.ts:315</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="placeMines"></a>
                         <span class="name">
                             <b>
@@ -646,7 +687,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/models/board.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/models/board.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -688,7 +729,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/models/board.ts:64</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/models/board.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -740,7 +781,8 @@
                                                     
 
                                                         <td>
-                                                                <code><p>The column of the tile that was clicked.</p>
+                                                                <code><p>The column of the tile that was clicked.
+changed it to work without being called from recursive_reveal.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -782,7 +824,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">src/app/models/board.ts:188</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">src/app/models/board.ts:195</a></div>
                             </td>
                         </tr>
 
@@ -790,7 +832,7 @@
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Clicking on a tile calls the recursive reveal function, the function then reveals tiles
-fanning out in every direction if they are empty or contain a number. Once the function 
+fanning out in every direction if they are empty or contain a number. Once the function
 reaches a numbered tile, the recursion stops.</p>
 <p>Pre: There must be a board in existence.</p>
 <p>Post: When a tile is clicked, tiles fanning out from the clicked tile are revealed.
@@ -837,7 +879,8 @@ If the function hits a number in any direction, the revealing/recursion ceases.<
                                                     
 
                                                         <td>
-                                                                <code><p>The column of the clicked tile.</p>
+                                                                <code><p>The column of the clicked tile.
+changed it to not place the numbers on the reveal.</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -879,7 +922,7 @@ If the function hits a number in any direction, the revealing/recursion ceases.<
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/app/models/board.ts:162</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/app/models/board.ts:168</a></div>
                             </td>
                         </tr>
 
@@ -935,13 +978,18 @@ export class board
         }
         this.rows.push(row); //Append new row to board
      }
-    this.placeMines();
+    this.placeMines(); // added a call to place numbers when the board is generated.
+    for(let x &#x3D; 0; x &lt; this.rowCount ; x++) {
+        for(let y &#x3D; 0; y &lt; this.colCount; y++) {
+          this.placeNumber(x,y);
+            }
+        }
     document.addEventListener(&#x27;contextmenu&#x27;, event &#x3D;&gt; event.preventDefault());
     }
 
     /**
      * Given the number of mines the user wanted, places mines at random coordinates.
-     * 
+     *
      * Pre: There must be a board in existence.
      *
      * Post: Places the user-defined number of mines .
@@ -964,21 +1012,22 @@ export class board
 
   /**
    * Calculates what number to place in every tile, then places the correct number according to how many bombs are adjacent to that tile.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: Calculates adjacent bombs to any given tile and places numbers accordingly.
-   * 
+   *
    * @param row The row of the tile that was clicked.
-   * 
+   *
    * @param col The column of the tile that was clicked.
+   * changed it to work without being called from recursive_reveal.
    */
   placeNumber(row: number, col: number): void
   {
     let bombCount &#x3D; 0;
-    if(this.rows[row][col].isBomb) {
-      this.revealMines();
-    }
+  //  if(this.rows[row][col].isBomb) {
+  //    this.revealMines();
+//    }
     if(this.boundsCheck(row-1, col-1)) { // top left tile
       if(this.bombCheck(row-1, col-1)) {
         bombCount++;
@@ -1023,13 +1072,13 @@ export class board
 
   /**
    * For a given tile at coordinates (row, col), checks if the tile is within the bounds of the board.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: Returns true if the tile is within the bounds of the board, returns false otherwise.
-   * 
+   *
    * @param row The row of the coordinate to be checked.
-   * 
+   *
    * @param col The column of the coordinate to be checked.
    */
   boundsCheck(row, col): boolean {
@@ -1045,19 +1094,19 @@ export class board
 
   /**
    * For a given tile at coordinates (row, col), checks if the tile is a bomb.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: Checks if there is a bomb at the given coordinate.
-   * 
+   *
    * @param row The row of the coordinate to be checked.
-   * 
+   *
    * @param col The column of the coordinate to be checked.
    */
   bombCheck(row: number, col: number): boolean {
     if (this.rows[row][col].isBomb) {
       return true
-    } 
+    }
     else {
       return false;
     }
@@ -1066,40 +1115,41 @@ export class board
 
   /**
    * After the user hits a bomb and the game ends, all of the mines are revealed.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: If the user hits a bomb and ends the game, reveals all the mines.
    */
   revealMines() {
       for(let i &#x3D; 0; i &lt; this.rowCount; i++) {
           for(let j &#x3D; 0; j &lt; this.colCount; j++) {
-              if(this.rows[i][j].isBomb) {
+            if(this.rows[i][j].isBomb) {
                   this.rows[i][j].isRevealed &#x3D; true;
                   this.isGameOver &#x3D; true;
+                }
               }
           }
       }
-  }
 
 
   /**
    * Clicking on a tile calls the recursive reveal function, the function then reveals tiles
-   * fanning out in every direction if they are empty or contain a number. Once the function 
+   * fanning out in every direction if they are empty or contain a number. Once the function
    * reaches a numbered tile, the recursion stops.
-   * 
+   *
    * Pre: There must be a board in existence.
-   * 
+   *
    * Post: When a tile is clicked, tiles fanning out from the clicked tile are revealed.
    * If the function hits a number in any direction, the revealing/recursion ceases.
-   * 
+   *
    * @param row The row of the clicked tile.
-   * 
+   *
    * @param col The column of the clicked tile.
+   * changed it to not place the numbers on the reveal.
    */
   recursive_reveal(row: number, col: number) : void
   {
-    this.placeNumber(row, col);
+    //this.placeNumber(row, col);
     if (!(this.rows[row][col].adjBombs &gt; 0) &amp;&amp; !this.isGameOver)
     {
       if (this.boundsCheck(row - 1, col - 1)) { // top left tile
@@ -1118,15 +1168,15 @@ export class board
       if (this.boundsCheck(row - 1, col)) { // top tile
         if (!this.rows[row - 1][col].isBomb &amp;&amp; !this.rows[row - 1][col].isRevealed &amp;&amp; !this.rows[row][col].isFlagged) {
           if (this.rows[row - 1][col].adjBombs &gt; 0){
-            
+
             this.rows[row - 1][col].revealTile();
 
-            
+
           }
           else{
             this.rows[row - 1][col].revealTile();
             this.recursive_reveal(row - 1, col);
-            
+
           }
           this.tilesRevealed++;
         }
@@ -1146,11 +1196,11 @@ export class board
 
         }
       }
-      if (this.boundsCheck(row, col - 1)) { // left tile 
+      if (this.boundsCheck(row, col - 1)) { // left tile
         if (!this.rows[row][col - 1].isBomb &amp;&amp; !this.rows[row][col - 1].isRevealed &amp;&amp; !this.rows[row][col].isFlagged){
           if (this.rows[row][col - 1].adjBombs &gt; 0) {
             this.rows[row][col - 1].revealTile();
-            
+
           }
           else {
             this.rows[row][col - 1].revealTile();
@@ -1215,6 +1265,18 @@ export class board
       }
     }
   }
+
+//does the cheating by calling the tiles cheatreveal fucntion on each tile.
+cheat_reveal() : void
+{
+  for(let i &#x3D; 0; i &lt; this.rowCount ; i++) {
+      for(let j &#x3D; 0; j &lt; this.colCount; j++) {
+        this.rows[i][j].cheatreveal();
+          }
+      }
+  }
+
+
 }
 </code></pre>
     </div>
