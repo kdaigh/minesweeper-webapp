@@ -1,27 +1,36 @@
+<!DOCTYPE html>
+<html>
+<!--displays boxes to take input for the column rows and mines-->
 <header>
   <h1>Minesweeper</h1>
 </header>
 
 <body>
     <div [formGroup]="boardFormGroup">
+      <!--column input-->
       <div class="inputDiv">
         Columns<br>
         <input type="number" formControlName="ColumnCount" class="inputBox">
       </div>
 
+      <!--row input-->
       <div class="inputDiv">
         Rows<br>
         <input type="number" formControlName="RowCount" class="inputBox">
       </div>
 
+      <!--mine input-->
       <div class="inputDiv">
         Mines<br>
         <input type="number" formControlName="MineCount" class="inputBox">
       </div>
     </div>
 
+    <!--validate user input-->
     <br>
     <button type="button" (click)="validateForm()">New Game</button>
 </body>
+<!--generates the acutal board display-->
 <app-board *ngIf="showBoard" [columnCount]="columnCount" [rowCount]="rowCount" [mineCount]="mineCount" [num]="num" ></app-board>
 <app-documentation></app-documentation>
+</html>

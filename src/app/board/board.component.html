@@ -1,21 +1,23 @@
-
+<!DOCTYPE html>
 <html>
+<!--creates table that holds the game-->
 <body>
-
-
     <hr width="275px">
 
+    <!--displays timer-->
     <div class="inputDiv">
         Timer<br>
         <input readonly [value]="digitalTimer" class="inputBox">
     </div>
 
+    <!--displays the number of flags left-->
     <div class="inputDiv">
         Flags<br>
         <input readonly [value]="flagCount" class="inputBox">
     </div>
 
     <div>
+        <!--table that checks if flagged revealed or cheat mode and shows the appropriate picture-->
         <table cellspacing="0" cellpadding="0">
             <tr *ngFor="let rows of board.rows">
                 <td *ngFor="let tile of rows" (click)="tileCheck(tile.row, tile.col)"
@@ -36,7 +38,9 @@
             </tr>
         </table>
     </div>
+    <!--displays button for cheat mode option-->
     <button type="button" (click)="cheating()">Cheat Mode</button>
+    <!--displays the stats if the game is over-->
     <div *ngIf = "board.isGameOver"class="displayStats">
         <b>Stats<br>
         <p>Mines Flagged: {{flaggedMines}}</p>
