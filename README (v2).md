@@ -5,7 +5,7 @@ The goal of this project was to improve upon an existing [Minesweeper game](http
 ## Getting Started
 
 Use the *Prerequisites* section to set up the development environment on your local machine. 
-Once the proper software is installed, navigate to your projec folder and use the following command to run the project.
+Once the proper software is installed, navigate to your project folder and use the following command to run the project.
 
 ```
 ng serve --open
