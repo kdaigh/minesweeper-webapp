@@ -15,10 +15,10 @@ export class tile {
         this.row = row;
         this.col = col;
         this.adjBombs = 0;
-        this.cheatReveal = false;
+        this.cheatReveal = false; //added variable to make it reveal when the true
     }
 
-    // Sets the boards cheat reveal vaiable to true
+    // Sets the boards cheat reveal vaiable to true and false.
     cheatreveal()
     { console.log(this.cheatReveal);
       if(!this.cheatReveal)

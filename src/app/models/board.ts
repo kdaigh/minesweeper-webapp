@@ -23,7 +23,7 @@ export class board
         }
         this.rows.push(row); //Append new row to board
      }
-    this.placeMines();
+    this.placeMines(); // added a call to place numbers when the board is generated.
     for(let x = 0; x < this.rowCount ; x++) {
         for(let y = 0; y < this.colCount; y++) {
           this.placeNumber(x,y);
@@ -65,6 +65,7 @@ export class board
    * @param row The row of the tile that was clicked.
    *
    * @param col The column of the tile that was clicked.
+   * changed it to work without being called from recursive_reveal.
    */
   placeNumber(row: number, col: number): void
   {
@@ -189,6 +190,7 @@ export class board
    * @param row The row of the clicked tile.
    *
    * @param col The column of the clicked tile.
+   * changed it to not place the numbers on the reveal.
    */
   recursive_reveal(row: number, col: number) : void
   {
@@ -309,7 +311,7 @@ export class board
     }
   }
 
-//does the cheating
+//does the cheating by calling the tiles cheatreveal fucntion on each tile.
 cheat_reveal() : void
 {
   for(let i = 0; i < this.rowCount ; i++) {

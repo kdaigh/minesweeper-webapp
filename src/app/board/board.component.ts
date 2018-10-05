@@ -277,6 +277,7 @@ export class BoardComponent implements OnChanges {
       setTimeout(() => alert("We all encounter failures in our lives."), 500);
     }
   }
+  //calls the cheat_reveal function to start the cheating.
   cheating(): void {
     console.log("in Cheating");
     if (!this.board.isGameOver){
