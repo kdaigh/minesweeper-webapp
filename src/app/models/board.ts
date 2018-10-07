@@ -310,8 +310,15 @@ export class board
       }
     }
   }
-
-//does the cheating by calling the tiles cheatreveal fucntion on each tile.
+/**
+*Goes through the board of tiles and calls the cheatreveal function on
+*each tile to reveal them to the player when using the cheat button.
+*
+*Pre: The board must be generated and the game must not be finished.
+*
+*Post: Each tile is revealed to show the player if there is a mine located
+*under the tile.
+*/
 cheat_reveal() : void
 {
   for(let i = 0; i < this.rowCount ; i++) {
