@@ -649,13 +649,19 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="315" class="link-to-prism">src/app/models/board.ts:315</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="322" class="link-to-prism">src/app/models/board.ts:322</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Goes through the board of tiles and calls the cheatreveal function on
+each tile to reveal them to the player when using the cheat button.</p>
+<p>Pre: The board must be generated and the game must not be finished.</p>
+<p>Post: Each tile is revealed to show the player if there is a mine located
+under the tile.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1265,16 +1271,23 @@ export class board
       }
     }
   }
-
-//does the cheating by calling the tiles cheatreveal fucntion on each tile.
-cheat_reveal() : void
-{
-  for(let i &#x3D; 0; i &lt; this.rowCount ; i++) {
-      for(let j &#x3D; 0; j &lt; this.colCount; j++) {
-        this.rows[i][j].cheatreveal();
-          }
-      }
-  }
+  /**
+  *Goes through the board of tiles and calls the cheatreveal function on
+  *each tile to reveal them to the player when using the cheat button.
+  *
+  *Pre: The board must be generated and the game must not be finished.
+  *
+  *Post: Each tile is revealed to show the player if there is a mine located
+  *under the tile.
+  */
+  cheat_reveal() : void
+  {
+    for(let i &#x3D; 0; i &lt; this.rowCount ; i++) {
+        for(let j &#x3D; 0; j &lt; this.colCount; j++) {
+          this.rows[i][j].cheatreveal();
+            }
+        }
+    }
 
 
 }

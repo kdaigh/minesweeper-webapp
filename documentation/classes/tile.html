@@ -469,13 +469,17 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/models/tile.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/models/tile.ts:28</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Sets the boards cheat reveal vaiable to true and false.</p>
+<p>Pre: Board must be generated and game must not be over.</p>
+<p>Post: The cheatReveal variable is set to true or false.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -507,7 +511,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/models/tile.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/models/tile.ts:59</a></div>
                             </td>
                         </tr>
 
@@ -549,7 +553,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/models/tile.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/models/tile.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -600,7 +604,13 @@
         this.cheatReveal &#x3D; false; //added variable to make it reveal when the true
     }
 
-    // Sets the boards cheat reveal vaiable to true and false.
+    /**
+    * Sets the boards cheat reveal vaiable to true and false.
+    *
+    * Pre: Board must be generated and game must not be over.
+    *
+    * Post: The cheatReveal variable is set to true or false.
+    */
     cheatreveal()
     { console.log(this.cheatReveal);
       if(!this.cheatReveal)

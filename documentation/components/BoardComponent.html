@@ -411,7 +411,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="291" class="link-to-prism">src/app/board/board.component.ts:291</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="300" class="link-to-prism">src/app/board/board.component.ts:300</a></div>
                             </td>
                         </tr>
 
@@ -453,7 +453,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">src/app/board/board.component.ts:195</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="204" class="link-to-prism">src/app/board/board.component.ts:204</a></div>
                             </td>
                         </tr>
 
@@ -538,7 +538,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="274" class="link-to-prism">src/app/board/board.component.ts:274</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="283" class="link-to-prism">src/app/board/board.component.ts:283</a></div>
                             </td>
                         </tr>
 
@@ -664,13 +664,17 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/app/board/board.component.ts:172</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">src/app/board/board.component.ts:181</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>This function plays audio when the user interacts with the board.</p>
+<p>Pre: Game must not be finished and board needs to be generated.</p>
+<p>Post: Audio plays when tile is clicked.</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -817,7 +821,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="239" class="link-to-prism">src/app/board/board.component.ts:239</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">src/app/board/board.component.ts:248</a></div>
                             </td>
                         </tr>
 
@@ -1483,6 +1487,15 @@ export class BoardComponent implements OnChanges {
       }
     }
   }
+  /**
+  * This function plays audio when the user interacts with the board.
+  *
+  * Pre: Game must not be finished and board needs to be generated.
+  *
+  * Post: Audio plays when tile is clicked.
+  *
+  * @param string link to the audio file that is played.
+  */
   playAudio(sound: string) : void {
     console.log(&quot;PLAYING SOUNDS&quot;)
     var bomb &#x3D; new Audio(&#x27;https://www.freesfx.co.uk/rx2/mp3s/6/17955_1464205617.mp3&#x27;);
