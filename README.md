@@ -1,128 +1,53 @@
-# Minesweeper
+# Minesweeper (EECS448: Project 2)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+The goal of this project was to improve upon an existing [Minesweeper game](https://github.com/BlakeJordan/Minesweeper).
 
-Documentation link: https://minesweeper-project.firebaseapp.com/assets/documentation/index.html
+## Getting Started
 
-# Meeting Log
-**8/31/2018**<br/>
-In class, all members present 
-Decided on web based implementation, scheduled next meeting 
+Use the *Prerequisites* section to set up the development environment on your local machine. 
+Once the proper software is installed, navigate to your project folder and use the following command to run the project.
 
-**9/3/2018**<br/>
-Blake and Bunty's house, all members present 
+```
+ng serve --open
+```
 
-Decided on JavaScript, downloaded Visual Studio, and created "Minesweeper" repository. Each of us downloaded a clone of the repository gained collaborative access on GitHub. Downloaded Angular to make the web-app creation process easier. 
+### Prerequisites
 
-**9/5/2018**<br/> 
-In class, all members present 
+Begin by installing **node.js** using the instructions contained on this [site](https://nodejs.org/en/download/).
 
-Discussed the angular tutorial and what we should tackle later in tonight's meeting 
+Then, install **npm** (For device specific information, click [here](https://www.npmjs.com/get-npm)).
 
-**9/5/2018**<br/> 
-Blake and Bunty's house, all members present 
+```
+npm install
+```
 
-Determined group member roles/which component each member will work on, started working on heirarchy and necessary components 
+Finally, install **Angular** (For more information, click [here](https://angular.io/guide/quickstart)).
 
-**9/6/2018**<br/> 
-LEEP G415, all members present 
+```
+npm install -g @angular/cli
+```
 
-Discussed how to pass information between components in angular, presented what we had gotten done since the last meeting 
+## Built With
 
-**9/7/2018**<br/> 
-In Class, all members present 
+* [Node.js](https://nodejs.org/en/) - Server environment
+* [NPM](https://www.npmjs.com/) - Package management
+* [Angular](https://angular.io/) - Command line interface
+* [Compodoc](https://compodoc.app/) - Documentation generation
 
-Scheduled next meeting 
+## Authors
 
-**9/8/2018**<br/> 
-Blake and Bunty's house, all members present 
+* **Ayah Alkhatib** - [amalkhatib90](https://github.com/amalkhatib90/)
+* **Kyle Curry** - [k19c90](https://github.com/k19c90)
+* **Kristi Daigh** - [kdaigh](https://github.com/kdaigh)
+* **Ethan Lefert** - [elefert400](https://github.com/elefert400)
+* **Clare Meyer** - [clareMeyer](https://github.com/clareMeyer)
 
-Discussed what we need to accomplish next,  ate pancakes, created Tile component 
+See also the list of [contributors](https://github.com/kdaigh/minesweeper-webapp/graphs/contributors) who participated in this project.
 
-**9/10/2018**<br/> 
-In Class, Austin Wildman absent 
+## Documentation
 
-Scheduled next meeting, discussed what we need to accomplish in later meeting 
+[Compodoc](https://compodoc.app/) was used to provide [documentation](https://github.com/kdaigh/minesweeper-webapp/tree/master/documentation) for this project.
 
-**9/10/2018**<br/> 
-In Lab, Blake Jordan absent 
+## Acknowledgments
 
-Found a bug where several tables appear when "New Game" is clicked, fixed it 
-
-**9/10/2018**<br/> 
-Blake and Bunty's house, Austin Wildman absent 
-
-Got board to appear in the middle of the web page, modelled the tiles to look like minesweeper, added "Game Over" functionality when bomb was clicked, added flagging ability with right click 
-
-**9/13/2018**<br/> 
-Blake and Bunty's house, all members present 
-
-Made a To-Do list for wrapping up the project 
-
-**9/16/2018**<br/> 
-Blake and Bunty's house, all members present 
-
-Fixed a few last minute bugs, finished documentation 
-
-# Retrospective Writeup
-How was work split between teammates? 
-
-Work was divided into the basic groups: Board Logic (Austin Wildman and McKenna Groves), Visuals (Bunty Dey and Seth Peterson), and Communication between components (Blake Jordan). Later on, after some work was done we split it into individual tasks such as writing specific functions, documentation of specific files, etc. 
-
-What were the challenges and how were they overcome or dealt with? 
-
-The biggest challenge was learning TypeScript and HTML as well as the Angular Platform. That challenge was met with a lot of googling and good old trial and error. We also had some issues with GitHub and resolving merge conflicts. Sometimes if one person deleted something on their branch that had been previously pushed to master but was no longer needed, it would reappear on the master branch because there was confusion regarding whether or not it was needed. Also, one of our validators that stopped the board from crashing was accidentally deleted. 
-
-Did any features not make the demo? 
-
-Yes, a max validator for the rows and colums input as well as an error message if the input contained decimals. They were coded and added to the master branch before the code freeze, but were accidentally removed in a merge conflict later on. We didn't notice what had happened until demo day. Our bad! 
-
-Is there anything your team could have done differently? 
-
-Yes, during the beginning stages of the project, each of us did our own thing and there was no form or structure to our plan. Each member's roles were loosely defined which led to some overlap when it came to who was doing what. We discovered later on that it was much more helpful to tackle a particular problem together instead of each trying to tackle the problem separately, then just going with whatever worked first. Also, due to issues we encountered with some features being accidentally deleted, we will definitely add a last minute check to the list to make sure everything is working correctly BEFORE demo day.
-
-# Works Cited
-
-## Timer
-https://www.npmjs.com/package/ng2-simple-timer
-
-## Documentation generator
-https://compodoc.github.io/compodoc/
-
-## Favicon
-https://fontawesome.com/icons/bomb?style=solid
-
-## Documentation Link Icon
-https://fontawesome.com/v4.7.0/icon/book
-
-## Github Link Icon
-https://fontawesome.com/v4.7.0/icon/github
-
-## Font
-https://fonts.google.com/specimen/Jura
-
-## Icons
-Unclicked Tile - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png
-
-Empty Tile - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png
-
-Mine - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/mine.png
-
-1 - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-1.png
-
-2 - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-2.png
-
-3 - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-3.png
-
-4 - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-4.png
-
-5 - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-5.png
-
-6 - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-6.png
-
-7 - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-7.png
-
-8 - http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-8.png
-
-## Inspiration
-http://www.simplygoodcode.com/2014/04/angularjs-game-programming-making-minesweeper-part-ii/index.html
+Please read [SOURCES.md](https://github.com/kdaigh/minesweeper-webapp/blob/master/documentation/SOURCES.MD) for a works cited.
