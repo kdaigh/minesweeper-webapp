@@ -64,6 +64,13 @@
     <code>src/app/board/board.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Board Component</p>
+
+    </p>
 
 
     <p class="comment">
@@ -170,6 +177,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#cheating">cheating</a>
+                            </li>
+                            <li>
                                 <a href="#flagCheck">flagCheck</a>
                             </li>
                             <li>
@@ -180,6 +190,9 @@
                             </li>
                             <li>
                                 <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#playAudio">playAudio</a>
                             </li>
                             <li>
                                 <a href="#setupTimer">setupTimer</a>
@@ -239,7 +252,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/board/board.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/board/board.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -299,7 +312,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/board/board.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/board/board.component.ts:15</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -320,7 +333,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/board/board.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/board/board.component.ts:17</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -341,7 +354,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/board/board.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/board/board.component.ts:18</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -362,7 +375,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/board/board.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/board/board.component.ts:16</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -376,6 +389,48 @@
         <h3 id="methods">
             Methods
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cheating"></a>
+                        <span class="name">
+                            <b>
+                            cheating
+                            </b>
+                            <a href="#cheating"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cheating()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="300" class="link-to-prism">src/app/board/board.component.ts:300</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Calls the cheat_reveal() function to start cheating.</p>
+<p>Pre: Game board is generated and game is active.</p>
+<p>Post: cheat_reveal() function has been called.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -398,14 +453,14 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/app/board/board.component.ts:176</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="204" class="link-to-prism">src/app/board/board.component.ts:204</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Checks all conditions on current tile, places flag and adjusts flag count as necessary. </p>
+                            <div class="io-description"><p>Checks all conditions on current tile, places flag and adjusts flag count as necessary.</p>
 <p>Pre: The board exists.</p>
 <p>Post: flag is placed if allowed, if not alert will pop up if not flags remaining.</p>
 </div>
@@ -483,7 +538,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="242" class="link-to-prism">src/app/board/board.component.ts:242</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="283" class="link-to-prism">src/app/board/board.component.ts:283</a></div>
                             </td>
                         </tr>
 
@@ -525,7 +580,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/board/board.component.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/board/board.component.ts:65</a></div>
                             </td>
                         </tr>
 
@@ -567,7 +622,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/board/board.component.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/board/board.component.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -583,6 +638,79 @@
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                             </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="playAudio"></a>
+                        <span class="name">
+                            <b>
+                            playAudio
+                            </b>
+                            <a href="#playAudio"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>playAudio(sound: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">src/app/board/board.component.ts:181</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>This function plays audio when the user interacts with the board.</p>
+<p>Pre: Game must not be finished and board needs to be generated.</p>
+<p>Post: Audio plays when tile is clicked.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>sound</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -609,7 +737,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/board/board.component.ts:79</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/board/board.component.ts:83</a></div>
                             </td>
                         </tr>
 
@@ -651,7 +779,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/board/board.component.ts:96</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/board/board.component.ts:100</a></div>
                             </td>
                         </tr>
 
@@ -693,7 +821,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="215" class="link-to-prism">src/app/board/board.component.ts:215</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">src/app/board/board.component.ts:248</a></div>
                             </td>
                         </tr>
 
@@ -787,7 +915,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/board/board.component.ts:116</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">src/app/board/board.component.ts:120</a></div>
                             </td>
                         </tr>
 
@@ -842,7 +970,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/board/board.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/board/board.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -876,7 +1004,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/board/board.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/board/board.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -904,7 +1032,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/board/board.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/board/board.component.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -938,7 +1066,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/board/board.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/board/board.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -972,7 +1100,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/board/board.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/board/board.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -1006,7 +1134,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/board/board.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/board/board.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -1039,7 +1167,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/board/board.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/board/board.component.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -1073,7 +1201,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/board/board.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/board/board.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -1107,7 +1235,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/board/board.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/board/board.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -1141,7 +1269,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/board/board.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/board/board.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -1175,7 +1303,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/board/board.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/board/board.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -1191,7 +1319,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnChanges, Input } from &#x27;@angular/core&#x27;;
 import { SimpleTimer } from &#x27;ng2-simple-timer&#x27;;
 import { board } from &#x27;../models/board&#x27;;
+import {Howl, Howler} from &#x27;howler&#x27;;
 
+/**
+* Board Component
+*/
 @Component({
   selector: &#x27;app-board&#x27;,
   templateUrl: &#x27;./board.component.html&#x27;,
@@ -1216,11 +1348,11 @@ export class BoardComponent implements OnChanges {
 
   /**
    * Initializes variables for timer and winning conditions.
-   * 
+   *
    * Pre: None.
-   * 
+   *
    * Post: hasWon, stopTime, isGameOver, simple timer, and flaggedMines have been initalized.
-   * 
+   *
    * @param SimpleTimer Angular class used to display the elapsed time.
    */
   constructor(private st: SimpleTimer) {
@@ -1232,9 +1364,9 @@ export class BoardComponent implements OnChanges {
 
   /**
    * Starts a new game.
-   * 
+   *
    * Pre: User provides valid information and clicks &quot;play game&quot;.
-   * 
+   *
    * Post: newGame is called, initializes properties for new game.
    */
   ngOnChanges() {
@@ -1243,9 +1375,9 @@ export class BoardComponent implements OnChanges {
 
   /**
    * Initializes properties for a new game.
-   * 
+   *
    * Pre: User input has changed.
-   * 
+   *
    * Post: flagCount, isGameOver, hasWon, revealedTiles, flaggedMines, board, and the timer component has been initalized.
    */
   newGame() {
@@ -1256,14 +1388,14 @@ export class BoardComponent implements OnChanges {
     this.revealedTilesCount &#x3D; 0;
     this.setupTimer();
     this.board &#x3D; new board(this.rowCount, this.columnCount, this.mineCount);
-    
+
   }
 
   /**
    * Resets timerCount and subscribes the timer.
-   * 
+   *
    * Pre: newGame has been called.
-   * 
+   *
    * Post: timerCount is reset and the timer is subscribed.
    */
   setupTimer() {
@@ -1278,9 +1410,9 @@ export class BoardComponent implements OnChanges {
 
   /**
    * Unsubscribes timer on application startup, subscribes timer when called otherwise
-   * 
+   *
    * Pre: setupTimer has been called
-   * 
+   *
    * Post: Timer is unsubscribed on application startup, timer is subscribed otherwise
    */
   subscribeTimer() {
@@ -1298,9 +1430,9 @@ export class BoardComponent implements OnChanges {
 
   /**
    * Iterates the timerCount, converts value to a digital clock format, updates digitalTimer.
-   * 
+   *
    * Pre: Timer has been subscribed.
-   * 
+   *
    * Post: timerCount has been iterated, digitalTimer correctly represents the time elapsed.
    */
   updateTimer()
@@ -1308,11 +1440,11 @@ export class BoardComponent implements OnChanges {
     if(!this.stopTimer) {
       this.timerCount++;
 
-      /////////////////////Update digital timer string/////////////////////
+      /********* Update digital timer string **********/
 
-      this.digitalTimer &#x3D; &quot;&quot;; //Reset value
+      this.digitalTimer &#x3D; &quot;&quot;; // Reset value
 
-      //Initializations
+      // Initializations
       let minutes &#x3D; Math.floor(this.timerCount / 60);
       let hours &#x3D; Math.floor(minutes / 60);
       if (hours &gt; 0)
@@ -1321,46 +1453,70 @@ export class BoardComponent implements OnChanges {
       }
       let seconds &#x3D; this.timerCount % 60;
 
-      //If time has exeeded 1 hour
+      // If time has exeeded 1 hour
       if (hours !&#x3D; 0)
       {
-        this.digitalTimer +&#x3D; hours + &quot;:&quot;; //Add hours
+        this.digitalTimer +&#x3D; hours + &quot;:&quot;; //A dd hours
 
         if (minutes &lt; 10)
         {
-          this.digitalTimer +&#x3D; &quot;0&quot;; //Add minutes leading zero if needed
+          this.digitalTimer +&#x3D; &quot;0&quot;; // Add minutes leading zero if needed
         }
-        this.digitalTimer +&#x3D; minutes + &quot;:&quot;; //Add minutes
+        this.digitalTimer +&#x3D; minutes + &quot;:&quot;; // Add minutes
 
         if (seconds &lt; 10)
         {
-          this.digitalTimer +&#x3D; &quot;0&quot;; //Add seconds leading zero if needed
+          this.digitalTimer +&#x3D; &quot;0&quot;; // Add seconds leading zero if needed
         }
         this.digitalTimer +&#x3D; seconds;
       }
 
-      //If time has not exeeded 1 hour
+      // If time has not exeeded 1 hour
       else
       {
-        if (minutes !&#x3D; 0) //If time has exeeded 1 minute
+        if (minutes !&#x3D; 0) // If time has exeeded 1 minute
         {
           this.digitalTimer +&#x3D; minutes + &quot;:&quot;;
 
           if (seconds &lt; 10)
           {
-            this.digitalTimer +&#x3D; &quot;0&quot;; //Add seconds leading zero if needed
+            this.digitalTimer +&#x3D; &quot;0&quot;; // Add seconds leading zero if needed
           }
         }
         this.digitalTimer +&#x3D; seconds;
       }
     }
   }
+  /**
+  * This function plays audio when the user interacts with the board.
+  *
+  * Pre: Game must not be finished and board needs to be generated.
+  *
+  * Post: Audio plays when tile is clicked.
+  *
+  * @param string link to the audio file that is played.
+  */
+  playAudio(sound: string) : void {
+    console.log(&quot;PLAYING SOUNDS&quot;)
+    var bomb &#x3D; new Audio(&#x27;https://www.freesfx.co.uk/rx2/mp3s/6/17955_1464205617.mp3&#x27;);
+    var click &#x3D; new Audio(&#x27;https://www.freesfx.co.uk/rx2/mp3s/5/16988_1461335349.mp3&#x27;)
+    var flag &#x3D; new Audio(&#x27;https://www.freesfx.co.uk/rx2/mp3s/6/18007_1464272917.mp3&#x27;)
+    if (sound &#x3D;&#x3D; &quot;b&quot;){
+      bomb.play();
+    }
+    else if(sound &#x3D;&#x3D; &quot;c&quot;){
+      click.play();
+    }
+    else if (sound &#x3D;&#x3D; &quot;f&quot;){
+      flag.play();
+    }
+  }
 
   /**
-   * Checks all conditions on current tile, places flag and adjusts flag count as necessary. 
-   * 
+   * Checks all conditions on current tile, places flag and adjusts flag count as necessary.
+   *
    * Pre: The board exists.
-   * 
+   *
    * Post: flag is placed if allowed, if not alert will pop up if not flags remaining.
    */
   flagCheck(row: number, col: number) {
@@ -1369,10 +1525,15 @@ export class BoardComponent implements OnChanges {
         this.board.rows[row][col].isFlagged &#x3D; false;
         this.flagCount++;
         if(this.board.rows[row][col].isBomb) {
-          this.flaggedMines--; 
+          this.flaggedMines--;
         }
       }
+      else if (this.board.rows[row][col].cheatReveal)
+      {
+        alert(&quot;You cannot play while in cheat mode&quot;);
+      }
       else if (!this.board.rows[row][col].isFlagged &amp;&amp; this.flagCount &gt; 0 &amp;&amp; !this.board.rows[row][col].isRevealed) { // place flag
+        this.playAudio(&quot;f&quot;);
         this.board.rows[row][col].isFlagged &#x3D; true;
         this.flagCount--;
         if(this.board.rows[row][col].isBomb) {
@@ -1393,40 +1554,48 @@ export class BoardComponent implements OnChanges {
 
   /**
    * Determines revealing behavior of a left-clicked tile.
-   * 
+   *
    * Pre: User left-clicks a tile and game is not over.
-   * 
+   *
    * Post: tile is revealed, game ends if it&#x27;s a mine.
-   * 
+   *
    * @param row The row of the tile being flagged.
-   * 
+   *
    * @param col The column of the tile being flagged.
    */
   tileCheck(row: number, col: number) {
+
     if(!this.isGameOver) {
-      if(this.board.rows[row][col].isBomb) { // bomb was clicked, end game
+      if(this.board.rows[row][col].isBomb &amp;&amp; (this.board.rows[row][col].cheatReveal&#x3D;&#x3D;false)) { // bomb was clicked, end game
+        this.playAudio(&quot;b&quot;);
         this.board.revealMines();
         this.isGameOver &#x3D; true;
         this.gameOverDialog();
       }
+      else if (this.board.rows[row][col].cheatReveal)
+      {
+        alert(&quot;You cannot play while in cheat mode&quot;);
+      }
       else if(this.board.rows[row][col].isFlagged) { // flagged tile was clicked but wasn&#x27;t a bomb
+        this.playAudio(&quot;c&quot;);
         this.board.rows[row][col].isFlagged &#x3D; false;
         this.board.rows[row][col].isRevealed &#x3D; true;
         this.flagCount++;
         this.board.recursive_reveal(row, col);
       }
       else { // non-flag, non-bomb tile was clicked, reveal tile
+        this.playAudio(&quot;c&quot;);
         this.board.rows[row][col].isRevealed &#x3D; true;
         this.board.recursive_reveal(row, col);
       }
     }
   }
-  
+
   /**
    * Presents dialogue at the end of the game.
-   * 
+   *
    * Pre: Game has been completed.
-   * 
+   *
    * Post: Stops timer and lets user know if they won or lost.
    */
   gameOverDialog(): void {
@@ -1438,53 +1607,75 @@ export class BoardComponent implements OnChanges {
       setTimeout(() &#x3D;&gt; alert(&quot;We all encounter failures in our lives.&quot;), 500);
     }
   }
+
+  /**
+   * Calls the cheat_reveal() function to start cheating.
+   *
+   * Pre: Game board is generated and game is active.
+   *
+   * Post: cheat_reveal() function has been called.
+   */
+  cheating(): void {
+    console.log(&quot;in Cheating&quot;);
+    if (!this.board.isGameOver){
+      this.board.cheat_reveal();
+    }
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;body&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;!--creates table that holds the game--&gt;
+&lt;body&gt;
     &lt;hr width&#x3D;&quot;275px&quot;&gt;
 
+    &lt;!--displays timer--&gt;
     &lt;div class&#x3D;&quot;inputDiv&quot;&gt;
         Timer&lt;br&gt;
         &lt;input readonly [value]&#x3D;&quot;digitalTimer&quot; class&#x3D;&quot;inputBox&quot;&gt;
     &lt;/div&gt;
 
+    &lt;!--displays the number of flags left--&gt;
     &lt;div class&#x3D;&quot;inputDiv&quot;&gt;
         Flags&lt;br&gt;
         &lt;input readonly [value]&#x3D;&quot;flagCount&quot; class&#x3D;&quot;inputBox&quot;&gt;
     &lt;/div&gt;
 
     &lt;div&gt;
+        &lt;!--table that checks if flagged revealed or cheat mode and shows the appropriate picture--&gt;
         &lt;table cellspacing&#x3D;&quot;0&quot; cellpadding&#x3D;&quot;0&quot;&gt;
             &lt;tr *ngFor&#x3D;&quot;let rows of board.rows&quot;&gt;
                 &lt;td *ngFor&#x3D;&quot;let tile of rows&quot; (click)&#x3D;&quot;tileCheck(tile.row, tile.col)&quot;
                     (contextmenu)&#x3D;&quot;flagCheck(tile.row, tile.col)&quot;&gt;
-                    &lt;img *ngIf&#x3D;&quot;!tile.isRevealed &amp;&amp; !tile.isFlagged&quot; src&#x3D;&quot;../../assets/TilePictures/CoveredTile.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;!tile.isRevealed &amp;&amp; tile.isFlagged&quot; src&#x3D;&quot;../../assets/TilePictures/FlagTile.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; tile.isBomb&quot; src&#x3D;&quot;../../assets/TilePictures/MineTile.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 0&quot; src&#x3D;&quot;../../assets/TilePictures/UncoveredTile.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 1&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/One.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 2&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Two.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 3&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Three.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 4&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Four.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 5&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Five.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 6&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Six.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 7&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Seven.png&quot; /&gt;
-                    &lt;img *ngIf&#x3D;&quot;tile.isRevealed &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 8&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Eight.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;!tile.isRevealed &amp;&amp; !tile.isFlagged &amp;&amp; !tile.cheatReveal&quot; src&#x3D;&quot;../../assets/TilePictures/CoveredTile.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;!tile.isRevealed &amp;&amp; tile.isFlagged &amp;&amp; !tile.cheatReveal&quot; src&#x3D;&quot;../../assets/TilePictures/FlagTile.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; tile.isBomb&quot; src&#x3D;&quot;../../assets/TilePictures/MineTile.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 0&quot; src&#x3D;&quot;../../assets/TilePictures/UncoveredTile.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 1&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/One.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 2&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Two.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 3&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Three.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 4&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Four.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 5&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Five.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 6&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Six.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 7&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Seven.png&quot; /&gt;
+                    &lt;img *ngIf&#x3D;&quot;(tile.isRevealed || tile.cheatReveal) &amp;&amp; !tile.isBomb &amp;&amp; tile.adjBombs &#x3D;&#x3D; 8&quot; src&#x3D;&quot;../../assets/TilePictures/Numbers/Eight.png&quot; /&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
         &lt;/table&gt;
     &lt;/div&gt;
-
+    &lt;!--displays button for cheat mode option--&gt;
+    &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;cheating()&quot;&gt;Cheat Mode&lt;/button&gt;
+    &lt;!--displays the stats if the game is over--&gt;
     &lt;div *ngIf &#x3D; &quot;board.isGameOver&quot;class&#x3D;&quot;displayStats&quot;&gt;
         &lt;b&gt;Stats&lt;br&gt;
         &lt;p&gt;Mines Flagged: {{flaggedMines}}&lt;/p&gt;
         &lt;p&gt;Time: {{digitalTimer}}&lt;/p&gt; &lt;/b&gt;
     &lt;/div&gt;
 &lt;/body&gt;
-
+&lt;/html&gt;
 </code></pre>
     </div>
 
@@ -1513,7 +1704,7 @@ export class BoardComponent implements OnChanges {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><body>    <hr width="275px">    <div class="inputDiv">        Timer<br>        <input readonly [value]="digitalTimer" class="inputBox">    </div>    <div class="inputDiv">        Flags<br>        <input readonly [value]="flagCount" class="inputBox">    </div>    <div>        <table cellspacing="0" cellpadding="0">            <tr *ngFor="let rows of board.rows">                <td *ngFor="let tile of rows" (click)="tileCheck(tile.row, tile.col)"                    (contextmenu)="flagCheck(tile.row, tile.col)">                    <img *ngIf="!tile.isRevealed && !tile.isFlagged" src="../../assets/TilePictures/CoveredTile.png" />                    <img *ngIf="!tile.isRevealed && tile.isFlagged" src="../../assets/TilePictures/FlagTile.png" />                    <img *ngIf="tile.isRevealed && tile.isBomb" src="../../assets/TilePictures/MineTile.png" />                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 0" src="../../assets/TilePictures/UncoveredTile.png" />                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 1" src="../../assets/TilePictures/Numbers/One.png" />                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 2" src="../../assets/TilePictures/Numbers/Two.png" />                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 3" src="../../assets/TilePictures/Numbers/Three.png" />                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 4" src="../../assets/TilePictures/Numbers/Four.png" />                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 5" src="../../assets/TilePictures/Numbers/Five.png" />                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 6" src="../../assets/TilePictures/Numbers/Six.png" />                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 7" src="../../assets/TilePictures/Numbers/Seven.png" />                    <img *ngIf="tile.isRevealed && !tile.isBomb && tile.adjBombs == 8" src="../../assets/TilePictures/Numbers/Eight.png" />                </td>            </tr>        </table>    </div>    <div *ngIf = "board.isGameOver"class="displayStats">        <b>Stats<br>        <p>Mines Flagged: {{flaggedMines}}</p>        <p>Time: {{digitalTimer}}</p> </b>    </div></body></div>'
+        var COMPONENT_TEMPLATE = '<div><!DOCTYPE html><html><!--creates table that holds the game--><body>    <hr width="275px">    <!--displays timer-->    <div class="inputDiv">        Timer<br>        <input readonly [value]="digitalTimer" class="inputBox">    </div>    <!--displays the number of flags left-->    <div class="inputDiv">        Flags<br>        <input readonly [value]="flagCount" class="inputBox">    </div>    <div>        <!--table that checks if flagged revealed or cheat mode and shows the appropriate picture-->        <table cellspacing="0" cellpadding="0">            <tr *ngFor="let rows of board.rows">                <td *ngFor="let tile of rows" (click)="tileCheck(tile.row, tile.col)"                    (contextmenu)="flagCheck(tile.row, tile.col)">                    <img *ngIf="!tile.isRevealed && !tile.isFlagged && !tile.cheatReveal" src="../../assets/TilePictures/CoveredTile.png" />                    <img *ngIf="!tile.isRevealed && tile.isFlagged && !tile.cheatReveal" src="../../assets/TilePictures/FlagTile.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && tile.isBomb" src="../../assets/TilePictures/MineTile.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 0" src="../../assets/TilePictures/UncoveredTile.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 1" src="../../assets/TilePictures/Numbers/One.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 2" src="../../assets/TilePictures/Numbers/Two.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 3" src="../../assets/TilePictures/Numbers/Three.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 4" src="../../assets/TilePictures/Numbers/Four.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 5" src="../../assets/TilePictures/Numbers/Five.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 6" src="../../assets/TilePictures/Numbers/Six.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 7" src="../../assets/TilePictures/Numbers/Seven.png" />                    <img *ngIf="(tile.isRevealed || tile.cheatReveal) && !tile.isBomb && tile.adjBombs == 8" src="../../assets/TilePictures/Numbers/Eight.png" />                </td>            </tr>        </table>    </div>    <!--displays button for cheat mode option-->    <button type="button" (click)="cheating()">Cheat Mode</button>    <!--displays the stats if the game is over-->    <div *ngIf = "board.isGameOver"class="displayStats">        <b>Stats<br>        <p>Mines Flagged: {{flaggedMines}}</p>        <p>Time: {{digitalTimer}}</p> </b>    </div></body></html></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'UserInputComponent', 'selector': 'app-user-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BoardComponent'};

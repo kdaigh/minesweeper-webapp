@@ -169,6 +169,15 @@ export class BoardComponent implements OnChanges {
       }
     }
   }
+  /**
+  * This function plays audio when the user interacts with the board.
+  *
+  * Pre: Game must not be finished and board needs to be generated.
+  *
+  * Post: Audio plays when tile is clicked.
+  *
+  * @param string link to the audio file that is played.
+  */
   playAudio(sound: string) : void {
     console.log("PLAYING SOUNDS")
     var bomb = new Audio('https://www.freesfx.co.uk/rx2/mp3s/6/17955_1464205617.mp3');

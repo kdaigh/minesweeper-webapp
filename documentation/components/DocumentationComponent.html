@@ -64,6 +64,13 @@
     <code>src/app/documentation/documentation.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Documentation Component</p>
+
+    </p>
 
 
     <p class="comment">
@@ -150,7 +157,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/documentation/documentation.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/documentation/documentation.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -189,7 +196,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/documentation/documentation.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/documentation/documentation.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -214,6 +221,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 
+/**
+* Documentation Component
+*/
 @Component({
   selector: &#x27;app-documentation&#x27;,
   templateUrl: &#x27;./documentation.component.html&#x27;,
@@ -231,24 +241,29 @@ export class DocumentationComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;body&gt;
-&lt;hr width&#x3D;&quot;275px&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;!--documentation display--&gt;
+  &lt;body&gt;
+  &lt;hr width&#x3D;&quot;275px&quot;&gt;
 
-&lt;div style&#x3D;&quot;text-align:center&quot;&gt;
+  &lt;div style&#x3D;&quot;text-align:center&quot;&gt;
 
-  &lt;div class&#x3D;&quot;navigationDiv&quot;&gt;
-    Documentation&lt;br&gt;
-    &lt;a href&#x3D;&quot;../../assets/documentation/index.html&quot; target&#x3D;&quot;_blank&quot; class&#x3D;&quot;fa fa-book&quot;&gt;&lt;/a&gt;
+    &lt;div class&#x3D;&quot;navigationDiv&quot;&gt;
+      Documentation&lt;br&gt;
+      &lt;a href&#x3D;&quot;../../assets/documentation/index.html&quot; target&#x3D;&quot;_blank&quot; class&#x3D;&quot;fa fa-book&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;navigationDiv&quot;&gt;
+      Source Code&lt;br&gt;
+      &lt;a href&#x3D;&quot;https://github.com/BlakeJordan/Minesweeper&quot; target&#x3D;&quot;_blank&quot; class&#x3D;&quot;fab fa-github&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+
   &lt;/div&gt;
 
-  &lt;div class&#x3D;&quot;navigationDiv&quot;&gt;
-    Source Code&lt;br&gt;
-    &lt;a href&#x3D;&quot;https://github.com/BlakeJordan/Minesweeper&quot; target&#x3D;&quot;_blank&quot; class&#x3D;&quot;fab fa-github&quot;&gt;&lt;/a&gt;
-  &lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/body&gt;</code></pre>
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -276,7 +291,7 @@ export class DocumentationComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><body><hr width="275px"><div style="text-align:center">  <div class="navigationDiv">    Documentation<br>    <a href="../../assets/documentation/index.html" target="_blank" class="fa fa-book"></a>  </div>  <div class="navigationDiv">    Source Code<br>    <a href="https://github.com/BlakeJordan/Minesweeper" target="_blank" class="fab fa-github"></a>  </div></div></body></div>'
+        var COMPONENT_TEMPLATE = '<div><!DOCTYPE html><html><!--documentation display-->  <body>  <hr width="275px">  <div style="text-align:center">    <div class="navigationDiv">      Documentation<br>      <a href="../../assets/documentation/index.html" target="_blank" class="fa fa-book"></a>    </div>    <div class="navigationDiv">      Source Code<br>      <a href="https://github.com/BlakeJordan/Minesweeper" target="_blank" class="fab fa-github"></a>    </div>  </div>  </body></html></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'UserInputComponent', 'selector': 'app-user-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DocumentationComponent'};

@@ -86,6 +86,9 @@
                                 <a href="#adjBombs">adjBombs</a>
                             </li>
                             <li>
+                                <a href="#cheatReveal">cheatReveal</a>
+                            </li>
+                            <li>
                                 <a href="#col">col</a>
                             </li>
                             <li>
@@ -112,6 +115,9 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#cheatreveal">cheatreveal</a>
+                            </li>
                             <li>
                                 <a href="#flagTile">flagTile</a>
                             </li>
@@ -141,7 +147,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/models/tile.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/models/tile.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -224,6 +230,40 @@
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/models/tile.ts:5</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cheatReveal"></a>
+                        <span class="name">
+                            <b>
+                            cheatReveal
+                            </b>
+                            <a href="#cheatReveal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>cheatReveal:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/models/tile.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -411,6 +451,44 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="cheatreveal"></a>
+                        <span class="name">
+                            <b>
+                            cheatreveal
+                            </b>
+                            <a href="#cheatreveal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cheatreveal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/models/tile.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="flagTile"></a>
                         <span class="name">
                             <b>
@@ -429,7 +507,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/models/tile.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/models/tile.ts:53</a></div>
                             </td>
                         </tr>
 
@@ -471,7 +549,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/models/tile.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/models/tile.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -509,6 +587,7 @@
     adjBombs: number;
     row: number;
     col: number;
+    cheatReveal: boolean;
 
 
     constructor(row: number, col: number) {
@@ -518,13 +597,26 @@
         this.row &#x3D; row;
         this.col &#x3D; col;
         this.adjBombs &#x3D; 0;
+        this.cheatReveal &#x3D; false; //added variable to make it reveal when the true
     }
-    
+
+    // Sets the boards cheat reveal vaiable to true and false.
+    cheatreveal()
+    { console.log(this.cheatReveal);
+      if(!this.cheatReveal)
+      {
+        this.cheatReveal &#x3D; true;
+      }
+      else
+      {
+        this.cheatReveal &#x3D; false;
+      }
+    }
     /**
      * Reveals the clicked on tile and updates the tile&#x27;s member variables and image.
-     * 
+     *
      * Pre: There must be a board in existence.
-     * 
+     *
      * Post: Reveals the tile if it is not already revealed, changes member variables accordingly.
      */
     revealTile() {
@@ -535,9 +627,9 @@
 
     /**
      * Flags the clicked(right click) on tile and updates the tile&#x27;s image.
-     * 
+     *
      * Pre: There must be a board in existence.
-     * 
+     *
      * Post: Changes member variables and the image of the tile.
      */
     flagTile(){
@@ -545,7 +637,8 @@
             this.isFlagged &#x3D; true;
         }
     }
-}</code></pre>
+}
+</code></pre>
     </div>
 </div>
 

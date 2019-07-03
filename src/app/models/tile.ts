@@ -18,7 +18,13 @@ export class tile {
         this.cheatReveal = false; //added variable to make it reveal when the true
     }
 
-    // Sets the boards cheat reveal vaiable to true and false.
+    /**
+    * Sets the boards cheat reveal vaiable to true and false.
+    *
+    * Pre: Board must be generated and game must not be over.
+    *
+    * Post: The cheatReveal variable is set to true or false.
+    */
     cheatreveal()
     { console.log(this.cheatReveal);
       if(!this.cheatReveal)
