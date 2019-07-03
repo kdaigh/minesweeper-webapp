@@ -50,4 +50,4 @@ See also the list of [contributors](https://github.com/kdaigh/minesweeper-webapp
 
 ## Acknowledgments
 
-Please read [SOURCES.md](https://github.com/kdaigh/minesweeper-webapp/blob/master/documentation/SOURCES.MD) for a works cited.
+Please read [SOURCES.md](https://github.com/kdaigh/minesweeper-webapp/tree/master/documentation/SOURCES.md) for a works cited.
